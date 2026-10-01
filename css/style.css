@@ -1121,20 +1121,34 @@ p.text-uppercase.text-secondary::after,
 /*** Features / Strengths Start (index2 layout) ***/
 .feature .feature-item {
     position: relative;
-    transition: 0.5s;
+    transition: all 0.35s ease;
     background: #ffffff;
+    border-radius: 10px;
 }
 .feature .feature-item:hover {
     background: #ffffff;
     border-color: var(--bs-secondary) !important;
-    box-shadow: 0 0 45px rgba(0, 22, 89, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 22, 89, 0.1);
     transform: translateY(-5px);
 }
 .feature .feature-item .feature-img {
-    transition: 0.5s;
+    width: 72px;
+    height: 72px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% !important;
+    transition: transform 0.65s cubic-bezier(0.34, 1.4, 0.64, 1), background 0.35s ease, box-shadow 0.35s ease;
+}
+.feature .feature-item .feature-img i {
+    font-size: 1.85rem !important;
+    transition: color 0.35s ease;
+    line-height: 1;
 }
 .feature .feature-item:hover .feature-img {
     background: var(--bs-primary) !important;
+    transform: rotate(360deg);
+    box-shadow: 0 6px 20px rgba(0, 22, 89, 0.2);
 }
 .feature .feature-item:hover .feature-img i {
     color: var(--bs-secondary) !important;
