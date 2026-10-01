@@ -1656,15 +1656,31 @@ p.text-uppercase.text-secondary::after,
     background-size: cover;
     border-top: 4px solid var(--bs-secondary);
 }
-.footer .footer-item a {
+.footer .footer-item a.d-block {
     line-height: 35px;
     color: #cbd5e1;
-    transition: 0.5s;
-    text-decoration: none;
+    transition: 0.3s;
+    text-decoration: none !important;
 }
-.footer .footer-item a:hover {
-    letter-spacing: 1px;
+.footer .footer-item a.d-block:hover {
+    letter-spacing: 0.5px;
     color: var(--bs-secondary);
+}
+.footer .footer-item p a,
+.footer p a {
+    font-size: 0.875rem !important;
+    line-height: 1.55 !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    letter-spacing: normal !important;
+    text-decoration: none !important;
+    display: inline !important;
+    transition: color 0.2s ease !important;
+}
+.footer .footer-item p a:hover,
+.footer p a:hover {
+    color: #ffffff !important;
+    letter-spacing: normal !important;
+    text-decoration: none !important;
 }
 .footer-brand-logo {
     background: #ffffff;
