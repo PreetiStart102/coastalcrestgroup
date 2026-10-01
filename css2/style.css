@@ -104,7 +104,7 @@
     position: relative;
     padding: 10px;
     font-weight: 400;
-    font-family: "Playfair Display", serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     font-size: 17px;
     transition: .5s;
     z-index: 99;

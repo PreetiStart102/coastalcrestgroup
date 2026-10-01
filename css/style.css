@@ -16,7 +16,7 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 1rem;
     color: #555555;
     background-color: #ffffff;
@@ -24,7 +24,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     color: var(--bs-dark);
 }
 
@@ -126,7 +126,7 @@ p {
     padding: 8px 14px;
     margin: 0 4px;
     font-weight: 500;
-    font-family: "Playfair Display", serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     font-size: 16.5px;
     transition: color 0.25s ease;
     color: var(--bs-primary) !important;
@@ -296,7 +296,7 @@ p {
         color: var(--bs-primary) !important;
         padding: 10px 20px;
         transition: all 0.2s ease;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         border-left: 3px solid transparent;
         display: flex;
         align-items: center;
@@ -887,7 +887,7 @@ a.sector-dropdown-card.active,
     font-size: 0.95rem;
     font-weight: 700;
     margin-bottom: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     letter-spacing: 0.3px;
 }
 .about-sectors-center-badge {
@@ -1078,7 +1078,7 @@ a.sector-dropdown-card.active,
     font-size: 2.5rem;
     font-weight: 800;
     color: #ffffff;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
 }
 .fact-item .fact-label {
     font-size: 0.85rem;
@@ -1158,7 +1158,7 @@ a.sector-dropdown-card.active,
     color: #f9d01e;
     font-weight: 800;
     font-size: 1.3rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1302,7 +1302,7 @@ a.sector-dropdown-card.active,
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 .badge-card .badge-cin {
     font-size: 0.74rem;
@@ -1311,7 +1311,7 @@ a.sector-dropdown-card.active,
     margin-bottom: 2px;
     word-break: break-all;
     line-height: 1.25;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 .badge-card .badge-sub {
     font-size: 0.72rem;
@@ -1406,10 +1406,10 @@ a.sector-dropdown-card.active,
     font-weight: 800;
     color: #001659;
     font-size: 1.1rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 .project-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     color: #001248;
@@ -1704,7 +1704,7 @@ a.sector-dropdown-card.active,
     color: #f9d01e !important;
     font-size: 1.25rem;
     font-weight: 800;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1790,7 +1790,7 @@ a.sector-dropdown-card.active,
 }
 
 .sop-phase-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
     color: #001659;
