@@ -230,7 +230,7 @@ p {
     border: none;
 }
 
-/* Logo - Compact Clean Padding */
+/* Logo - Enhanced Clean Visibility */
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -239,10 +239,10 @@ p {
 }
 .navbar-brand-logo,
 .navbar-brand img {
-    max-height: 52px !important;
-    height: 52px !important;
+    max-height: 62px !important;
+    height: 62px !important;
     width: auto !important;
-    max-width: 260px !important;
+    max-width: 290px !important;
     object-fit: contain;
     margin: 0 !important;
     padding: 0 !important;
@@ -608,9 +608,9 @@ a.sector-dropdown-card.active,
 @media (max-width: 576px) {
     .navbar-brand-logo,
     .navbar-brand img {
-        max-height: 44px !important;
-        height: 44px !important;
-        max-width: 200px !important;
+        max-height: 48px !important;
+        height: 48px !important;
+        max-width: 220px !important;
     }
     .navbar {
         padding-left: 10px !important;
