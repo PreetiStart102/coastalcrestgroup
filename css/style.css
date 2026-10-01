@@ -2209,12 +2209,156 @@ p.text-uppercase.text-secondary::after,
     font-weight: 600;
 }
 
-@media (max-width: 991.98px) {
-    .infra-floating-badge {
-        right: 15px;
-        top: auto;
-        bottom: 15px;
-        transform: none;
-    }
+/*** Infra Division: Vision, Mission & Values Designer Layout ***/
+.infra-vm-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px 28px;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid var(--bs-secondary);
+    box-shadow: 0 8px 24px rgba(0, 22, 89, 0.06);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
 }
+.infra-vm-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(0, 22, 89, 0.12);
+    border-color: #cbd5e1;
+    border-left-color: var(--bs-secondary);
+}
+.infra-vm-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(0, 22, 89, 0.06);
+    color: var(--bs-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 18px;
+    transition: all 0.3s ease;
+}
+.infra-vm-card:hover .infra-vm-icon {
+    background: var(--bs-primary);
+    color: var(--bs-secondary);
+    transform: scale(1.08);
+}
+
+.infra-value-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 22px 24px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    height: 100%;
+}
+.infra-value-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--bs-secondary);
+    box-shadow: 0 8px 22px rgba(0, 22, 89, 0.08);
+    background: #fafcff;
+}
+.infra-value-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(249, 208, 30, 0.18);
+    color: #001659;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+.infra-value-card:hover .infra-value-icon {
+    background: var(--bs-secondary);
+    color: #001659;
+    transform: scale(1.08);
+}
+
+/*** Infra Division: Executive Leadership & Technical Command ***/
+.infra-leader-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 26px 22px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid var(--bs-secondary);
+    box-shadow: 0 6px 20px rgba(0, 22, 89, 0.06);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+.infra-leader-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 34px rgba(0, 22, 89, 0.12);
+    border-top-color: var(--bs-primary);
+}
+.infra-leader-icon-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--bs-primary) 0%, #002d9c 100%);
+    color: var(--bs-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(0, 22, 89, 0.15);
+}
+.infra-leader-name {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: var(--bs-primary);
+    margin-bottom: 4px;
+}
+.infra-leader-role {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #d97706;
+    margin-bottom: 10px;
+    display: block;
+}
+.infra-exp-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: #f1f5f9;
+    border-radius: 50px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #334155;
+    margin-top: 10px;
+}
+.infra-exp-pill i {
+    color: var(--bs-secondary);
+}
+
+/*** Specialized Utilities & Industrial Footprint Cards ***/
+.infra-util-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 22px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid var(--bs-primary);
+    box-shadow: 0 4px 14px rgba(0, 22, 89, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.infra-util-card:hover {
+    border-left-color: var(--bs-secondary);
+    transform: translateX(4px);
+    box-shadow: 0 8px 24px rgba(0, 22, 89, 0.1);
+}
+
 
