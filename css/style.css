@@ -1292,13 +1292,15 @@ p.text-uppercase.text-secondary::after,
     margin-top: 6px;
 }
 
-/*** LEADERSHIP EXCELLENCE (Harmonized) ***/
+/*** LEADERSHIP EXCELLENCE (Harmonized & Smooth Scroll Animations) ***/
 .leadership-box {
     background: linear-gradient(135deg, var(--bs-dark) 0%, var(--bs-primary) 100%);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 45px;
     border-top: 4px solid var(--bs-secondary);
     box-shadow: 0 15px 40px rgba(0, 18, 72, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 .leadership-box p.text-uppercase,
 .leadership-box p.text-uppercase.text-secondary,
@@ -1309,26 +1311,33 @@ p.text-uppercase.text-secondary::after,
 .leadership-quote {
     background: rgba(255, 255, 255, 0.06);
     border-left: 4px solid var(--bs-secondary);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 22px 26px;
     margin-bottom: 28px;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+.leadership-quote:hover {
+    background: rgba(255, 255, 255, 0.09);
 }
 .leadership-pillar-card {
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 12px;
     padding: 24px 20px;
-    transition: 0.35s ease;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     height: 100%;
 }
 .leadership-pillar-card:hover {
     background: rgba(255, 255, 255, 0.12);
     border-color: var(--bs-secondary);
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 .leadership-pillar-icon {
-    width: 48px; height: 48px;
-    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
     background: var(--bs-secondary);
     color: var(--bs-primary);
     display: flex;
@@ -1336,6 +1345,10 @@ p.text-uppercase.text-secondary::after,
     justify-content: center;
     font-size: 1.3rem;
     margin-bottom: 14px;
+    transition: transform 0.3s ease;
+}
+.leadership-pillar-card:hover .leadership-pillar-icon {
+    transform: scale(1.1) rotate(4deg);
 }
 
 /*** Executive Leadership Team Cards ***/
