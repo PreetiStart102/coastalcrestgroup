@@ -1873,29 +1873,29 @@ p.text-uppercase.text-secondary::after,
 }
 
 .sop-node {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: #001659 !important;
     background: #001659 !important;
     color: #f9d01e !important;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 800;
     font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 22px auto;
-    border: 4px solid var(--bs-secondary) !important;
-    box-shadow: 0 0 0 6px #ffffff, 0 6px 18px rgba(0, 22, 89, 0.25) !important;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid var(--bs-secondary) !important;
+    box-shadow: 0 0 0 3px #ffffff, 0 4px 12px rgba(0, 22, 89, 0.18) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 10 !important;
 }
 .sop-roadmap-item:hover .sop-node {
-    transform: scale(1.18);
-    box-shadow: 0 0 0 8px #ffffff, 0 0 25px rgba(249, 208, 30, 0.65), 0 8px 24px rgba(0, 22, 89, 0.35) !important;
-    border-color: #ffffff !important;
+    transform: scale(1.08);
+    box-shadow: 0 0 0 3px #ffffff, 0 6px 18px rgba(0, 22, 89, 0.22) !important;
+    border-color: #001659 !important;
     background-color: var(--bs-secondary) !important;
     background: var(--bs-secondary) !important;
     color: #001659 !important;
