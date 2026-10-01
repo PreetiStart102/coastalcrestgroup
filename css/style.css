@@ -282,21 +282,22 @@ p {
     transition: all 0.3s ease;
 }
 
-/* Unified Dropdown Menus - Positioned Cleanly Directly Below Navbar Line */
+/* Unified Dropdown Menus - Directly Connected to Navbar Line (ZERO GAP) */
 @media (min-width: 992px) {
     .navbar .nav-item .dropdown-menu,
+    .navbar .dropdown-menu,
     .dropdown-menu {
         display: block;
         visibility: hidden;
         opacity: 0;
-        top: calc(100% + 14px) !important;
+        top: 100% !important;
         margin-top: 0 !important;
-        transform: translateY(6px);
+        transform: translateY(0);
         transform-origin: top center;
-        transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         border: 1px solid rgba(0, 22, 89, 0.1) !important;
         border-top: 3.5px solid var(--bs-secondary) !important;
-        border-radius: 12px !important;
+        border-radius: 0 0 12px 12px !important;
         box-shadow: 0 16px 42px rgba(0, 22, 89, 0.15) !important;
         padding: 10px 0 !important;
         min-width: 230px;
@@ -304,19 +305,23 @@ p {
         z-index: 9999;
     }
 
-    /* Invisible bridge to prevent mouse leaving hover state */
-    .navbar .nav-item .dropdown-menu::before {
+    /* Seamless hover bridge */
+    .navbar .nav-item .dropdown-menu::before,
+    .navbar .dropdown-menu::before,
+    .dropdown-menu::before {
         content: '';
         position: absolute;
-        top: -18px;
+        top: -10px;
         left: 0;
         right: 0;
-        height: 18px;
+        height: 10px;
         background: transparent;
     }
 
     .navbar .nav-item:hover > .dropdown-menu,
-    .navbar .dropdown:hover > .dropdown-menu {
+    .navbar .dropdown:hover > .dropdown-menu,
+    .navbar .nav-item.show > .dropdown-menu,
+    .navbar .dropdown.show > .dropdown-menu {
         visibility: visible !important;
         opacity: 1 !important;
         transform: translateY(0) !important;
@@ -370,11 +375,17 @@ p {
     }
 
     /* Sectors Mega Dropdown (2x2 Grid with Direct Navbar Connection - NO GAP) */
+    .navbar .nav-item.dropdown-mega,
+    .navbar .dropdown-mega,
     .dropdown-mega {
         position: static !important;
     }
 
-    .dropdown-mega .dropdown-mega-menu {
+    .navbar .nav-item.dropdown-mega .dropdown-mega-menu,
+    .navbar .dropdown-mega .dropdown-mega-menu,
+    .dropdown-mega .dropdown-mega-menu,
+    .dropdown-menu.dropdown-mega-menu,
+    .dropdown-mega-menu {
         width: 680px !important;
         left: 50% !important;
         transform: translateX(-50%) translateY(0) !important;
@@ -389,18 +400,23 @@ p {
         z-index: 9999;
     }
 
-    .dropdown-mega .dropdown-mega-menu::before {
+    .navbar .nav-item.dropdown-mega .dropdown-mega-menu::before,
+    .navbar .dropdown-mega .dropdown-mega-menu::before,
+    .dropdown-mega .dropdown-mega-menu::before,
+    .dropdown-menu.dropdown-mega-menu::before {
         content: '';
         position: absolute;
-        top: -6px;
+        top: -10px;
         left: 0;
         right: 0;
-        height: 6px;
+        height: 10px;
         background: transparent;
     }
 
     .navbar .dropdown-mega:hover > .dropdown-mega-menu,
-    .navbar .nav-item.dropdown-mega:hover > .dropdown-mega-menu {
+    .navbar .nav-item.dropdown-mega:hover > .dropdown-mega-menu,
+    .navbar .dropdown-mega:hover > .dropdown-menu.dropdown-mega-menu,
+    .navbar .nav-item.dropdown-mega:hover > .dropdown-menu.dropdown-mega-menu {
         visibility: visible !important;
         opacity: 1 !important;
         transform: translateX(-50%) translateY(0) !important;
