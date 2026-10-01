@@ -1662,7 +1662,7 @@ a.sector-dropdown-card.active,
 /*** SOP Engineering Roadmap Timeline ***/
 .sop-roadmap-wrapper {
     position: relative;
-    padding: 30px 0;
+    padding: 20px 0 30px 0;
 }
 
 /* Connecting Horizontal Progress Track on Desktop */
@@ -1670,13 +1670,14 @@ a.sector-dropdown-card.active,
     .sop-roadmap-wrapper::before {
         content: '';
         position: absolute;
-        top: 66px;
-        left: 8%;
-        right: 8%;
+        top: 52px;
+        left: 12.5%;
+        right: 12.5%;
         height: 4px;
         background: linear-gradient(90deg, #001659 0%, var(--bs-secondary) 50%, #001659 100%);
         z-index: 1;
-        border-radius: 2px;
+        border-radius: 4px;
+        box-shadow: 0 0 8px rgba(249, 208, 30, 0.4);
     }
 }
 
@@ -1692,7 +1693,7 @@ a.sector-dropdown-card.active,
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #001659 0%, #002b80 100%);
+    background: #001659;
     color: #f9d01e;
     font-size: 1.25rem;
     font-weight: 800;
@@ -1702,16 +1703,18 @@ a.sector-dropdown-card.active,
     justify-content: center;
     margin: 0 auto 22px auto;
     border: 4px solid var(--bs-secondary);
-    box-shadow: 0 6px 20px rgba(0, 22, 89, 0.25);
-    transition: all 0.35s ease;
+    box-shadow: 0 4px 16px rgba(0, 22, 89, 0.3);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    z-index: 3;
 }
 .sop-roadmap-item:hover .sop-node {
-    transform: scale(1.15);
-    box-shadow: 0 10px 28px rgba(249, 208, 30, 0.45);
+    transform: scale(1.18);
+    box-shadow: 0 0 25px rgba(249, 208, 30, 0.65), 0 8px 24px rgba(0, 22, 89, 0.35);
     border-color: #ffffff;
     background: var(--bs-secondary);
     color: #001659;
+    z-index: 5;
 }
 
 .sop-phase-card {
