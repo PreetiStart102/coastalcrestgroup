@@ -387,7 +387,7 @@ p {
         display: block;
         visibility: hidden;
         opacity: 0;
-        width: 680px !important;
+        width: 760px !important;
         left: 50% !important;
         transform: translateX(-50%) translateY(0) !important;
         padding: 18px !important;
@@ -454,6 +454,24 @@ a.sector-dropdown-card.active,
     background: rgba(249, 208, 30, 0.12) !important;
     box-shadow: 0 6px 20px rgba(0, 22, 89, 0.08) !important;
 }
+
+.sector-dropdown-img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    margin-right: 12px;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 3px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0, 22, 89, 0.05);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+.sector-dropdown-card:hover .sector-dropdown-img {
+    transform: scale(1.08);
+}
+
 .sector-dropdown-card h6 {
     font-size: 0.98rem;
     font-weight: 700;
