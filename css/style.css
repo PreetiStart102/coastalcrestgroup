@@ -1667,12 +1667,16 @@ p.text-uppercase.text-secondary::after,
     color: var(--bs-secondary);
 }
 .footer-brand-logo {
-    max-height: 60px;
-    width: auto;
     background: #ffffff;
-    padding: 8px 14px;
-    border-radius: 6px;
+    padding: 10px 18px;
+    border-radius: 10px;
     display: inline-block;
+}
+.footer-brand-logo img {
+    max-height: 65px !important;
+    height: auto;
+    width: auto;
+    display: block;
 }
 
 .copyright {
@@ -2703,5 +2707,14 @@ p.text-uppercase.text-secondary::after,
         width: 92%;
     }
 }
-.hover-text-white { transition: color 0.25s ease; }
-.hover-text-white:hover { color: #ffffff !important; text-decoration: underline !important; }
+.hover-text-white {
+    transition: color 0.25s ease;
+    text-decoration: none !important;
+}
+.hover-text-white:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.footer a, .footer .footer-item a, .footer p a { text-decoration: none !important; }
+.footer a:hover, .footer .footer-item a:hover, .footer p a:hover { text-decoration: none !important; }
