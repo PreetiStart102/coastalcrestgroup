@@ -1663,6 +1663,7 @@ a.sector-dropdown-card.active,
 .sop-roadmap-wrapper {
     position: relative;
     padding: 20px 0 30px 0;
+    z-index: 1;
 }
 
 /* Connecting Horizontal Progress Track on Desktop */
@@ -1675,15 +1676,20 @@ a.sector-dropdown-card.active,
         right: 12.5%;
         height: 4px;
         background: linear-gradient(90deg, #001659 0%, var(--bs-secondary) 50%, #001659 100%);
-        z-index: 1;
+        z-index: 0 !important;
         border-radius: 4px;
         box-shadow: 0 0 8px rgba(249, 208, 30, 0.4);
     }
 }
 
-.sop-roadmap-item {
+.sop-roadmap-wrapper .row {
     position: relative;
     z-index: 2;
+}
+
+.sop-roadmap-item {
+    position: relative;
+    z-index: 5;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -1693,8 +1699,9 @@ a.sector-dropdown-card.active,
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: #001659;
-    color: #f9d01e;
+    background-color: #001659 !important;
+    background: #001659 !important;
+    color: #f9d01e !important;
     font-size: 1.25rem;
     font-weight: 800;
     font-family: 'Playfair Display', serif;
@@ -1702,19 +1709,20 @@ a.sector-dropdown-card.active,
     align-items: center;
     justify-content: center;
     margin: 0 auto 22px auto;
-    border: 4px solid var(--bs-secondary);
-    box-shadow: 0 4px 16px rgba(0, 22, 89, 0.3);
+    border: 4px solid var(--bs-secondary) !important;
+    box-shadow: 0 0 0 6px #ffffff, 0 6px 18px rgba(0, 22, 89, 0.25) !important;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    z-index: 3;
+    z-index: 10 !important;
 }
 .sop-roadmap-item:hover .sop-node {
     transform: scale(1.18);
-    box-shadow: 0 0 25px rgba(249, 208, 30, 0.65), 0 8px 24px rgba(0, 22, 89, 0.35);
-    border-color: #ffffff;
-    background: var(--bs-secondary);
-    color: #001659;
-    z-index: 5;
+    box-shadow: 0 0 0 8px #ffffff, 0 0 25px rgba(249, 208, 30, 0.65), 0 8px 24px rgba(0, 22, 89, 0.35) !important;
+    border-color: #ffffff !important;
+    background-color: var(--bs-secondary) !important;
+    background: var(--bs-secondary) !important;
+    color: #001659 !important;
+    z-index: 20 !important;
 }
 
 .sop-phase-card {
