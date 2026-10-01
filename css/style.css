@@ -504,7 +504,7 @@ a.sector-dropdown-card.active,
 }
 .sector-dropdown-card:hover .sector-btn::after,
 .sector-dropdown-card:hover .explore-link::after {
-    width: 100%;
+    width: 50%;
 }
 .sector-btn i,
 .sector-dropdown-card .explore-link i {
