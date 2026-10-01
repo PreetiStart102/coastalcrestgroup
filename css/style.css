@@ -441,10 +441,10 @@ a.sector-dropdown-card,
 }
 a.sector-dropdown-card:hover,
 .sector-dropdown-card:hover {
-    border-color: var(--bs-secondary);
-    box-shadow: 0 8px 24px rgba(249, 208, 30, 0.28);
-    transform: translateY(-3px);
-    background: #fafbff;
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 14px rgba(0, 22, 89, 0.08);
+    transform: translateY(-2px);
+    background: #f8fafc;
     text-decoration: none !important;
 }
 a.sector-dropdown-card.active,
