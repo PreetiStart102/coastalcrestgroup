@@ -2703,3 +2703,5 @@ p.text-uppercase.text-secondary::after,
         width: 92%;
     }
 }
+.hover-text-white { transition: color 0.25s ease; }
+.hover-text-white:hover { color: #ffffff !important; text-decoration: underline !important; }
