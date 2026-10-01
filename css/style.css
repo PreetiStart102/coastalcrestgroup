@@ -473,18 +473,46 @@ a.sector-dropdown-card.active,
     margin-bottom: 12px;
     line-height: 1.45;
 }
+.sector-btn,
 .sector-dropdown-card .explore-link {
-    font-size: 0.84rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: var(--bs-primary);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: color 0.25s ease;
     display: inline-flex;
     align-items: center;
+    position: relative;
+    padding-bottom: 2px;
+    width: fit-content;
 }
-.sector-dropdown-card .explore-link:hover,
+.sector-btn::after,
+.sector-dropdown-card .explore-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--bs-secondary);
+    border-radius: 2px;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sector-dropdown-card:hover .sector-btn,
 .sector-dropdown-card:hover .explore-link {
-    color: #d97706;
+    color: var(--bs-primary);
+}
+.sector-dropdown-card:hover .sector-btn::after,
+.sector-dropdown-card:hover .explore-link::after {
+    width: 100%;
+}
+.sector-btn i,
+.sector-dropdown-card .explore-link i {
+    font-size: 0.72rem;
+    transition: transform 0.25s ease;
+}
+.sector-dropdown-card:hover .sector-btn i,
+.sector-dropdown-card:hover .explore-link i {
     transform: translateX(4px);
 }
 
