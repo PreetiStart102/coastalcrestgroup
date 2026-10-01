@@ -56,14 +56,31 @@ p {
 /*** Buttons ***/
 .btn {
     font-weight: 600;
-    transition: .5s;
+    transition: all 0.3s ease;
+    border-radius: 8px !important;
 }
 
-.btn-square { width: 32px; height: 32px; }
-.btn-sm-square { width: 34px; height: 34px; }
-.btn-md-square { width: 44px; height: 44px; }
-.btn-lg-square { width: 56px; height: 56px; }
-.btn-xl-square { width: 66px; height: 66px; }
+.btn.rounded-pill {
+    border-radius: 50rem !important;
+}
+
+.btn.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.btn-square { width: 34px; height: 34px; border-radius: 8px; }
+.btn-sm-square { width: 36px; height: 36px; border-radius: 8px; }
+.btn-md-square { width: 44px; height: 44px; border-radius: 8px; }
+.btn-lg-square { width: 56px; height: 56px; border-radius: 8px; }
+.btn-xl-square { width: 66px; height: 66px; border-radius: 8px; }
+
+.btn-square.rounded-circle, 
+.btn-sm-square.rounded-circle, 
+.btn-md-square.rounded-circle, 
+.btn-lg-square.rounded-circle, 
+.btn-xl-square.rounded-circle {
+    border-radius: 50% !important;
+}
 
 .btn-square, .btn-sm-square, .btn-md-square, .btn-lg-square, .btn-xl-square {
     padding: 0;
@@ -849,12 +866,12 @@ a.sector-dropdown-card.active,
 }
 .about-sector-card {
     position: relative;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 22, 89, 0.12);
     border: 2px solid transparent;
     transition: all 0.35s ease;
-    height: 200px;
+    height: 235px;
     background: #001248;
 }
 .about-sector-card img {
