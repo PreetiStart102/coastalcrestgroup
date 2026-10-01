@@ -369,7 +369,7 @@ p {
         color: var(--bs-primary) !important;
     }
 
-    /* Sectors Mega Dropdown (2x2 Grid with Unified Matching Design) */
+    /* Sectors Mega Dropdown (2x2 Grid with Direct Navbar Connection - NO GAP) */
     .dropdown-mega {
         position: static !important;
     }
@@ -377,13 +377,13 @@ p {
     .dropdown-mega .dropdown-mega-menu {
         width: 680px !important;
         left: 50% !important;
-        transform: translateX(-50%) translateY(6px) !important;
+        transform: translateX(-50%) translateY(0) !important;
         padding: 18px !important;
-        top: calc(100% + 14px) !important;
+        top: 100% !important;
         margin-top: 0 !important;
         border: 1px solid rgba(0, 22, 89, 0.1) !important;
         border-top: 3.5px solid var(--bs-secondary) !important;
-        border-radius: 12px !important;
+        border-radius: 0 0 12px 12px !important;
         box-shadow: 0 16px 42px rgba(0, 22, 89, 0.15) !important;
         background: #ffffff !important;
         z-index: 9999;
@@ -392,10 +392,10 @@ p {
     .dropdown-mega .dropdown-mega-menu::before {
         content: '';
         position: absolute;
-        top: -18px;
+        top: -6px;
         left: 0;
         right: 0;
-        height: 18px;
+        height: 6px;
         background: transparent;
     }
 
@@ -915,22 +915,39 @@ p.text-uppercase.text-secondary::after,
     content: none !important;
 }
 
-/* Eyebrows on Dark Backgrounds */
+/* Eyebrows on Dark Backgrounds (Crisp Pure White Text with Gold Accent Lines) */
+.bg-breadcrumb p.text-uppercase,
+.bg-breadcrumb p.text-uppercase.text-secondary,
 .bg-breadcrumb .text-uppercase,
+.bg-breadcrumb .accent-badge,
+.bg-breadcrumb .section-eyebrow,
+.bg-breadcrumb .section-subtitle,
 .bg-primary .accent-badge,
 .bg-dark .accent-badge,
-.bg-primary p.text-uppercase.text-secondary {
-    color: var(--bs-secondary) !important;
+.bg-primary p.text-uppercase.text-secondary,
+.bg-dark p.text-uppercase.text-secondary {
+    color: #ffffff !important;
 }
+
+.bg-breadcrumb p.text-uppercase::before,
+.bg-breadcrumb p.text-uppercase::after,
+.bg-breadcrumb p.text-uppercase.text-secondary::before,
+.bg-breadcrumb p.text-uppercase.text-secondary::after,
 .bg-breadcrumb .text-uppercase::before,
 .bg-breadcrumb .text-uppercase::after,
+.bg-breadcrumb .accent-badge::before,
+.bg-breadcrumb .accent-badge::after,
+.bg-breadcrumb .section-eyebrow::before,
+.bg-breadcrumb .section-eyebrow::after,
 .bg-primary .accent-badge::before,
 .bg-primary .accent-badge::after,
 .bg-dark .accent-badge::before,
 .bg-dark .accent-badge::after,
 .bg-primary p.text-uppercase.text-secondary::before,
-.bg-primary p.text-uppercase.text-secondary::after {
-    background: #ffffff !important;
+.bg-primary p.text-uppercase.text-secondary::after,
+.bg-dark p.text-uppercase.text-secondary::before,
+.bg-dark p.text-uppercase.text-secondary::after {
+    background: var(--bs-secondary) !important;
 }
 
 /*** About Start (index2 layout) ***/
@@ -1590,14 +1607,41 @@ p.text-uppercase.text-secondary::after,
 .bg-breadcrumb {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(0, 18, 72, 0.8), rgba(0, 18, 72, 0.85)), url(../img/carousel-2.jpg);
+    background: linear-gradient(rgba(0, 18, 72, 0.84), rgba(0, 18, 72, 0.88)), url(../img/carousel-2.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 65px 0;
 }
-.bg-breadcrumb .breadcrumb .breadcrumb-item a { color: var(--bs-white); }
-.bg-breadcrumb .breadcrumb .breadcrumb-item.active { color: var(--bs-secondary); }
+.bg-breadcrumb h1,
+.bg-breadcrumb .display-4,
+.bg-breadcrumb .display-5,
+.bg-breadcrumb .display-6 {
+    color: #ffffff !important;
+}
+.bg-breadcrumb p,
+.bg-breadcrumb .text-light,
+.bg-breadcrumb .fs-6,
+.bg-breadcrumb .lead {
+    color: rgba(255, 255, 255, 0.92) !important;
+}
+.bg-breadcrumb .breadcrumb .breadcrumb-item,
+.bg-breadcrumb .breadcrumb .breadcrumb-item a,
+.bg-breadcrumb .breadcrumb .breadcrumb-item.active,
+.breadcrumb .breadcrumb-item,
+.breadcrumb .breadcrumb-item a,
+.breadcrumb .breadcrumb-item.active {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+.bg-breadcrumb .breadcrumb .breadcrumb-item a:hover,
+.breadcrumb .breadcrumb-item a:hover {
+    color: var(--bs-secondary) !important;
+}
+.bg-breadcrumb .breadcrumb-item + .breadcrumb-item::before,
+.breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
 
 /*** Scroll Reveal ***/
 .reveal {
