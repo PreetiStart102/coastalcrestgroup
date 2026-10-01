@@ -2535,3 +2535,229 @@ p.text-uppercase.text-secondary::after,
 }
 
 
+
+
+/*** Specialized Industrial, Structural & Utility Contracts (Modern Unique Matrix Design) ***/
+.infra-matrix-section {
+    position: relative;
+    background: linear-gradient(180deg, #f8fafc 0%, #edf2f9 100%);
+    border-radius: 24px;
+    padding: 48px 32px;
+    border: 1px solid #e2e8f0;
+    box-shadow: inset 0 2px 6px rgba(0, 22, 89, 0.03);
+    margin-top: 50px;
+}
+
+.infra-matrix-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 24px 22px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 6px 20px rgba(0, 22, 89, 0.04);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* Diagonal Light Flash on Hover */
+.infra-matrix-card::before {
+    content: '';
+    position: absolute;
+    top: -80%;
+    left: -80%;
+    width: 260%;
+    height: 260%;
+    background: linear-gradient(
+        115deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.8) 48%,
+        rgba(249, 208, 30, 0.4) 50%,
+        rgba(255, 255, 255, 0.8) 52%,
+        transparent 70%
+    );
+    transform: rotate(25deg) translateY(-140%);
+    transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+    z-index: 4;
+}
+
+.infra-matrix-card:hover::before {
+    transform: rotate(25deg) translateY(140%);
+}
+
+.infra-matrix-card:hover {
+    transform: translateY(-8px);
+    border-color: #cbd5e1;
+    box-shadow: 0 20px 40px rgba(0, 22, 89, 0.12);
+}
+
+/* Card Watermark Icon */
+.infra-matrix-card .infra-card-watermark {
+    position: absolute;
+    right: 14px;
+    bottom: 8px;
+    font-size: 6rem;
+    opacity: 0.05;
+    color: var(--bs-primary);
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    line-height: 1;
+}
+
+.infra-matrix-card:hover .infra-card-watermark {
+    opacity: 0.14;
+    transform: scale(1.15) rotate(-6deg);
+    color: #0052cc;
+}
+
+/* Header Row */
+.infra-matrix-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.infra-matrix-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.infra-badge-defense {
+    background: rgba(0, 22, 89, 0.08);
+    color: #001659;
+}
+
+.infra-badge-township {
+    background: rgba(16, 185, 129, 0.12);
+    color: #047857;
+}
+
+.infra-badge-industrial {
+    background: rgba(217, 119, 6, 0.12);
+    color: #b45309;
+}
+
+.infra-badge-grid {
+    background: rgba(234, 179, 8, 0.18);
+    color: #854d0e;
+}
+
+.infra-badge-residential {
+    background: rgba(99, 102, 241, 0.12);
+    color: #4338ca;
+}
+
+.infra-badge-utility {
+    background: rgba(236, 72, 153, 0.12);
+    color: #be185d;
+}
+
+.infra-matrix-value {
+    font-size: 0.88rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #001659;
+    color: #f9d01e;
+    letter-spacing: 0.3px;
+}
+
+/* Card Body */
+.infra-matrix-body {
+    position: relative;
+    z-index: 2;
+}
+
+.infra-matrix-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #001659 0%, #0033a0 100%);
+    color: #f9d01e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 14px rgba(0, 22, 89, 0.2);
+    transition: all 0.3s ease;
+}
+
+.infra-matrix-card:hover .infra-matrix-icon-box {
+    transform: scale(1.08) rotate(4deg);
+    background: linear-gradient(135deg, #f9d01e 0%, #f59e0b 100%);
+    color: #001659;
+    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.35);
+}
+
+.infra-matrix-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #001659;
+    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+}
+
+.infra-matrix-client {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.infra-matrix-client i {
+    color: #d97706;
+}
+
+.infra-matrix-desc {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.65;
+    margin-bottom: 16px;
+}
+
+/* Feature Tag Pills */
+.infra-matrix-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.infra-matrix-tag {
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: #f8fafc;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.infra-matrix-tag i {
+    font-size: 0.68rem;
+    color: #001659;
+}
