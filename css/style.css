@@ -2777,3 +2777,37 @@ p.text-uppercase.text-secondary::after,
         width: 92%;
     }
 }
+
+/* Form Select & Inputs Responsiveness & Boundary Fixes */
+.form-select,
+.form-control,
+select {
+    max-width: 100% !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+}
+
+.input-group > .form-select,
+.input-group > .form-control {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    width: 1% !important;
+}
+
+.form-select option,
+select option {
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 576px) {
+    .form-select, select {
+        font-size: 0.88rem !important;
+        padding-right: 1.8rem !important;
+    }
+}
