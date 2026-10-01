@@ -2515,306 +2515,171 @@ p.text-uppercase.text-secondary::after,
 
 
 
-/*** Specialized Industrial, Structural & Utility Contracts (3D Interactive Split Carousel) ***/
+/*** Specialized Industrial, Structural & Utility Contracts (3D Authentic Layered Slider - Site Theme) ***/
 .infra-split-section {
     position: relative;
-    padding: 70px 0;
+    padding: 60px 0;
     overflow: hidden;
 }
 
-.text-cyan {
-    color: #00b4d8 !important;
-}
-
-.infra-split-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
-    border-radius: 50px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    color: #001659;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    box-shadow: 0 2px 10px rgba(0, 22, 89, 0.04);
-    margin-bottom: 18px;
-}
-
-.infra-split-heading {
-    font-size: 2.35rem;
-    font-weight: 800;
-    color: #001659;
-    line-height: 1.25;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
-}
-
-.infra-split-desc {
-    font-size: 1rem;
-    color: #64748b;
-    line-height: 1.75;
-    margin-bottom: 30px;
-}
-
-.infra-split-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #00b4d8;
-    color: #ffffff !important;
-    font-weight: 700;
-    font-size: 0.95rem;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 8px 24px rgba(0, 180, 216, 0.35);
-    transition: all 0.35s ease;
-}
-
-.infra-split-cta:hover {
-    background: #0096c7;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0, 180, 216, 0.45);
-}
-
-/* Slider Controls */
-.infra-slider-controls {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: 30px;
-}
-
-.infra-slider-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    color: #001659;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 22, 89, 0.06);
-}
-
-.infra-slider-btn:hover {
-    background: #001659;
-    color: #ffffff;
-    border-color: #001659;
-    transform: scale(1.08);
-}
-
-.infra-slider-dots {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: 10px;
-}
-
-.infra-slider-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #cbd5e1;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.infra-slider-dot.active {
-    width: 28px;
-    border-radius: 10px;
-    background: #00b4d8;
-}
-
-/* 3D Carousel Stage */
+/* 3D Stage with True Perspective */
 .infra-3d-stage {
     position: relative;
     width: 100%;
-    min-height: 480px;
-    height: 480px;
+    min-height: 440px;
+    height: 440px;
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1000px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
     user-select: none;
 }
 
 .infra-3d-card {
     position: absolute;
-    width: 84%;
-    max-width: 420px;
+    width: 86%;
+    max-width: 430px;
     background: #ffffff;
-    border-radius: 26px;
-    padding: 32px 28px 26px;
-    border: 2px solid #e2e8f0;
-    box-shadow: 0 10px 30px rgba(0, 22, 89, 0.06);
-    transition: all 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 1.5px solid #e2e8f0;
+    box-shadow: none !important;
+    transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.65s ease, border-color 0.4s ease;
     opacity: 0;
-    transform: translateX(120%) scale(0.75);
+    transform: translateX(130%) translateZ(-200px) rotateY(-35deg) scale(0.7);
     z-index: 1;
     pointer-events: none;
     overflow: hidden;
 }
 
-/* Card Diagonal Flash on Active */
-.infra-3d-card::before {
-    content: '';
-    position: absolute;
-    top: -80%;
-    left: -80%;
-    width: 260%;
-    height: 260%;
-    background: linear-gradient(
-        115deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.8) 48%,
-        rgba(0, 180, 216, 0.25) 50%,
-        rgba(255, 255, 255, 0.8) 52%,
-        transparent 70%
-    );
-    transform: rotate(25deg) translateY(-140%);
-    transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
-    pointer-events: none;
-    z-index: 5;
-}
-
-.infra-3d-card:hover::before {
-    transform: rotate(25deg) translateY(140%);
-}
-
-/* Active Highlighted State */
+/* Active Highlighted State in Center */
 .infra-3d-card.active {
     opacity: 1;
-    transform: translateX(0) scale(1);
-    border: 2.5px solid #00b4d8;
-    box-shadow: 0 20px 45px rgba(0, 180, 216, 0.16), 0 10px 25px rgba(0, 22, 89, 0.08);
+    transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+    border: 2px solid var(--bs-primary);
     z-index: 10;
     pointer-events: auto;
+    cursor: default;
 }
 
-/* Previous Card (Peek from Left) */
+/* Previous Card (Peek on Left with 3D Rotation) */
 .infra-3d-card.prev {
-    opacity: 0.45;
-    transform: translateX(-56%) scale(0.85);
-    filter: blur(1.5px);
-    z-index: 4;
+    opacity: 0.55;
+    transform: translateX(-58%) translateZ(-90px) rotateY(18deg) scale(0.86);
+    border: 1.5px solid #cbd5e1;
+    z-index: 5;
     pointer-events: auto;
     cursor: pointer;
 }
 .infra-3d-card.prev:hover {
-    opacity: 0.7;
-    filter: blur(0px);
+    opacity: 0.85;
+    border-color: var(--bs-primary);
 }
 
-/* Next Card (Peek from Right) */
+/* Next Card (Peek on Right with 3D Rotation) */
 .infra-3d-card.next {
-    opacity: 0.45;
-    transform: translateX(56%) scale(0.85);
-    filter: blur(1.5px);
-    z-index: 4;
+    opacity: 0.55;
+    transform: translateX(58%) translateZ(-90px) rotateY(-18deg) scale(0.86);
+    border: 1.5px solid #cbd5e1;
+    z-index: 5;
     pointer-events: auto;
     cursor: pointer;
 }
 .infra-3d-card.next:hover {
-    opacity: 0.7;
-    filter: blur(0px);
+    opacity: 0.85;
+    border-color: var(--bs-primary);
 }
 
 /* Hidden Card States */
 .infra-3d-card.hidden-left {
     opacity: 0;
-    transform: translateX(-120%) scale(0.7);
+    transform: translateX(-130%) translateZ(-200px) rotateY(35deg) scale(0.7);
     z-index: 1;
 }
 
 .infra-3d-card.hidden-right {
     opacity: 0;
-    transform: translateX(120%) scale(0.7);
+    transform: translateX(130%) translateZ(-200px) rotateY(-35deg) scale(0.7);
     z-index: 1;
 }
 
-/* Card Header Components */
+/* Card Components adhering to Site Theme */
 .infra-3d-card-top {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
 }
 
 .infra-3d-icon-box {
-    width: 58px;
-    height: 58px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
-    color: #ffffff;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(0, 22, 89, 0.08);
+    color: var(--bs-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    box-shadow: 0 8px 20px rgba(0, 180, 216, 0.35);
+    font-size: 1.3rem;
     transition: all 0.3s ease;
 }
 
-.infra-3d-card:hover .infra-3d-icon-box {
-    transform: scale(1.08) rotate(3deg);
+.infra-3d-card.active .infra-3d-icon-box {
+    background: var(--bs-primary);
+    color: var(--bs-secondary);
 }
 
 .infra-3d-value-pill {
-    font-size: 0.8rem;
-    font-weight: 800;
-    padding: 6px 14px;
-    border-radius: 30px;
-    background: #fef3c7;
-    color: #b45309;
-    letter-spacing: 0.4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 50px;
+    background: rgba(249, 208, 30, 0.2);
+    color: #001659;
+    border: 1px solid rgba(249, 208, 30, 0.5);
+    letter-spacing: 0.3px;
     text-transform: uppercase;
 }
 
 .infra-3d-card-title {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: #001659;
-    margin-bottom: 6px;
+    font-size: 1.22rem;
+    font-weight: 700;
+    color: var(--bs-primary);
+    margin-bottom: 4px;
 }
 
 .infra-3d-card-location {
-    font-size: 0.84rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: #64748b;
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 .infra-3d-card-location i {
-    color: #00b4d8;
+    color: var(--bs-primary);
 }
 
 .infra-3d-card-desc {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     color: #475569;
     line-height: 1.65;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .infra-3d-card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    padding-top: 14px;
+    padding-top: 12px;
     border-top: 1px solid #f1f5f9;
 }
 
 .infra-3d-tag {
     font-size: 0.74rem;
-    font-weight: 700;
+    font-weight: 600;
     padding: 4px 10px;
     border-radius: 6px;
     background: #f8fafc;
@@ -2825,16 +2690,16 @@ p.text-uppercase.text-secondary::after,
     gap: 4px;
 }
 .infra-3d-tag i {
-    color: #00b4d8;
+    color: var(--bs-primary);
 }
 
 @media (max-width: 991px) {
     .infra-3d-stage {
-        min-height: 460px;
-        height: 460px;
-        margin-top: 30px;
+        min-height: 420px;
+        height: 420px;
+        margin-top: 25px;
     }
     .infra-3d-card {
-        width: 90%;
+        width: 92%;
     }
 }
