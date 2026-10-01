@@ -282,15 +282,14 @@ p {
     transition: all 0.3s ease;
 }
 
-/* Unified Dropdown Menus - Directly Connected to Navbar Line (ZERO GAP) */
+/* Unified Dropdown Menus - Perfectly Aligned Below Navbar Bottom Line */
 @media (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu,
-    .navbar .dropdown-menu,
-    .dropdown-menu {
+    .navbar .nav-item:not(.dropdown-mega) > .dropdown-menu,
+    .navbar .dropdown:not(.dropdown-mega) > .dropdown-menu {
         display: block;
         visibility: hidden;
         opacity: 0;
-        top: 100% !important;
+        top: calc(100% + 11px) !important;
         margin-top: 0 !important;
         transform: translateY(0);
         transform-origin: top center;
@@ -305,23 +304,22 @@ p {
         z-index: 9999;
     }
 
-    /* Seamless hover bridge */
-    .navbar .nav-item .dropdown-menu::before,
-    .navbar .dropdown-menu::before,
-    .dropdown-menu::before {
+    /* Seamless hover bridge for standard dropdowns */
+    .navbar .nav-item:not(.dropdown-mega) > .dropdown-menu::before,
+    .navbar .dropdown:not(.dropdown-mega) > .dropdown-menu::before {
         content: '';
         position: absolute;
-        top: -10px;
+        top: -15px;
         left: 0;
         right: 0;
-        height: 10px;
+        height: 15px;
         background: transparent;
     }
 
-    .navbar .nav-item:hover > .dropdown-menu,
-    .navbar .dropdown:hover > .dropdown-menu,
-    .navbar .nav-item.show > .dropdown-menu,
-    .navbar .dropdown.show > .dropdown-menu {
+    .navbar .nav-item:not(.dropdown-mega):hover > .dropdown-menu,
+    .navbar .dropdown:not(.dropdown-mega):hover > .dropdown-menu,
+    .navbar .nav-item:not(.dropdown-mega).show > .dropdown-menu,
+    .navbar .dropdown:not(.dropdown-mega).show > .dropdown-menu {
         visibility: visible !important;
         opacity: 1 !important;
         transform: translateY(0) !important;
@@ -342,7 +340,7 @@ p {
         text-decoration: none !important;
     }
 
-    /* Soft yellow highlight on hover & active (High visibility, NO solid dark block) */
+    /* Soft yellow highlight on hover & active */
     .navbar .nav-item .dropdown-menu .dropdown-item:hover,
     .navbar .nav-item .dropdown-menu .dropdown-item:focus,
     .navbar .nav-item .dropdown-menu .dropdown-item.active,
@@ -374,7 +372,7 @@ p {
         color: var(--bs-primary) !important;
     }
 
-    /* Sectors Mega Dropdown (2x2 Grid with Direct Navbar Connection - NO GAP) */
+    /* Sectors Mega Dropdown (Attached directly to Navbar line with ZERO GAP) */
     .navbar .nav-item.dropdown-mega,
     .navbar .dropdown-mega,
     .dropdown-mega {
@@ -386,6 +384,9 @@ p {
     .dropdown-mega .dropdown-mega-menu,
     .dropdown-menu.dropdown-mega-menu,
     .dropdown-mega-menu {
+        display: block;
+        visibility: hidden;
+        opacity: 0;
         width: 680px !important;
         left: 50% !important;
         transform: translateX(-50%) translateY(0) !important;
@@ -398,6 +399,7 @@ p {
         box-shadow: 0 16px 42px rgba(0, 22, 89, 0.15) !important;
         background: #ffffff !important;
         z-index: 9999;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .navbar .nav-item.dropdown-mega .dropdown-mega-menu::before,
