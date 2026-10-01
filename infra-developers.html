@@ -667,7 +667,7 @@
             <div class="infra-split-section mt-5 pt-3">
                 <div class="row align-items-center g-5">
                     <!-- Left Column: Section Story adhering to site theme -->
-                    <div class="col-lg-4 reveal-left" style="max-width: 380px;">
+                    <div class="col-lg-5 reveal-left pe-lg-4" style="max-width: 440px;">
                         <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2">COMMERCIAL & UTILITIES FOOTPRINT</span>
                         <h3 class="display-6 fw-bold text-primary mb-3">Specialized Industrial, Structural & Utility Contracts</h3>
                         <div class="section-title-line mb-3" style="margin-left: 0;"></div>
@@ -677,7 +677,7 @@
                     </div>
 
                     <!-- Right Column: 3D Interactive Carousel Slider (No watermark, no flash, no shadows) -->
-                    <div class="col-lg-8 reveal-right">
+                    <div class="col-lg-7 reveal-right ps-lg-4">
                         <div class="infra-3d-stage" id="infra3dStage">
                             <!-- Card 1: Bharat Dynamics -->
                             <div class="infra-3d-card" data-index="0">
@@ -1087,7 +1087,7 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="js/main.js"></script>
 
-    <!-- 3D Interactive & Auto-Rotating Carousel Script (Side-click & Auto-Play) -->
+    <!-- 3D Interactive & Auto-Rotating Carousel Script (Side-click, Tap anywhere near 3D, & Auto-Play) -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const stage = document.getElementById('infra3dStage');
@@ -1133,17 +1133,31 @@
             goToSlide(currentIndex - 1);
         }
 
-        // Clicking on side cards changes to that slide
-        cards.forEach((card, idx) => {
-            card.addEventListener('click', () => {
-                if (card.classList.contains('prev')) {
+        // Click anywhere on stage or cards
+        stage.addEventListener('click', function(e) {
+            const clickedCard = e.target.closest('.infra-3d-card');
+            if (clickedCard) {
+                if (clickedCard.classList.contains('prev')) {
                     prevSlide();
                     resetAutoPlay();
-                } else if (card.classList.contains('next')) {
+                    return;
+                } else {
+                    // Click on active card or next card advances to next
                     nextSlide();
                     resetAutoPlay();
+                    return;
                 }
-            });
+            }
+
+            // Clicked on stage canvas near cards
+            const rect = stage.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            if (clickX < rect.width * 0.3) {
+                prevSlide();
+            } else {
+                nextSlide();
+            }
+            resetAutoPlay();
         });
 
         // Auto play controls
