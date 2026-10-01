@@ -758,6 +758,17 @@ a.sector-dropdown-card.active,
     text-align: center;
 }
 
+.carousel-caption h1,
+.carousel-caption h1.display-1 {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+}
+
+.carousel-caption p.fs-5 {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 400;
+}
+
 .carousel .carousel-indicators {
     position: absolute;
     bottom: 20px;
