@@ -841,6 +841,44 @@ a.sector-dropdown-card.active,
     }
 }
 
+/*** Professional Section Eyebrows with Side Lines ***/
+.about-item-content p.text-uppercase,
+.accent-badge,
+.section-eyebrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    font-size: 0.88rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.8px !important;
+    color: #eab308 !important;
+    text-transform: uppercase !important;
+    margin-bottom: 8px !important;
+    position: relative !important;
+    gap: 10px;
+}
+
+.about-item-content p.text-uppercase::before,
+.accent-badge::before,
+.section-eyebrow::before {
+    content: '' !important;
+    display: inline-block !important;
+    width: 26px !important;
+    height: 3px !important;
+    background: var(--bs-secondary) !important;
+    border-radius: 3px !important;
+}
+
+.about-item-content p.text-uppercase::after,
+.accent-badge::after,
+.section-eyebrow::after {
+    content: '' !important;
+    display: inline-block !important;
+    width: 14px !important;
+    height: 3px !important;
+    background: var(--bs-primary) !important;
+    border-radius: 3px !important;
+}
+
 /*** About Start (index2 layout) ***/
 .about .about-item-content-img {
     border: 4px solid;
@@ -857,7 +895,7 @@ a.sector-dropdown-card.active,
     z-index: 1;
 }
 
-/*** About 4-Sector Collage Grid (Modern Interactive) ***/
+/*** About 4-Sector Collage Grid (Matches Right Column Height Proportionally) ***/
 .about-sectors-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -871,8 +909,14 @@ a.sector-dropdown-card.active,
     box-shadow: 0 8px 24px rgba(0, 22, 89, 0.12);
     border: 2px solid transparent;
     transition: all 0.35s ease;
-    height: 235px;
+    height: 265px;
     background: #001248;
+}
+
+@media (max-width: 767.98px) {
+    .about-sector-card {
+        height: 190px;
+    }
 }
 .about-sector-card img {
     width: 100%;
