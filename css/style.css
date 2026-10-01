@@ -1275,6 +1275,12 @@ p.text-uppercase.text-secondary::after,
     border-top: 4px solid var(--bs-secondary);
     box-shadow: 0 15px 40px rgba(0, 18, 72, 0.2);
 }
+.leadership-box p.text-uppercase,
+.leadership-box p.text-uppercase.text-secondary,
+.leadership-box .section-eyebrow,
+.leadership-box .text-secondary {
+    color: var(--bs-secondary) !important;
+}
 .leadership-quote {
     background: rgba(255, 255, 255, 0.06);
     border-left: 4px solid var(--bs-secondary);
