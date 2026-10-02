@@ -3021,13 +3021,24 @@ select option {
 }
 
 .port-hero-logo {
-    max-height: 125px !important;
+    max-height: 90px;
     width: auto;
     transition: transform 0.3s ease;
 }
 
 .port-hero-logo:hover {
     transform: scale(1.04);
+}
+
+.infra-hero-logo {
+    max-height: 45px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.infra-hero-logo:hover {
+    transform: scale(1.03);
 }
 
 .port-stat-pill {
