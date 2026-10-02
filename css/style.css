@@ -290,8 +290,9 @@ p {
 @media (max-width: 991px) {
     .navbar-brand-logo,
     .navbar-brand img {
-        max-height: 68px !important;
-        height: 68px !important;
+        max-height: 72px !important;
+        height: 72px !important;
+        max-width: 270px !important;
     }
 }
 
@@ -742,13 +743,15 @@ a.sector-dropdown-card.active,
 @media (max-width: 576px) {
     .navbar-brand-logo,
     .navbar-brand img {
-        max-height: 48px !important;
-        height: 48px !important;
-        max-width: 220px !important;
+        max-height: 64px !important;
+        height: 64px !important;
+        max-width: 245px !important;
     }
     .navbar {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
     }
 }
 
