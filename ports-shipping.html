@@ -346,15 +346,14 @@
             </div>
         </div>
     </div>
-
-    <!-- Pinned Stacking Cards Showcase ("Cards Scroll One Above One" - Light BG) -->
-    <div class="container-fluid position-relative overflow-hidden" id="stacked-verticals">
-        <div class="port-deck-sticky-container container">
-            <div class="text-center mb-4 reveal">
+    <!-- Stacked Cards Section -->
+    <div class="container-fluid py-5" id="stacked-verticals">
+        <div class="container py-4">
+            <div class="text-center mb-5 reveal">
                 <span class="badge bg-primary text-secondary fw-bold text-uppercase px-3 py-2 mb-2" style="letter-spacing: 1.5px;">MARITIME VERTICALS</span>
                 <h2 class="display-5 fw-bold text-primary mb-2" style="font-family: 'Playfair Display', Georgia, serif;">Integrated Ports & Maritime Capabilities</h2>
-                <div class="section-title-line mx-auto mb-2"></div>
-                <p class="text-muted fs-6 mb-0" style="max-width: 700px; margin: 0 auto;">Scroll down to see our 5 specialized port & shipping infrastructure verticals stack smoothly one above another.</p>
+                <div class="section-title-line mx-auto mb-3"></div>
+                <p class="text-muted fs-6" style="max-width: 700px; margin: 0 auto;">Scroll through our 5 specialized port & shipping infrastructure verticals — each card stacks over the previous as you scroll.</p>
             </div>
 
             <div class="stacked-cards-wrapper">
@@ -650,74 +649,7 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="js/main.js"></script>
-    
-    <!-- Interactive Pinned Stacked Cards Deck Script -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const deckSection = document.getElementById('stacked-verticals');
-        const cards = document.querySelectorAll('.stacked-card');
-        if (!deckSection || !cards.length) return;
-
-        function updateDeckScroll() {
-            if (window.innerWidth < 992) {
-                // On mobile devices, reset inline transform/opacity for normal vertical layout
-                cards.forEach(c => {
-                    c.style.transform = 'none';
-                    c.style.opacity = '1';
-                });
-                return;
-            }
-
-            const rect = deckSection.getBoundingClientRect();
-            const sectionHeight = deckSection.offsetHeight;
-            const viewportHeight = window.innerHeight;
-            const totalScrollable = sectionHeight - viewportHeight;
-
-            if (totalScrollable <= 0) return;
-
-            // Calculate progress (0 to 1) of scrolling inside the pinned section
-            const scrolled = -rect.top;
-            const progress = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
-
-            const numCards = cards.length; // 5 cards
-
-            cards.forEach((card, index) => {
-                if (index === 0) {
-                    // Card 0 is base card
-                    const p = Math.min(progress * (numCards - 1), 1);
-                    card.style.transform = `scale(${1 - p * 0.05})`;
-                    card.style.opacity = (1 - p * 0.15).toString();
-                    return;
-                }
-
-                // Cards 1, 2, 3, 4 slide up one after another
-                const startP = (index - 1) / (numCards - 1);
-                const endP = index / (numCards - 1);
-
-                if (progress <= startP) {
-                    // Sits below frame until its scroll threshold is reached
-                    card.style.transform = 'translate3d(0, 100%, 0) scale(1)';
-                    card.style.opacity = '0';
-                } else if (progress > startP && progress < endP) {
-                    // Sliding up over the previous card
-                    const cardProgress = (progress - startP) / (endP - startP);
-                    const translateY = (1 - cardProgress) * 100;
-                    card.style.transform = `translate3d(0, ${translateY}%, 0) scale(1)`;
-                    card.style.opacity = '1';
-                } else {
-                    // Has landed on top; scales slightly as subsequent cards overlay
-                    const overP = Math.min((progress - endP) * 3, 1);
-                    card.style.transform = `translate3d(0, 0%, 0) scale(${1 - overP * 0.04})`;
-                    card.style.opacity = (1 - overP * 0.15).toString();
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateDeckScroll, { passive: true });
-        window.addEventListener('resize', updateDeckScroll, { passive: true });
-        updateDeckScroll();
-    });
-    </script>
 </body>
 
 </html>
+
