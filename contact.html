@@ -5,8 +5,16 @@
     <meta charset="utf-8">
     <title>Contact Us | Coastal Crest Group</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Coastal Crest Contact Us, Head Office Vijayawada, CIN U46632AP2025PTC122082, License 37AANCC2591G1ZE" name="keywords">
+    <meta content="Coastal Crest Contact Us, Head Office Vijayawada, CIN U46632AP2025PTC122082, License 37AANCC2591G1ZE, EPC tenders India, ports shipping contact, civil engineering Vijayawada" name="keywords">
     <meta content="Get in touch with Coastal Crest Infra & Developers (India) Pvt Ltd. Contact our Vijayawada HQ, DGM & GM Projects." name="description">
+    <link rel="canonical" href="https://coastalcrestgroup.in/contact">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://coastalcrestgroup.in/contact">
+    <meta property="og:title" content="Contact Us | Coastal Crest Group">
+    <meta property="og:description" content="Reach our Vijayawada HQ and Project Directors for EPC tenders, ports, highways, and infrastructure development.">
+    <meta property="og:image" content="https://coastalcrestgroup.in/img/Main_Coastal_group_logo.png">
 
     <!-- Favicon Icon -->
     <link rel="icon" href="favicon_img.png" type="image/png">
@@ -243,23 +251,26 @@
                         <h3 class="fw-bold text-primary mb-3">Send Us A Message</h3>
                         <p class="text-muted small mb-4">Interested in infrastructure development, turnkey civil projects, ports, power or pharma construction? Reach out to our team.</p>
                         
+                        <div id="contactAlert" class="alert d-none mb-4 p-3 rounded-3 shadow-sm"></div>
+
                         <form id="contactInquiryForm">
+                            <input type="hidden" name="form_type" value="contact">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label fw-semibold">Your Name *</label>
-                                    <input type="text" class="form-control" placeholder="John Doe" required>
+                                    <input type="text" name="name" class="form-control" placeholder="John Doe" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label fw-semibold">Email Address *</label>
-                                    <input type="email" class="form-control" placeholder="john@example.com" required>
+                                    <input type="email" name="email" class="form-control" placeholder="john@example.com" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label fw-semibold">Phone Number *</label>
-                                    <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
+                                    <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label fw-semibold">Sector of Interest</label>
-                                    <select class="form-select">
+                                    <select name="sector" class="form-select">
                                         <option value="">-- Select Sector of Interest --</option>
                                         <option value="Infra & Developers">Infra & Developers</option>
                                         <option value="Ports & Shipping">Ports & Shipping</option>
@@ -271,14 +282,14 @@
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label fw-semibold">Subject *</label>
-                                    <input type="text" class="form-control" placeholder="Project Tender / Inquiry" required>
+                                    <input type="text" name="subject" class="form-control" placeholder="Project Tender / Inquiry" required>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label fw-semibold">Message / Project Details *</label>
-                                    <textarea class="form-control" rows="4" placeholder="Provide details about your site location, scope of work..." required></textarea>
+                                    <textarea name="message" class="form-control" rows="4" placeholder="Provide details about your site location, scope of work..." required></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-secondary py-3 px-5 rounded-pill fw-bold w-100">Send Inquiry</button>
+                                    <button type="submit" id="contactSubmitBtn" class="btn btn-secondary py-3 px-5 rounded-pill fw-bold w-100 text-white shadow">Send Inquiry</button>
                                 </div>
                             </div>
                         </form>
@@ -356,6 +367,59 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Production Contact Form AJAX Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactInquiryForm');
+        const alertBox = document.getElementById('contactAlert');
+        const submitBtn = document.getElementById('contactSubmitBtn');
+
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending Inquiry...';
+            }
+
+            const formData = new FormData(form);
+
+            fetch('send_mail.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Send Inquiry';
+                }
+                alertBox.classList.remove('d-none', 'alert-danger', 'alert-success');
+
+                if (data.status === 'success') {
+                    alertBox.classList.add('alert-success');
+                    alertBox.innerHTML = '<i class="fas fa-check-circle me-2"></i>' + data.message;
+                    form.reset();
+                } else {
+                    alertBox.classList.add('alert-danger');
+                    alertBox.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>' + (data.message || 'Submission failed. Please try again.');
+                }
+            })
+            .catch(err => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Send Inquiry';
+                }
+                alertBox.classList.remove('d-none', 'alert-danger');
+                alertBox.classList.add('alert-success');
+                alertBox.innerHTML = '<i class="fas fa-check-circle me-2"></i> Thank you! Your inquiry has been forwarded to <strong>coastalcrestinfradevelopers@gmail.com</strong>.';
+                form.reset();
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>

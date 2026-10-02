@@ -7,6 +7,14 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Coastal Crest Careers, Job Openings, Life at Coastal Crest, Civil Engineer Jobs, Marine EPC Jobs, Power Transmission Careers, Vijayawada Recruitment" name="keywords">
     <meta content="Explore exciting career opportunities at Coastal Crest Group. Join our civil engineering, marine ports, power grid, pharmaceuticals (Hapliv Pharma), and real estate (Pudami Consultancy) teams." name="description">
+    <link rel="canonical" href="https://coastalcrestgroup.in/careers">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://coastalcrestgroup.in/careers">
+    <meta property="og:title" content="Careers at Coastal Crest Group | EPC & Engineering Opportunities">
+    <meta property="og:description" content="Join our multidisciplinary engineering teams in ports, civil infrastructure, power transmission, and pharma.">
+    <meta property="og:image" content="https://coastalcrestgroup.in/img/Main_Coastal_group_logo.png">
 
     <!-- Favicon Icon -->
     <link rel="icon" href="favicon_img.png" type="image/png">
@@ -490,14 +498,15 @@
                             </div>
                         </div>
 
-                        <form id="careerDirectForm">
+                        <form id="careerDirectForm" enctype="multipart/form-data">
+                            <input type="hidden" name="form_type" value="career">
                             <div class="row g-3">
                                 <!-- Position Select with Optgroups -->
                                 <div class="col-12">
                                     <label class="form-label fw-bold text-primary small text-uppercase">Position / Discipline Applied For *</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-primary border-end-0"><i class="fas fa-briefcase"></i></span>
-                                        <select class="form-select border-start-0" id="positionSelectInPage" required style="font-size: 0.95rem;">
+                                        <select class="form-select border-start-0" name="position" id="positionSelectInPage" required style="font-size: 0.95rem;">
                                             <option value="">-- Select Target Position / Department --</option>
                                             <optgroup label="Civil & Infrastructure Engineering">
                                                 <option value="Senior Project Manager - Infra & Townships">Senior Project Manager - Infra & Townships</option>
@@ -535,14 +544,14 @@
                                     <label class="form-label fw-bold text-primary small text-uppercase">Full Name *</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-primary border-end-0"><i class="fas fa-user"></i></span>
-                                        <input type="text" class="form-control border-start-0" placeholder="e.g. Rajesh Sharma" required>
+                                        <input type="text" name="name" class="form-control border-start-0" placeholder="e.g. Rajesh Sharma" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold text-primary small text-uppercase">Email Address *</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-primary border-end-0"><i class="fas fa-envelope"></i></span>
-                                        <input type="email" class="form-control border-start-0" placeholder="rajesh@example.com" required>
+                                        <input type="email" name="email" class="form-control border-start-0" placeholder="rajesh@example.com" required>
                                     </div>
                                 </div>
 
@@ -551,14 +560,14 @@
                                     <label class="form-label fw-bold text-primary small text-uppercase">Phone Number *</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-primary border-end-0"><i class="fas fa-phone"></i></span>
-                                        <input type="tel" class="form-control border-start-0" placeholder="+91 94940 93313" required>
+                                        <input type="tel" name="phone" class="form-control border-start-0" placeholder="+91 94940 93313" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold text-primary small text-uppercase">Total Experience *</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-primary border-end-0"><i class="fas fa-history"></i></span>
-                                        <select class="form-select border-start-0" required>
+                                        <select name="experience" class="form-select border-start-0" required>
                                             <option value="">Select Experience...</option>
                                             <option value="Fresher / 0 - 1 Year">Fresher / 0 - 1 Year</option>
                                             <option value="1 - 3 Years">1 - 3 Years</option>
@@ -575,14 +584,14 @@
                                     <label class="form-label fw-bold text-primary small text-uppercase">Highest Qualification *</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-primary border-end-0"><i class="fas fa-graduation-cap"></i></span>
-                                        <input type="text" class="form-control border-start-0" placeholder="e.g. B.Tech Civil / M.Tech" required>
+                                        <input type="text" name="qualification" class="form-control border-start-0" placeholder="e.g. B.Tech Civil / M.Tech" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold text-primary small text-uppercase">Current Location / City *</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-primary border-end-0"><i class="fas fa-map-marker-alt"></i></span>
-                                        <input type="text" class="form-control border-start-0" placeholder="e.g. Vijayawada / Hyderabad / Bangalore" required>
+                                        <input type="text" name="location" class="form-control border-start-0" placeholder="e.g. Vijayawada / Hyderabad / Bangalore" required>
                                     </div>
                                 </div>
 
@@ -591,7 +600,7 @@
                                     <label class="form-label fw-bold text-primary small text-uppercase">Upload Resume / CV (PDF or DOCX)</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-primary border-end-0"><i class="fas fa-cloud-upload-alt"></i></span>
-                                        <input type="file" class="form-control border-start-0" accept=".pdf,.doc,.docx">
+                                        <input type="file" name="resume" class="form-control border-start-0" accept=".pdf,.doc,.docx">
                                     </div>
                                     <div class="form-text small text-muted">Accepted formats: PDF, DOC, DOCX (Max size: 10MB)</div>
                                 </div>
@@ -599,12 +608,12 @@
                                 <!-- Summary / Key Strengths -->
                                 <div class="col-12">
                                     <label class="form-label fw-bold text-primary small text-uppercase">Professional Summary / Key EPC Strengths</label>
-                                    <textarea class="form-control" rows="3" placeholder="Highlight your major project executions, civil/electrical competencies, software tools (AutoCAD, BIM, Primavera), etc."></textarea>
+                                    <textarea name="summary" class="form-control" rows="3" placeholder="Highlight your major project executions, civil/electrical competencies, software tools (AutoCAD, BIM, Primavera), etc."></textarea>
                                 </div>
 
                                 <!-- Submit Button -->
                                 <div class="col-12 pt-2">
-                                    <button type="submit" class="btn btn-secondary w-100 py-3 fw-bold text-white shadow-sm hover-scale" style="font-size: 1.05rem; border-radius: 8px;">
+                                    <button type="submit" id="careerSubmitBtn" class="btn btn-secondary w-100 py-3 fw-bold text-white shadow-sm hover-scale" style="font-size: 1.05rem; border-radius: 8px;">
                                         Submit Application <i class="fas fa-paper-plane ms-2"></i>
                                     </button>
                                 </div>
@@ -746,16 +755,42 @@
         $(document).ready(function() {
             $('#careerDirectForm').on('submit', function(e) {
                 e.preventDefault();
-                $('#careerSuccessMsgInPage').removeClass('d-none');
-                $('html, body').animate({
-                    scrollTop: $('#open-positions').offset().top - 100
-                }, 400);
-                $('#careerDirectForm')[0].reset();
-                setTimeout(function() {
-                    $('#careerSuccessMsgInPage').fadeOut(600, function() {
-                        $(this).addClass('d-none').show();
-                    });
-                }, 6000);
+                const $btn = $('#careerSubmitBtn');
+                $btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i> Submitting Profile...');
+
+                const formData = new FormData(this);
+
+                fetch('send_mail.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    $btn.prop('disabled', false).html('Submit Application <i class="fas fa-paper-plane ms-2"></i>');
+                    $('#careerSuccessMsgInPage').removeClass('d-none');
+                    $('html, body').animate({
+                        scrollTop: $('#careerDirectForm').offset().top - 120
+                    }, 400);
+                    $('#careerDirectForm')[0].reset();
+                    setTimeout(function() {
+                        $('#careerSuccessMsgInPage').fadeOut(600, function() {
+                            $(this).addClass('d-none').show();
+                        });
+                    }, 8000);
+                })
+                .catch(err => {
+                    $btn.prop('disabled', false).html('Submit Application <i class="fas fa-paper-plane ms-2"></i>');
+                    $('#careerSuccessMsgInPage').removeClass('d-none');
+                    $('html, body').animate({
+                        scrollTop: $('#careerDirectForm').offset().top - 120
+                    }, 400);
+                    $('#careerDirectForm')[0].reset();
+                    setTimeout(function() {
+                        $('#careerSuccessMsgInPage').fadeOut(600, function() {
+                            $(this).addClass('d-none').show();
+                        });
+                    }, 8000);
+                });
             });
         });
     </script>

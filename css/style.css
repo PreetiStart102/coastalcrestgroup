@@ -3063,7 +3063,11 @@ select option {
     background: linear-gradient(135deg, #001659 0%, #032070 100%);
     border: 1px solid rgba(249, 208, 30, 0.35);
     box-shadow: 0 20px 50px rgba(0, 22, 89, 0.25);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.35s ease, transform 0.35s ease;
+    will-change: transform, top;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .stacked-card:nth-child(1) { top: 120px; z-index: 1; }
