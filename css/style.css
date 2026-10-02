@@ -2962,121 +2962,191 @@ select option {
     animation-fill-mode: both;
 }
 
-/* Core Services Zig-Zag Timeline Architecture */
-.bg-dark-navy {
-    background-color: #0b1d3a !important;
+/* Core Services Interactive Glassmorphic Zig-Zag Section */
+.bg-navy-hero {
+    background: linear-gradient(135deg, #001659 0%, #040e29 100%) !important;
 }
 
-.zigzag-services-wrapper {
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    pointer-events: none;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: #38bdf8;
+    top: -50px;
+    left: -100px;
+}
+
+.orb-2 {
+    width: 450px;
+    height: 450px;
+    background: #f9d01e;
+    bottom: -100px;
+    right: -100px;
+}
+
+.interactive-zigzag-wrapper {
     position: relative;
     max-width: 1140px;
     margin: 0 auto;
     padding: 20px 0;
 }
 
-/* Vertical Center Line */
-.zigzag-center-line {
+/* Interactive Timeline Beam & Center Badges */
+.zigzag-beam {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 50%;
     width: 3px;
-    background: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(180deg, rgba(249, 208, 30, 0.8) 0%, rgba(56, 189, 248, 0.8) 50%, rgba(249, 208, 30, 0.8) 100%);
     transform: translateX(-50%);
     z-index: 1;
+    box-shadow: 0 0 15px rgba(249, 208, 30, 0.5);
 }
 
-.zigzag-row {
-    position: relative;
-    z-index: 2;
-    transition: all 0.3s ease;
-}
-
-/* Image Box Styling & Hover Effects */
-.zigzag-img-box {
-    position: relative;
-    height: 320px;
-    width: 100%;
-    overflow: hidden;
-    background: #001659;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-}
-
-.zigzag-img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
-}
-
-.zigzag-row:hover .zigzag-img {
-    transform: scale(1.08);
-    filter: brightness(1.08);
-}
-
-/* Text Card Styling & Hover Effects */
-.zigzag-text-card {
-    background: rgba(11, 29, 58, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    transition: all 0.4s ease;
-}
-
-.zigzag-row:hover .zigzag-text-card {
-    background: rgba(0, 22, 89, 0.95);
-    border-color: var(--bs-secondary);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
-    transform: translateY(-3px);
-}
-
-/* Glowing Cyan / Gold Arrow Pointers */
-.zigzag-arrow-right,
-.zigzag-arrow-left {
+.zigzag-node-badge {
     position: absolute;
     top: 50%;
+    left: -22px;
+    transform: translateY(-50%);
     width: 44px;
     height: 44px;
     background: #001659;
-    border: 2px solid #38bdf8;
-    color: #38bdf8;
-    border-radius: 8px;
+    border: 3px solid var(--bs-secondary);
+    color: var(--bs-secondary);
+    font-weight: 800;
+    font-size: 0.95rem;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(249, 208, 30, 0.6);
+    transition: all 0.4s ease;
+}
+
+.zigzag-node-badge.node-right {
+    left: auto;
+    right: -22px;
+}
+
+.zigzag-interactive-row:hover .zigzag-node-badge {
+    background: var(--bs-secondary);
+    color: #001659;
+    transform: translateY(-50%) scale(1.25);
+    box-shadow: 0 0 30px rgba(249, 208, 30, 0.9);
+}
+
+/* Photo Box Styling & Hover Micro-animations */
+.zigzag-card-photo {
+    height: 340px;
+    background: #020b21;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-category-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(0, 22, 89, 0.85);
+    border: 1px solid var(--bs-secondary);
+    color: var(--bs-secondary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 20px;
     z-index: 5;
+    backdrop-filter: blur(8px);
+}
+
+.photo-zoom {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
+}
+
+.photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 22, 89, 0.1) 0%, rgba(2, 11, 33, 0.55) 100%);
+    transition: opacity 0.5s ease;
+}
+
+.zigzag-interactive-row:hover .zigzag-card-photo {
+    border-color: var(--bs-secondary);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
+    transform: translateY(-4px);
+}
+
+.zigzag-interactive-row:hover .photo-zoom {
+    transform: scale(1.1);
+}
+
+/* Glassmorphism Content Card */
+.zigzag-content-glass {
+    background: rgba(4, 18, 56, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    transition: all 0.5s ease;
+}
+
+.zigzag-interactive-row:hover .zigzag-content-glass {
+    background: rgba(0, 22, 89, 0.9);
+    border-color: var(--bs-secondary);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5) !important;
+    transform: translateY(-4px);
+}
+
+/* Gold Icon Box & Capabilities Pills */
+.icon-box-gold {
+    width: 48px;
+    height: 48px;
+    background: rgba(249, 208, 30, 0.15);
+    border: 1px solid var(--bs-secondary);
+    color: var(--bs-secondary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
     transition: all 0.3s ease;
 }
 
-.zigzag-arrow-right {
-    left: -22px;
-    transform: translateY(-50%);
-}
-
-.zigzag-arrow-left {
-    right: -22px;
-    transform: translateY(-50%);
-}
-
-.zigzag-row:hover .zigzag-arrow-right {
+.zigzag-interactive-row:hover .icon-box-gold {
     background: var(--bs-secondary);
-    border-color: var(--bs-secondary);
     color: #001659;
-    box-shadow: 0 0 20px rgba(249, 208, 30, 0.7);
-    transform: translateY(-50%) scale(1.15) translateX(4px);
+    transform: scale(1.1) rotate(5deg);
 }
 
-.zigzag-row:hover .zigzag-arrow-left {
-    background: var(--bs-secondary);
-    border-color: var(--bs-secondary);
-    color: #001659;
-    box-shadow: 0 0 20px rgba(249, 208, 30, 0.7);
-    transform: translateY(-50%) scale(1.15) translateX(-4px);
+.cap-pill {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e2e8f0;
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.zigzag-interactive-row:hover .cap-pill {
+    background: rgba(249, 208, 30, 0.15);
+    border-color: rgba(249, 208, 30, 0.4);
+    color: #ffffff;
 }
 
 @media (max-width: 991.98px) {
-    .zigzag-img-box {
+    .zigzag-card-photo {
         height: 260px;
     }
 }
