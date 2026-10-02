@@ -3173,30 +3173,23 @@ select option {
     color: rgba(255, 255, 255, 0.75) !important;
 }
 
-/* Core Engineering Capabilities - 3D Icon Flip on Hover */
+/* Core Engineering Capabilities - Clean Layout & 3D Icon Flip on Hover */
 .capability-card {
-    padding: 10px 12px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    padding: 0;
+    background: transparent !important;
     cursor: pointer;
 }
 
 .capability-card:hover {
-    background: rgba(0, 22, 89, 0.04);
+    background: transparent !important;
 }
 
 .capability-card .cap-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: rgba(0, 22, 89, 0.08);
+    display: inline-block;
+    background: transparent !important;
     color: var(--bs-primary);
-    font-size: 1.15rem;
-    margin-bottom: 8px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.35rem;
+    margin-bottom: 6px;
     perspective: 800px;
 }
 
@@ -3208,9 +3201,8 @@ select option {
 
 .capability-card:hover .cap-icon,
 .capability-card .cap-icon:hover {
-    background: var(--bs-primary);
-    color: var(--bs-secondary);
-    box-shadow: 0 4px 14px rgba(0, 22, 89, 0.22);
+    background: transparent !important;
+    box-shadow: none !important;
 }
 
 .capability-card:hover .cap-icon i,
