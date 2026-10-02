@@ -763,7 +763,7 @@ a.sector-dropdown-card.active,
     box-shadow: none !important;
 }
 
-/*** Hero Carousel (Responsive & Mobile-Optimized) ***/
+/*** Hero Carousel (Responsive & Mobile-Optimized with Zoom-In Effect) ***/
 .carousel .carousel-inner .carousel-item {
     position: relative;
     overflow: hidden;
@@ -772,10 +772,24 @@ a.sector-dropdown-card.active,
     max-height: 850px;
 }
 
+@keyframes heroZoomIn {
+    0% {
+        transform: scale(1.0);
+    }
+    100% {
+        transform: scale(1.12);
+    }
+}
+
 .carousel .carousel-inner .carousel-item img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease-out;
+}
+
+.carousel .carousel-inner .carousel-item.active img {
+    animation: heroZoomIn 7s ease-out forwards;
 }
 
 .carousel .carousel-inner .carousel-item::after {
@@ -827,10 +841,10 @@ a.sector-dropdown-card.active,
 }
 
 .carousel .carousel-indicators li {
-    margin: 0 4px !important;
-    width: 11px;
-    height: 11px;
-    border: 2.5px solid var(--bs-secondary);
+    margin: 0 3px !important;
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--bs-secondary);
     background: #ffffff;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -839,9 +853,9 @@ a.sector-dropdown-card.active,
 }
 
 .carousel .carousel-indicators li.active {
-    border: 2.5px solid #ffffff;
+    border: 2px solid #ffffff;
     background: var(--bs-secondary);
-    transform: scale(1.3);
+    transform: scale(1.25);
     opacity: 1;
 }
 
