@@ -316,16 +316,16 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Premium Dynamic Dual-Image Frame -->
+                <!-- Right Column: Premium Dynamic Dual-Image Frame with Edge-Touching Badges -->
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
-                    <div class="position-relative pe-lg-3">
+                    <div class="position-relative my-3 py-2 pe-lg-3">
                         <!-- Main Hero Port Image -->
                         <div class="rounded-4 overflow-hidden shadow-lg border border-2 border-white">
-                            <img src="img/port and shipping3.jpg" alt="Coastal Crest Port Terminal Operations" class="img-fluid w-100" style="height: 420px; object-fit: cover;">
+                            <img src="img/port and shipping3.jpg" alt="Coastal Crest Port Terminal Operations" class="img-fluid w-100" style="height: 430px; object-fit: cover;">
                         </div>
 
-                        <!-- Top Floating Glass Badge -->
-                        <div class="position-absolute top-0 end-0 bg-primary text-white p-3 rounded-4 shadow-lg m-3 border-start border-4 border-secondary" style="max-width: 250px; backdrop-filter: blur(10px);">
+                        <!-- Top Floating Glass Badge: Touches top edge -->
+                        <div class="position-absolute bg-primary text-white p-3 rounded-4 shadow-lg border-start border-4 border-secondary" style="top: -15px; right: 5px; max-width: 260px; z-index: 3; backdrop-filter: blur(10px);">
                             <div class="d-flex align-items-center mb-1">
                                 <i class="fas fa-gem text-secondary fs-5 me-2"></i>
                                 <span class="fw-bold text-secondary fs-6">50+ MMT Capacity</span>
@@ -333,8 +333,8 @@
                             <p class="small text-white-50 mb-0">Turnkey Deepwater Ports & Coastal Logistics.</p>
                         </div>
 
-                        <!-- Bottom Floating Badge -->
-                        <div class="position-absolute bottom-0 start-0 bg-white p-3 rounded-4 shadow-lg m-3 border-start border-4 border-primary" style="max-width: 280px;">
+                        <!-- Bottom Floating Badge: Touches bottom edge -->
+                        <div class="position-absolute bg-white p-3 rounded-4 shadow-lg border-start border-4 border-primary" style="bottom: -15px; left: 5px; max-width: 280px; z-index: 3;">
                             <div class="d-flex align-items-center mb-1">
                                 <i class="fas fa-ship text-primary fs-5 me-2"></i>
                                 <span class="fw-bold text-primary">Capesize & VLCC Ready</span>
@@ -650,6 +650,47 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="js/main.js"></script>
+    
+    <!-- Interactive Stacked Cards Scroll Deck Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cards = document.querySelectorAll('.stacked-card');
+        if (!cards.length) return;
+
+        function updateCardStacking() {
+            const vh = window.innerHeight;
+            cards.forEach((card, i) => {
+                const nextCard = cards[i + 1];
+                if (!nextCard) return;
+
+                const nextRect = nextCard.getBoundingClientRect();
+                const currentRect = card.getBoundingClientRect();
+
+                // Calculate progress as next card moves up towards sticky position
+                if (nextRect.top < vh && nextRect.top > currentRect.top) {
+                    const diff = vh - nextRect.top;
+                    const totalDist = vh - currentRect.top;
+                    const progress = Math.min(Math.max(diff / totalDist, 0), 1);
+
+                    // Scale down & slightly dim underlying card as top card slides over
+                    const scale = 1 - (progress * 0.05);
+                    const opacity = 1 - (progress * 0.18);
+                    card.style.transform = `scale(${scale})`;
+                    card.style.opacity = opacity.toString();
+                } else if (nextRect.top <= currentRect.top + 30) {
+                    card.style.transform = 'scale(0.95)';
+                    card.style.opacity = '0.82';
+                } else {
+                    card.style.transform = 'scale(1)';
+                    card.style.opacity = '1';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateCardStacking, { passive: true });
+        updateCardStacking();
+    });
+    </script>
 </body>
 
 </html>

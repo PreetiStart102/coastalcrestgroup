@@ -3040,28 +3040,29 @@ select option {
 /* Stacking Cards Container & Items (High-Contrast Floating Deck Design) */
 .stacked-cards-wrapper {
     position: relative;
-    padding: 20px 0 80px;
+    padding: 20px 0 60px;
     max-width: 1140px;
     margin: 0 auto;
 }
 
 .stacked-card {
     position: sticky;
-    top: 90px;
-    margin-bottom: 75px;
+    top: 100px;
+    margin-bottom: 45vh;
     border-radius: 20px;
     overflow: hidden;
     background: linear-gradient(135deg, #001659 0%, #032070 100%) !important;
     border: 1px solid rgba(249, 208, 30, 0.35) !important;
-    box-shadow: 0 20px 45px rgba(0, 22, 89, 0.22);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    box-shadow: 0 20px 45px rgba(0, 22, 89, 0.28);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, opacity 0.3s ease;
+    will-change: transform, opacity;
 }
 
-.stacked-card:nth-child(1) { top: 90px; z-index: 1; }
-.stacked-card:nth-child(2) { top: 105px; z-index: 2; }
-.stacked-card:nth-child(3) { top: 120px; z-index: 3; }
-.stacked-card:nth-child(4) { top: 135px; z-index: 4; }
-.stacked-card:nth-child(5) { top: 150px; z-index: 5; }
+.stacked-card:nth-child(1) { top: 100px; z-index: 1; }
+.stacked-card:nth-child(2) { top: 108px; z-index: 2; }
+.stacked-card:nth-child(3) { top: 116px; z-index: 3; }
+.stacked-card:nth-child(4) { top: 124px; z-index: 4; }
+.stacked-card:nth-child(5) { top: 132px; z-index: 5; margin-bottom: 40px !important; }
 
 .stacked-card-img-box {
     height: 370px;
@@ -3078,7 +3079,7 @@ select option {
 
 .stacked-card:hover {
     border-color: var(--bs-secondary) !important;
-    box-shadow: 0 25px 60px rgba(0, 22, 89, 0.32);
+    box-shadow: 0 25px 60px rgba(0, 22, 89, 0.35);
 }
 
 .stacked-card:hover .stacked-card-img {
