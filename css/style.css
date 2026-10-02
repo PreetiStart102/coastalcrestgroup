@@ -2906,14 +2906,19 @@ select option {
 
 /* Header Banner & Breadcrumb Vertical Padding Reduction */
 .bg-breadcrumb,
-.bg-breadcrumb.py-5 {
-    padding-top: 1.6rem !important;
-    padding-bottom: 1.6rem !important;
+.bg-breadcrumb.py-5,
+.bg-breadcrumb.py-4,
+.bg-breadcrumb.py-3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
 }
 .bg-breadcrumb .container,
-.bg-breadcrumb .container.py-4 {
-    padding-top: 0.4rem !important;
-    padding-bottom: 0.4rem !important;
+.bg-breadcrumb .container.py-4,
+.bg-breadcrumb .container.py-3,
+.bg-breadcrumb .container.py-2,
+.bg-breadcrumb .container.py-1 {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
 }
 
 /* Certificate Showcase Card Animations & Hover Effects */
