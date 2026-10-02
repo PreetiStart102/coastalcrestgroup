@@ -137,19 +137,41 @@
         }
     });
 
-    // Scroll Reveal Animation
-    function revealOnScroll() {
+    // Scroll Reveal Animation (IntersectionObserver Engine)
+    function initScrollReveal() {
         var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-        var windowHeight = window.innerHeight;
-        reveals.forEach(function(el) {
-            var elementTop = el.getBoundingClientRect().top;
-            if (elementTop < windowHeight - 60) {
-                el.classList.add('revealed');
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.05
+            });
+
+            reveals.forEach(function(el) {
+                observer.observe(el);
+            });
+        } else {
+            // Fallback for older browsers
+            function revealOnScroll() {
+                var windowHeight = window.innerHeight;
+                reveals.forEach(function(el) {
+                    var elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 40) {
+                        el.classList.add('revealed');
+                    }
+                });
             }
-        });
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        }
     }
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Run on load
+    initScrollReveal();
 
     // Counter animation for stat numbers
     function animateCounters() {
