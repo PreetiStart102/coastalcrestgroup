@@ -2922,3 +2922,26 @@ select option {
     box-shadow: 0 14px 32px rgba(0, 22, 89, 0.16) !important;
     transform: translateY(-6px);
 }
+
+/* Floating Info Card (Positions Outside Image Frame) */
+.pan-india-badge-floating {
+    position: absolute;
+    bottom: -22px;
+    left: -15px;
+    max-width: 340px;
+    background: #001659 !important;
+    border-left: 5px solid var(--bs-secondary) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 16px 36px rgba(0, 22, 89, 0.28) !important;
+    z-index: 10;
+}
+
+@media (max-width: 767.98px) {
+    .pan-india-badge-floating {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        margin-top: 16px !important;
+        max-width: 100% !important;
+    }
+}
