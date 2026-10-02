@@ -3248,3 +3248,69 @@ select option {
     transform: rotateY(360deg);
     color: var(--bs-secondary);
 }
+
+/* Corporate FAQ Accordion Styles */
+.faq-accordion .accordion-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px !important;
+    margin-bottom: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 22, 89, 0.04);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-accordion .accordion-item:hover {
+    border-color: rgba(0, 22, 89, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 22, 89, 0.08);
+}
+
+.faq-accordion .accordion-button {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--bs-primary);
+    background: #ffffff;
+    padding: 18px 24px;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+    color: var(--bs-primary);
+    background: rgba(0, 22, 89, 0.03);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.faq-accordion .accordion-button::after {
+    background-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-accordion .accordion-body {
+    padding: 20px 24px;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #475569;
+    background: #ffffff;
+}
+
+.faq-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 22, 89, 0.08);
+    color: var(--bs-primary);
+    font-weight: 800;
+    font-size: 0.82rem;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) .faq-badge {
+    background: var(--bs-secondary);
+    color: var(--bs-primary);
+}

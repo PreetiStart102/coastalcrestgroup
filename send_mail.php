@@ -137,7 +137,15 @@ if ($formType === 'career') {
         $message = $body;
     }
 
-    $mailSent = @mail($toEmail, $subject, $message, $headers);
+    $extraParams = "-f no-reply@{$siteDomain}";
+    $mailSent = @mail($toEmail, $subject, $message, $headers, $extraParams);
+    if (!$mailSent) {
+        $mailSent = @mail($toEmail, $subject, $message, $headers);
+    }
+
+    // Save lead backup log
+    $logEntry = date('Y-m-d H:i:s') . " | CAREER | " . $name . " | " . $email . " | " . $phone . " | " . $position . "\n";
+    @file_put_contents(__DIR__ . '/.mail_leads.log', $logEntry, FILE_APPEND | LOCK_EX);
 
     echo json_encode([
         'status' => 'success',
@@ -206,7 +214,15 @@ if ($formType === 'career') {
     $headers .= "Reply-To: {$email}\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-    $mailSent = @mail($toEmail, $subject, $body, $headers);
+    $extraParams = "-f no-reply@{$siteDomain}";
+    $mailSent = @mail($toEmail, $subject, $body, $headers, $extraParams);
+    if (!$mailSent) {
+        $mailSent = @mail($toEmail, $subject, $body, $headers);
+    }
+
+    // Save lead backup log
+    $logEntry = date('Y-m-d H:i:s') . " | CONTACT | " . $name . " | " . $email . " | " . $phone . " | " . $sector . " | " . $msgSubject . "\n";
+    @file_put_contents(__DIR__ . '/.mail_leads.log', $logEntry, FILE_APPEND | LOCK_EX);
 
     echo json_encode([
         'status' => 'success',
