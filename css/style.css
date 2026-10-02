@@ -2923,25 +2923,17 @@ select option {
     transform: translateY(-6px);
 }
 
-/* Floating Info Card (Positions Outside Image Frame) */
-.pan-india-badge-floating {
-    position: absolute;
-    bottom: -22px;
-    left: -15px;
-    max-width: 340px;
+/* Pan-India Network Info Card (Clean Standard Layout - Below Image) */
+.pan-india-badge-card {
     background: #001659 !important;
     border-left: 5px solid var(--bs-secondary) !important;
-    border-radius: 14px !important;
-    box-shadow: 0 16px 36px rgba(0, 22, 89, 0.28) !important;
-    z-index: 10;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 22, 89, 0.14) !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-@media (max-width: 767.98px) {
-    .pan-india-badge-floating {
-        position: relative !important;
-        bottom: auto !important;
-        left: auto !important;
-        margin-top: 16px !important;
-        max-width: 100% !important;
-    }
+.pan-india-badge-card:hover {
+    box-shadow: 0 12px 28px rgba(0, 22, 89, 0.22) !important;
+    transform: translateY(-2px);
 }
