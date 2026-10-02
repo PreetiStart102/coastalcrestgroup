@@ -3053,7 +3053,7 @@ select option {
 
 .stacked-card {
     position: sticky;
-    top: 80px;
+    top: 120px;
     margin-bottom: 60vh;
     border-radius: 20px;
     overflow: hidden;
@@ -3063,11 +3063,11 @@ select option {
     transition: box-shadow 0.3s ease;
 }
 
-.stacked-card:nth-child(1) { top: 80px;  z-index: 1; }
-.stacked-card:nth-child(2) { top: 95px;  z-index: 2; }
-.stacked-card:nth-child(3) { top: 110px; z-index: 3; }
-.stacked-card:nth-child(4) { top: 125px; z-index: 4; }
-.stacked-card:nth-child(5) { top: 140px; z-index: 5; margin-bottom: 30px; }
+.stacked-card:nth-child(1) { top: 120px; z-index: 1; }
+.stacked-card:nth-child(2) { top: 135px; z-index: 2; }
+.stacked-card:nth-child(3) { top: 150px; z-index: 3; }
+.stacked-card:nth-child(4) { top: 165px; z-index: 4; }
+.stacked-card:nth-child(5) { top: 180px; z-index: 5; margin-bottom: 30px; }
 
 .stacked-card:hover {
     box-shadow: 0 28px 65px rgba(0, 22, 89, 0.35);
