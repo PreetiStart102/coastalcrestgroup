@@ -3037,37 +3037,85 @@ select option {
     transform: translateY(-3px);
 }
 
-/* Stacking Cards Container & Items (High-Contrast Floating Deck Design) */
-.stacked-cards-wrapper {
+/* Pinned Deck Section Outer Container */
+#stacked-verticals {
     position: relative;
-    padding: 20px 0 60px;
-    max-width: 1140px;
-    margin: 0 auto;
+    background: #f4f7fc;
 }
 
-.stacked-card {
-    position: sticky;
-    top: 100px;
-    margin-bottom: 45vh;
-    border-radius: 20px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #001659 0%, #032070 100%) !important;
-    border: 1px solid rgba(249, 208, 30, 0.35) !important;
-    box-shadow: 0 20px 45px rgba(0, 22, 89, 0.28);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, opacity 0.3s ease;
-    will-change: transform, opacity;
+@media (min-width: 992px) {
+    #stacked-verticals {
+        height: 380vh !important;
+        padding: 0 !important;
+    }
+
+    .port-deck-sticky-container {
+        position: sticky;
+        top: 75px;
+        height: calc(100vh - 75px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 25px;
+        padding-bottom: 20px;
+        box-sizing: border-box;
+    }
+
+    .stacked-cards-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 1140px;
+        height: 440px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .stacked-card {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 440px !important;
+        margin: 0 !important;
+        border-radius: 24px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #001659 0%, #032070 100%) !important;
+        border: 1px solid rgba(249, 208, 30, 0.4) !important;
+        box-shadow: 0 25px 60px rgba(0, 22, 89, 0.3);
+        transition: transform 0.1s linear, opacity 0.1s linear;
+        will-change: transform, opacity;
+    }
+
+    .stacked-card:nth-child(1) { z-index: 1; }
+    .stacked-card:nth-child(2) { z-index: 2; }
+    .stacked-card:nth-child(3) { z-index: 3; }
+    .stacked-card:nth-child(4) { z-index: 4; }
+    .stacked-card:nth-child(5) { z-index: 5; }
+
+    .stacked-card-img-box {
+        height: 440px;
+        position: relative;
+        overflow: hidden;
+    }
 }
 
-.stacked-card:nth-child(1) { top: 100px; z-index: 1; }
-.stacked-card:nth-child(2) { top: 108px; z-index: 2; }
-.stacked-card:nth-child(3) { top: 116px; z-index: 3; }
-.stacked-card:nth-child(4) { top: 124px; z-index: 4; }
-.stacked-card:nth-child(5) { top: 132px; z-index: 5; margin-bottom: 40px !important; }
-
-.stacked-card-img-box {
-    height: 370px;
-    position: relative;
-    overflow: hidden;
+@media (max-width: 991.98px) {
+    .stacked-cards-wrapper {
+        position: relative;
+        padding: 20px 0;
+    }
+    .stacked-card {
+        position: relative !important;
+        top: 0 !important;
+        margin-bottom: 24px !important;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #001659 0%, #032070 100%) !important;
+        border: 1px solid rgba(249, 208, 30, 0.4) !important;
+    }
+    .stacked-card-img-box {
+        height: 250px;
+    }
 }
 
 .stacked-card-img {
@@ -3077,24 +3125,8 @@ select option {
     transition: transform 0.7s ease;
 }
 
-.stacked-card:hover {
-    border-color: var(--bs-secondary) !important;
-    box-shadow: 0 25px 60px rgba(0, 22, 89, 0.35);
-}
-
 .stacked-card:hover .stacked-card-img {
     transform: scale(1.08);
-}
-
-@media (max-width: 991.98px) {
-    .stacked-card {
-        position: relative !important;
-        top: 0 !important;
-        margin-bottom: 30px !important;
-    }
-    .stacked-card-img-box {
-        height: 250px;
-    }
 }
 
 .port-equip-card {
