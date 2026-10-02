@@ -2977,18 +2977,29 @@ select option {
 .clean-photo-wrapper {
     position: relative;
     overflow: hidden;
+    height: 290px;
+    width: 100%;
     border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
 }
 
 .hover-zoom-photo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .clean-photo-wrapper:hover .hover-zoom-photo {
-    transform: scale(1.06);
+    transform: scale(1.08);
 }
 
 .service-text-block {
     padding: 10px 0;
+}
+
+@media (max-width: 991.98px) {
+    .clean-photo-wrapper {
+        height: 240px;
+    }
 }
