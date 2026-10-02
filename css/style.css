@@ -144,8 +144,8 @@ p {
 }
 
 .navbar {
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
     border-bottom: 1px solid rgba(0, 22, 89, 0.08);
 }
 
@@ -273,18 +273,26 @@ p {
     display: flex;
     align-items: center;
     padding: 0 !important;
-    margin: 0 1.5rem 0 0 !important;
+    margin: 0 1rem 0 0 !important;
 }
 .navbar-brand-logo,
 .navbar-brand img {
-    max-height: 62px !important;
-    height: 62px !important;
+    max-height: 82px !important;
+    height: 82px !important;
     width: auto !important;
-    max-width: 290px !important;
+    max-width: 320px !important;
     object-fit: contain;
     margin: 0 !important;
     padding: 0 !important;
     transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+    .navbar-brand-logo,
+    .navbar-brand img {
+        max-height: 68px !important;
+        height: 68px !important;
+    }
 }
 
 /* Unified Dropdown Menus - Perfectly Aligned Below Navbar Bottom Line */
