@@ -3137,3 +3137,25 @@ select option {
     box-shadow: 0 16px 36px rgba(0, 22, 89, 0.10) !important;
     transform: translateY(-6px);
 }
+
+/* Active Page Breadcrumb - Pure Gold / Yellow */
+.breadcrumb-item.active,
+.breadcrumb-item.active a,
+.breadcrumb-item.active.text-secondary,
+.breadcrumb .breadcrumb-item.active,
+.breadcrumb .breadcrumb-item.active.text-secondary {
+    color: #f9d01e !important;
+    font-weight: 700 !important;
+}
+
+.breadcrumb-item a {
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: #f9d01e !important;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
