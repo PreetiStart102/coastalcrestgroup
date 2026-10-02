@@ -2888,14 +2888,26 @@ select option {
 }
 .breadcrumb {
     padding: 0 !important;
-    margin-top: 8px !important;
+    margin-top: 6px !important;
     margin-bottom: 0 !important;
 }
 .breadcrumb-item + .breadcrumb-item::before {
     color: rgba(255, 255, 255, 0.75) !important;
     font-weight: 500;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+/* Header Banner & Breadcrumb Vertical Padding Reduction */
+.bg-breadcrumb,
+.bg-breadcrumb.py-5 {
+    padding-top: 1.6rem !important;
+    padding-bottom: 1.6rem !important;
+}
+.bg-breadcrumb .container,
+.bg-breadcrumb .container.py-4 {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
 }
 
 /* Certificate Showcase Card Animations & Hover Effects */
