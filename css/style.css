@@ -2925,15 +2925,39 @@ select option {
 
 /* Pan-India Network Info Card (Clean Standard Layout - Below Image) */
 .pan-india-badge-card {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
     background: #001659 !important;
     border-left: 5px solid var(--bs-secondary) !important;
     border-radius: 8px !important;
     box-shadow: 0 8px 24px rgba(0, 22, 89, 0.14) !important;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pan-india-badge-card:hover {
     box-shadow: 0 12px 28px rgba(0, 22, 89, 0.22) !important;
     transform: translateY(-2px);
+}
+
+/* Fold Reveal Left to Right Animation */
+@keyframes foldRevealLeft {
+    0% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.foldRevealLeft {
+    animation-name: foldRevealLeft;
+    animation-duration: 0.95s;
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+    animation-fill-mode: both;
 }
