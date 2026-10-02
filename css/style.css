@@ -1799,7 +1799,7 @@ p.text-uppercase.text-secondary::after,
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 65px 0;
+    padding: 15px 0;
 }
 .bg-breadcrumb h1,
 .bg-breadcrumb .display-4,
