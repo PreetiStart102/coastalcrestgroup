@@ -3114,19 +3114,19 @@ select option {
 }
 
 .marine-fleet-card:hover {
-    border-left-color: var(--bs-secondary);
-    box-shadow: 0 18px 45px rgba(0, 22, 89, 0.14);
-    transform: translateY(-6px);
+    border-left-color: #0b5ed7;
+    box-shadow: 0 16px 36px rgba(0, 22, 89, 0.12);
+    transform: translateY(-5px);
 }
 
 /* Certification & Recognition Cards */
 .cert-recognition-card {
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    border-bottom: 3px solid transparent !important;
+    border-top: 3px solid transparent !important;
 }
 
 .cert-recognition-card:hover {
-    border-bottom-color: var(--bs-secondary) !important;
-    box-shadow: 0 18px 45px rgba(0, 22, 89, 0.12) !important;
-    transform: translateY(-8px);
+    border-top-color: var(--bs-primary) !important;
+    box-shadow: 0 16px 36px rgba(0, 22, 89, 0.10) !important;
+    transform: translateY(-6px);
 }
