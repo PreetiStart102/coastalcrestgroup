@@ -3037,33 +3037,34 @@ select option {
     transform: translateY(-3px);
 }
 
-/* Stacking Cards Container & Items (Seamless Glass Design) */
+/* Stacking Cards Container & Items (High-Contrast Floating Deck Design) */
 .stacked-cards-wrapper {
     position: relative;
-    padding: 20px 0 100px;
+    padding: 20px 0 80px;
+    max-width: 1140px;
+    margin: 0 auto;
 }
 
 .stacked-card {
     position: sticky;
-    top: 100px;
-    margin-bottom: 90px;
-    border-radius: 24px;
+    top: 90px;
+    margin-bottom: 75px;
+    border-radius: 20px;
     overflow: hidden;
-    background: rgba(4, 22, 75, 0.92) !important;
-    border: 1px solid rgba(255, 255, 255, 0.14) !important;
-    backdrop-filter: blur(16px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background: linear-gradient(135deg, #001659 0%, #032070 100%) !important;
+    border: 1px solid rgba(249, 208, 30, 0.35) !important;
+    box-shadow: 0 20px 45px rgba(0, 22, 89, 0.22);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .stacked-card:nth-child(1) { top: 90px; z-index: 1; }
-.stacked-card:nth-child(2) { top: 115px; z-index: 2; }
-.stacked-card:nth-child(3) { top: 140px; z-index: 3; }
-.stacked-card:nth-child(4) { top: 165px; z-index: 4; }
-.stacked-card:nth-child(5) { top: 190px; z-index: 5; }
+.stacked-card:nth-child(2) { top: 105px; z-index: 2; }
+.stacked-card:nth-child(3) { top: 120px; z-index: 3; }
+.stacked-card:nth-child(4) { top: 135px; z-index: 4; }
+.stacked-card:nth-child(5) { top: 150px; z-index: 5; }
 
 .stacked-card-img-box {
-    height: 400px;
+    height: 370px;
     position: relative;
     overflow: hidden;
 }
@@ -3075,8 +3076,24 @@ select option {
     transition: transform 0.7s ease;
 }
 
+.stacked-card:hover {
+    border-color: var(--bs-secondary) !important;
+    box-shadow: 0 25px 60px rgba(0, 22, 89, 0.32);
+}
+
 .stacked-card:hover .stacked-card-img {
     transform: scale(1.08);
+}
+
+@media (max-width: 991.98px) {
+    .stacked-card {
+        position: relative !important;
+        top: 0 !important;
+        margin-bottom: 30px !important;
+    }
+    .stacked-card-img-box {
+        height: 250px;
+    }
 }
 
 .port-equip-card {
