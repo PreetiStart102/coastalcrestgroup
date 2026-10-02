@@ -210,12 +210,12 @@
                         <div class="row g-3">
                             <div class="col-6">
                                 <div class="infra-shape-secondary infra-shape-arch">
-                                    <img src="img/COSTAL CREST INFRA DEVELOPER_3.jpg" alt="Civil Engineering & Highways">
+                                    <img src="img/construction-site.jpg" alt="Construction Site Civil Engineering">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="infra-shape-secondary infra-shape-corner">
-                                    <img src="img/COSTAL CREST INFRA DEVELOPER_4.jpg" alt="Commercial Industrial Structures">
+                                    <img src="img/construction-site2.jpg" alt="Construction Site Machinery & Infrastructure">
                                 </div>
                             </div>
                         </div>
@@ -1213,7 +1213,7 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="js/main.js"></script>
 
-    <!-- 3D Interactive & Auto-Rotating Carousel Script (Side-click, Tap anywhere near 3D, & Auto-Play) -->
+    <!-- 3D Interactive & Auto-Rotating Carousel Script (Viewport-activated, Continuous Auto-play & Direct Click Navigation) -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const stage = document.getElementById('infra3dStage');
@@ -1223,7 +1223,8 @@
         let currentIndex = 0;
         const totalCards = cards.length;
         let autoPlayTimer = null;
-        const autoPlayInterval = 3500;
+        const autoPlayInterval = 3000;
+        let isSectionInView = true;
 
         function updateSlider() {
             cards.forEach((card, idx) => {
@@ -1259,23 +1260,27 @@
             goToSlide(currentIndex - 1);
         }
 
-        // Click anywhere on stage or cards
+        // Manual Click Handler: Direct click on any card or stage
         stage.addEventListener('click', function(e) {
             const clickedCard = e.target.closest('.infra-3d-card');
             if (clickedCard) {
-                if (clickedCard.classList.contains('prev')) {
+                const targetIdx = parseInt(clickedCard.getAttribute('data-index'), 10);
+                if (!isNaN(targetIdx)) {
+                    if (targetIdx === currentIndex) {
+                        nextSlide();
+                    } else {
+                        goToSlide(targetIdx);
+                    }
+                } else if (clickedCard.classList.contains('prev')) {
                     prevSlide();
-                    resetAutoPlay();
-                    return;
                 } else {
-                    // Click on active card or next card advances to next
                     nextSlide();
-                    resetAutoPlay();
-                    return;
                 }
+                resetAutoPlay();
+                return;
             }
 
-            // Clicked on stage canvas near cards
+            // Clicked on stage sides
             const rect = stage.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
             if (clickX < rect.width * 0.3) {
@@ -1286,10 +1291,14 @@
             resetAutoPlay();
         });
 
-        // Auto play controls
+        // Continuous Auto Play
         function startAutoPlay() {
             stopAutoPlay();
-            autoPlayTimer = setInterval(nextSlide, autoPlayInterval);
+            if (isSectionInView) {
+                autoPlayTimer = setInterval(function() {
+                    nextSlide();
+                }, autoPlayInterval);
+            }
         }
 
         function stopAutoPlay() {
@@ -1304,14 +1313,29 @@
             startAutoPlay();
         }
 
-        stage.addEventListener('mouseenter', stopAutoPlay);
-        stage.addEventListener('mouseleave', startAutoPlay);
+        // Viewport Visibility Observer - auto-rotates whenever section is active on screen
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    isSectionInView = entry.isIntersecting;
+                    if (entry.isIntersecting) {
+                        startAutoPlay();
+                    } else {
+                        stopAutoPlay();
+                    }
+                });
+            }, { threshold: 0.2 });
 
-        // Touch swipe support
+            const parentSection = stage.closest('.infra-split-section') || stage;
+            observer.observe(parentSection);
+        } else {
+            startAutoPlay();
+        }
+
+        // Touch Swipe Support for mobile devices
         let startX = 0;
         stage.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
-            stopAutoPlay();
         }, { passive: true });
 
         stage.addEventListener('touchend', (e) => {
@@ -1320,11 +1344,11 @@
             if (Math.abs(diffX) > 40) {
                 if (diffX > 0) nextSlide();
                 else prevSlide();
+                resetAutoPlay();
             }
-            startAutoPlay();
         }, { passive: true });
 
-        // Initial render
+        // Initial setup
         updateSlider();
         startAutoPlay();
     });
