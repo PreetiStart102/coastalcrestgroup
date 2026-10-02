@@ -2860,20 +2860,28 @@ select option {
     margin-bottom: 14px !important;
 }
 
-/* Active Breadcrumb Item Highlight */
+/* Active Breadcrumb Item Styling (Clean Gold Text Only - No Pill Border) */
 .breadcrumb-item.active,
 .breadcrumb-item.active.text-secondary {
     color: var(--bs-secondary) !important;
-    font-weight: 800 !important;
-    background: rgba(249, 208, 30, 0.18) !important;
-    padding: 4px 14px !important;
-    border-radius: 25px !important;
-    border: 1px solid rgba(249, 208, 30, 0.5) !important;
-    display: inline-block;
+    font-weight: 700 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    display: inline !important;
+}
+.breadcrumb {
+    padding: 0 !important;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
 }
 .breadcrumb-item + .breadcrumb-item::before {
     color: rgba(255, 255, 255, 0.75) !important;
-    font-weight: 600;
+    font-weight: 500;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
 }
 
 /* Certificate Showcase Card Animations & Hover Effects */
