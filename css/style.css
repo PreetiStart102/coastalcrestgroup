@@ -2908,14 +2908,14 @@ select option {
 .bg-breadcrumb,
 .bg-breadcrumb.py-5,
 .bg-breadcrumb.py-4 {
-    padding-top: 4.25rem !important;
-    padding-bottom: 4.25rem !important;
+    padding-top: 2.6rem !important;
+    padding-bottom: 2.6rem !important;
 }
 .bg-breadcrumb .container,
 .bg-breadcrumb .container.py-4,
 .bg-breadcrumb .container.py-3 {
-    padding-top: 1.25rem !important;
-    padding-bottom: 1.25rem !important;
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
 }
 
 /* Certificate Showcase Card Animations & Hover Effects */
@@ -3028,7 +3028,7 @@ select option {
 }
 
 .infra-hero-logo {
-    max-height: 50px;
+    max-height: 68px;
     width: auto;
     display: block;
     transition: transform 0.3s ease;
