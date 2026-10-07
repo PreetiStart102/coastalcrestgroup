@@ -3089,7 +3089,7 @@ select option {
 }
 
 .infra-hero-logo {
-    max-height: 68px;
+    max-height: 100px;
     width: auto;
     display: block;
     transition: transform 0.3s ease;
