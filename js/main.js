@@ -11,12 +11,12 @@
     };
     spinner(0);
 
-    // Initiate WOW.js
+    // Initiate WOW.js - zero-lag fast trigger
     if (typeof WOW === 'function') {
         new WOW({
             boxClass: 'wow',
             animateClass: 'animated',
-            offset: 80,
+            offset: 10,
             mobile: true,
             live: true
         }).init();
@@ -137,7 +137,7 @@
         }
     });
 
-    // Scroll Reveal Animation (IntersectionObserver Engine)
+    // Scroll Reveal Animation (IntersectionObserver Engine - pre-triggers 50px before entering viewport)
     function initScrollReveal() {
         var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
         if ('IntersectionObserver' in window) {
@@ -149,8 +149,8 @@
                     }
                 });
             }, {
-                rootMargin: '0px 0px -40px 0px',
-                threshold: 0.05
+                rootMargin: '50px 0px 50px 0px',
+                threshold: 0.01
             });
 
             reveals.forEach(function(el) {
@@ -162,48 +162,60 @@
                 var windowHeight = window.innerHeight;
                 reveals.forEach(function(el) {
                     var elementTop = el.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - 40) {
+                    if (elementTop < windowHeight + 50) {
                         el.classList.add('revealed');
                     }
                 });
             }
-            window.addEventListener('scroll', revealOnScroll);
+            window.addEventListener('scroll', revealOnScroll, { passive: true });
             revealOnScroll();
         }
     }
     initScrollReveal();
 
-    // Counter animation for stat numbers
+    // Counter animation for stat numbers (IntersectionObserver powered)
     function animateCounters() {
         var counters = document.querySelectorAll('.counter-value');
-        counters.forEach(function(counter) {
+        if (!counters.length) return;
+
+        function startCounter(counter) {
             if (counter.dataset.animated) return;
-            var rect = counter.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 50) {
-                counter.dataset.animated = 'true';
-                var target = parseInt(counter.getAttribute('data-count'));
-                var suffix = counter.getAttribute('data-suffix') || '';
-                var prefix = counter.getAttribute('data-prefix') || '';
-                var duration = 1800;
-                var start = 0;
-                var startTime = null;
-                function step(timestamp) {
-                    if (!startTime) startTime = timestamp;
-                    var progress = Math.min((timestamp - startTime) / duration, 1);
-                    var easeOut = 1 - Math.pow(1 - progress, 3);
-                    var current = Math.floor(easeOut * target);
-                    counter.textContent = prefix + current + suffix;
-                    if (progress < 1) {
-                        requestAnimationFrame(step);
-                    } else {
-                        counter.textContent = prefix + target + suffix;
-                    }
+            counter.dataset.animated = 'true';
+            var target = parseInt(counter.getAttribute('data-count'));
+            var suffix = counter.getAttribute('data-suffix') || '';
+            var prefix = counter.getAttribute('data-prefix') || '';
+            var duration = 1600;
+            var startTime = null;
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var easeOut = 1 - Math.pow(1 - progress, 3);
+                var current = Math.floor(easeOut * target);
+                counter.textContent = prefix + current + suffix;
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    counter.textContent = prefix + target + suffix;
                 }
-                requestAnimationFrame(step);
             }
-        });
+            requestAnimationFrame(step);
+        }
+
+        if ('IntersectionObserver' in window) {
+            var counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        startCounter(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -20px 0px', threshold: 0.1 });
+
+            counters.forEach(function(c) { counterObserver.observe(c); });
+        } else {
+            counters.forEach(function(c) { startCounter(c); });
+        }
     }
-    window.addEventListener('scroll', animateCounters);
     animateCounters();
 
     // Circle progress ring stats animation
