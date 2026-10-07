@@ -16,6 +16,10 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
+    # Redirect /index or /index.html to Root Domain (/)
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index(\.html)?[\ \?] [NC]
+    RewriteRule ^index(\.html)?$ / [R=301,L]
+
     # 301 Redirect .html URLs to Clean URLs (SEO Best Practice)
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
     RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]

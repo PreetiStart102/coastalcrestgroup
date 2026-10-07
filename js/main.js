@@ -206,6 +206,74 @@
     window.addEventListener('scroll', animateCounters);
     animateCounters();
 
+    // Circle progress ring stats animation
+    function initCircleProgressStats() {
+        var circleCards = document.querySelectorAll('.circle-stat-card');
+        if (!circleCards.length) return;
+
+        if ('IntersectionObserver' in window) {
+            var circleObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var card = entry.target;
+                        var circle = card.querySelector('.circle-progress-bar');
+                        if (circle && !card.dataset.animated) {
+                            card.dataset.animated = 'true';
+                            var percent = parseInt(card.getAttribute('data-percent')) || 80;
+                            var maxDash = 314;
+                            var offset = maxDash - (maxDash * (percent / 100));
+                            circle.style.strokeDashoffset = offset;
+                        }
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            circleCards.forEach(function(card) {
+                circleObserver.observe(card);
+            });
+        }
+    }
+    initCircleProgressStats();
+
+    // Stacked Cards dynamic scroll scale and dimming effect with requestAnimationFrame
+    function initStackedCardsAnimation() {
+        var stackedCards = document.querySelectorAll('.stacked-card');
+        if (!stackedCards.length) return;
+
+        var ticking = false;
+
+        function updateStackedCards() {
+            stackedCards.forEach(function(card, index) {
+                var nextCard = stackedCards[index + 1];
+                if (nextCard) {
+                    var nextRect = nextCard.getBoundingClientRect();
+                    var stickyTop = 90 + (index * 18);
+                    if (nextRect.top <= stickyTop + 160) {
+                        var progress = Math.max(0, Math.min(1, (stickyTop + 160 - nextRect.top) / 160));
+                        var scale = 1 - (progress * 0.04);
+                        var opacity = 1 - (progress * 0.18);
+                        card.style.transform = 'scale(' + scale + ') translateZ(0)';
+                        card.style.opacity = opacity.toFixed(3);
+                    } else {
+                        card.style.transform = 'scale(1) translateZ(0)';
+                        card.style.opacity = '1';
+                    }
+                }
+            });
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateStackedCards);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        updateStackedCards();
+    }
+    initStackedCardsAnimation();
+
     // Career Application Form submission handler
     $('#careerForm').on('submit', function (e) {
         e.preventDefault();
@@ -235,3 +303,4 @@
     });
 
 })(jQuery);
+

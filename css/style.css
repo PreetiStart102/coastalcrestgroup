@@ -277,10 +277,10 @@ p {
 }
 .navbar-brand-logo,
 .navbar-brand img {
-    max-height: 82px !important;
-    height: 82px !important;
+    max-height: 72px !important;
+    height: 72px !important;
     width: auto !important;
-    max-width: 320px !important;
+    max-width: 300px !important;
     object-fit: contain;
     margin: 0 !important;
     padding: 0 !important;
@@ -290,9 +290,9 @@ p {
 @media (max-width: 991px) {
     .navbar-brand-logo,
     .navbar-brand img {
-        max-height: 72px !important;
-        height: 72px !important;
-        max-width: 270px !important;
+        max-height: 60px !important;
+        height: 60px !important;
+        max-width: 250px !important;
     }
 }
 
@@ -743,9 +743,9 @@ a.sector-dropdown-card.active,
 @media (max-width: 576px) {
     .navbar-brand-logo,
     .navbar-brand img {
-        max-height: 64px !important;
-        height: 64px !important;
-        max-width: 245px !important;
+        max-height: 52px !important;
+        height: 52px !important;
+        max-width: 220px !important;
     }
     .navbar {
         padding-top: 8px !important;
@@ -1386,6 +1386,27 @@ p.text-uppercase.text-secondary::after,
 .leadership-box .text-secondary {
     color: var(--bs-secondary) !important;
 }
+.leadership-header-tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    color: var(--bs-secondary) !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 0.5rem !important;
+}
+.leadership-header-tag::before,
+.leadership-header-tag::after {
+    content: '' !important;
+    display: inline-block !important;
+    width: 22px !important;
+    height: 3px !important;
+    background-color: var(--bs-secondary) !important;
+    border-radius: 2px !important;
+    flex-shrink: 0 !important;
+}
 .leadership-quote {
     background: rgba(255, 255, 255, 0.06);
     border-left: 4px solid var(--bs-secondary);
@@ -1774,13 +1795,14 @@ p.text-uppercase.text-secondary::after,
     text-decoration: none !important;
 }
 .footer-brand-logo {
-    background: #ffffff;
-    padding: 10px 18px;
-    border-radius: 10px;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
     display: inline-block;
 }
 .footer-brand-logo img {
-    max-height: 65px !important;
+    max-height: 75px !important;
     height: auto;
     width: auto;
     display: block;
@@ -2901,15 +2923,16 @@ select option {
 /* Footer Brand Logo & Head Office Spacing Enhancements */
 .footer-brand-logo {
     display: inline-block !important;
-    background: #ffffff !important;
-    padding: 8px 16px !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
     margin-bottom: 20px !important;
 }
 .footer-brand-logo img {
-    max-height: 85px !important;
-    height: 85px !important;
+    max-height: 115px !important;
+    max-width: 280px !important;
+    height: auto !important;
     width: auto !important;
     object-fit: contain !important;
 }
@@ -3091,7 +3114,7 @@ select option {
     transform: translateY(-3px);
 }
 
-/* ===== Stacked Cards - Pure CSS Sticky Deck ===== */
+/* ===== Stacked Cards - Pure CSS Sticky Deck (GPU Accelerated) ===== */
 #stacked-verticals {
     position: relative;
     background: #f4f7fc;
@@ -3102,37 +3125,37 @@ select option {
     position: relative;
     max-width: 1140px;
     margin: 0 auto;
-    padding: 0 0 20px;
+    padding: 0 0 50px;
 }
 
 .stacked-card {
     position: sticky;
-    top: 120px;
-    margin-bottom: 60vh;
-    border-radius: 20px;
+    top: 95px;
+    margin-bottom: 12vh;
+    border-radius: 24px;
     overflow: hidden;
     background: linear-gradient(135deg, #001659 0%, #032070 100%);
     border: 1px solid rgba(249, 208, 30, 0.35);
     box-shadow: 0 20px 50px rgba(0, 22, 89, 0.25);
-    transition: box-shadow 0.35s ease, transform 0.35s ease;
-    will-change: transform, top;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s ease;
+    will-change: transform, opacity;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform: translateZ(0);
 }
 
-.stacked-card:nth-child(1) { top: 120px; z-index: 1; }
-.stacked-card:nth-child(2) { top: 135px; z-index: 2; }
-.stacked-card:nth-child(3) { top: 150px; z-index: 3; }
-.stacked-card:nth-child(4) { top: 165px; z-index: 4; }
-.stacked-card:nth-child(5) { top: 180px; z-index: 5; margin-bottom: 30px; }
+.stacked-card:nth-child(1) { top: 90px; z-index: 1; }
+.stacked-card:nth-child(2) { top: 108px; z-index: 2; }
+.stacked-card:nth-child(3) { top: 126px; z-index: 3; }
+.stacked-card:nth-child(4) { top: 144px; z-index: 4; }
+.stacked-card:nth-child(5) { top: 162px; z-index: 5; margin-bottom: 40px; }
 
 .stacked-card:hover {
-    box-shadow: 0 28px 65px rgba(0, 22, 89, 0.35);
+    box-shadow: 0 28px 65px rgba(0, 22, 89, 0.45);
 }
 
 .stacked-card-img-box {
-    height: 380px;
+    height: 395px;
     position: relative;
     overflow: hidden;
 }
@@ -3141,7 +3164,7 @@ select option {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s ease;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .stacked-card:hover .stacked-card-img {
@@ -3153,16 +3176,136 @@ select option {
         position: relative !important;
         top: 0 !important;
         margin-bottom: 24px !important;
+        transform: none !important;
+        filter: none !important;
     }
     .stacked-card:nth-child(5) {
         margin-bottom: 24px !important;
     }
     .stacked-card-img-box {
-        height: 220px;
+        height: 250px;
     }
 }
 
+/* Dynamic Running Key Performance Metric Cards with Continuously Moving Thin Border Line */
+.moving-border-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 22, 89, 0.08);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    z-index: 1;
+}
+
+.moving-border-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 120deg,
+        #001659 180deg,
+        #f9d01e 240deg,
+        transparent 300deg,
+        transparent 360deg
+    );
+    animation: rotateMovingBorderLine 3.5s linear infinite;
+    z-index: -2;
+}
+
+.moving-border-card::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #ffffff;
+    border-radius: 14px;
+    z-index: -1;
+}
+
+@keyframes rotateMovingBorderLine {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.moving-border-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 22, 89, 0.16);
+}
+
+/* Dark Stats Banner & Circle Stat Cards (power-infra.html) */
+.dark-stats-banner {
+    background: linear-gradient(135deg, #001248 0%, #001a5e 60%, #00227a 100%);
+    border-top: 4px solid var(--bs-secondary);
+    border-bottom: 4px solid var(--bs-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.circle-stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 28px 20px;
+    transition: all 0.35s ease;
+    height: 100%;
+}
+
+.circle-stat-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--bs-secondary);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.circle-progress-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+}
+
+.circle-progress-container svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circle-progress-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.12);
+    stroke-width: 9;
+}
+
+.circle-progress-bar {
+    fill: none;
+    stroke: #f9d01e;
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.circle-progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
 /* Marine Fleet Equipment Cards */
+
 .marine-fleet-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -3314,3 +3457,114 @@ select option {
     background: var(--bs-secondary);
     color: var(--bs-primary);
 }
+
+/* Custom Tender & Engineering Inquiry Premium Card */
+.custom-tender-inquiry-card {
+    background: linear-gradient(135deg, #001659 0%, #002b80 60%, #0b3ba7 100%);
+    border: 1px solid rgba(249, 208, 30, 0.35);
+    border-radius: 20px;
+    padding: 28px 36px 0 36px;
+    max-width: 1060px;
+    margin: 0 auto;
+    box-shadow: 0 8px 24px rgba(0, 22, 89, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.custom-tender-inquiry-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(249, 208, 30, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.custom-tender-inquiry-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 22, 89, 0.22);
+    border-color: rgba(249, 208, 30, 0.7);
+}
+
+/* Inquiry Card Buttons with hover visibility fixes */
+.btn-inquiry-primary {
+    background-color: #f9d01e !important;
+    color: #001659 !important;
+    border: 2px solid #f9d01e !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-inquiry-primary:hover,
+.btn-inquiry-primary:focus {
+    background-color: #ffffff !important;
+    color: #001659 !important;
+    border-color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 208, 30, 0.35);
+}
+
+.btn-inquiry-secondary {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.7) !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-inquiry-secondary:hover,
+.btn-inquiry-secondary:focus {
+    background-color: #f9d01e !important;
+    color: #001659 !important;
+    border-color: #f9d01e !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 208, 30, 0.25);
+}
+
+.btn-inquiry-secondary:hover i,
+.btn-inquiry-secondary:focus i {
+    color: #001659 !important;
+}
+
+.cta-engineer-img {
+    max-height: 295px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 0;
+    vertical-align: bottom;
+    filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.25));
+    transition: transform 0.4s ease;
+}
+
+.custom-tender-inquiry-card:hover .cta-engineer-img {
+    transform: scale(1.02);
+}
+
+/* Footer Brand Logo Styling */
+.footer-brand-logo img {
+    max-height: 115px !important;
+    max-width: 280px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Subtle Mobile Gap Reduction Between Sectors & Leadership Section */
+@media (max-width: 767.98px) {
+    .service.py-5 {
+        padding-bottom: 1rem !important;
+    }
+    .service .container.py-5 {
+        padding-bottom: 0.5rem !important;
+    }
+    .leadership-section {
+        padding-top: 1rem !important;
+    }
+    .leadership-section .container.py-4 {
+        padding-top: 0.5rem !important;
+    }
+}

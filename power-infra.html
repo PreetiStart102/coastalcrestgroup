@@ -28,6 +28,544 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Custom Power & Infra Page Styles -->
+    <style>
+        /* Modern Engineering Divisions Cards */
+        .division-card-modern {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 22, 89, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 22, 89, 0.06);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .division-card-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 22, 89, 0.15);
+            border-color: var(--bs-secondary);
+        }
+        .division-img-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+        .division-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .division-card-modern:hover .division-img-wrapper img {
+            transform: scale(1.08);
+        }
+        .division-badge-pill {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--bs-primary);
+            color: var(--bs-secondary);
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 6px 14px;
+            border-radius: 50rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .division-number-tag {
+            position: absolute;
+            bottom: 12px;
+            right: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.88);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .division-spec-pill {
+            background: var(--bs-light);
+            color: var(--bs-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 22, 89, 0.08);
+        }
+
+        /* Pioneering Power Projects - Expanding Interactive Accordion Gallery */
+        .portfolio-accordion-container {
+            display: flex;
+            gap: 16px;
+            height: 480px;
+            width: 100%;
+        }
+        @media (max-width: 991.98px) {
+            .portfolio-accordion-container {
+                flex-direction: column;
+                height: auto;
+            }
+        }
+        .portfolio-acc-item {
+            position: relative;
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            border: 2px solid rgba(0, 22, 89, 0.08);
+            background: #ffffff;
+            box-shadow: 0 8px 25px rgba(0, 22, 89, 0.06);
+            display: flex;
+            flex-direction: column;
+        }
+        .portfolio-acc-item.active {
+            flex: 3.5;
+            border-color: var(--bs-secondary);
+            box-shadow: 0 18px 45px rgba(0, 22, 89, 0.18);
+        }
+        @media (max-width: 991.98px) {
+            .portfolio-acc-item {
+                flex: none !important;
+                height: 120px;
+            }
+            .portfolio-acc-item.active {
+                height: 440px;
+            }
+        }
+        .portfolio-acc-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 220px;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+        .portfolio-acc-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease, filter 0.5s ease;
+        }
+        .portfolio-acc-item:not(.active) .portfolio-acc-img {
+            filter: brightness(0.7) contrast(1.1);
+        }
+        .portfolio-acc-item.active .portfolio-acc-img {
+            filter: brightness(0.95);
+            transform: scale(1.05);
+        }
+        
+        /* Inactive Collapsed Title Tag */
+        .acc-collapsed-bar {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 22, 89, 0.2) 0%, rgba(0, 22, 89, 0.85) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 16px;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+            z-index: 2;
+        }
+        .portfolio-acc-item.active .acc-collapsed-bar {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .acc-collapsed-title {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .acc-collapsed-tag {
+            color: var(--bs-secondary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-uppercase: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Expanded Active Card Body */
+        .acc-expanded-body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(0, 22, 89, 0) 0%, rgba(0, 22, 89, 0.88) 35%, rgba(0, 22, 89, 0.96) 100%);
+            padding: 24px;
+            color: #ffffff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
+            z-index: 3;
+            pointer-events: none;
+        }
+        .portfolio-acc-item.active .acc-expanded-body {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Active Badge Top Right */
+        .acc-active-tag {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--bs-primary);
+            color: var(--bs-secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 50rem;
+            border: 1px solid rgba(249, 208, 30, 0.5);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 4;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.2s;
+        }
+        .portfolio-acc-item.active .acc-active-tag {
+            opacity: 1;
+        }
+
+        /* Navigation Dots */
+        .acc-dots-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .acc-dot-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 22, 89, 0.2);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .acc-dot-btn.active {
+            width: 32px;
+            border-radius: 20px;
+            background: var(--bs-secondary);
+            border-color: var(--bs-primary);
+        }
+
+        /* Tender CTA Banner Flush-Bottom Engineer Image Alignment */
+        .custom-tender-inquiry-card {
+            padding-bottom: 0 !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-engineer-img-flush {
+            max-height: 285px !important;
+            width: auto !important;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 0 !important;
+            vertical-align: bottom !important;
+            filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.25));
+            transition: transform 0.4s ease;
+        }
+        .custom-tender-inquiry-card:hover .cta-engineer-img-flush {
+            transform: scale(1.03);
+        }
+
+        /* Dynamic EHV Execution Lifecycle Canvas Showcase Animations */
+        .lifecycle-dynamic-canvas {
+            background: linear-gradient(135deg, #001038 0%, #001f5c 50%, #000c2c 100%);
+            border-radius: 28px;
+            padding: 45px 35px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 16, 56, 0.4);
+            border: 1px solid rgba(249, 208, 30, 0.25);
+            animation: canvasAmbientPulse 6s ease-in-out infinite alternate;
+        }
+        @media (max-width: 767.98px) {
+            .lifecycle-dynamic-canvas {
+                padding: 25px 18px;
+                border-radius: 20px;
+            }
+        }
+        @keyframes canvasAmbientPulse {
+            0% { box-shadow: 0 20px 50px rgba(0, 16, 56, 0.4), 0 0 20px rgba(249, 208, 30, 0.05); }
+            100% { box-shadow: 0 30px 70px rgba(0, 16, 56, 0.6), 0 0 35px rgba(249, 208, 30, 0.22); }
+        }
+
+        .lifecycle-glow-grid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(249, 208, 30, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+            opacity: 0.7;
+            animation: gridMeshDrift 20s linear infinite;
+        }
+        @keyframes gridMeshDrift {
+            0% { background-position: 0 0; }
+            100% { background-position: 48px 48px; }
+        }
+
+        /* Animated High-Voltage Progress Bar across Top of Canvas */
+        .lifecycle-progress-bar-wrap {
+            height: 5px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .lifecycle-progress-fill {
+            height: 100%;
+            width: 25%;
+            background: linear-gradient(90deg, #f9d01e 0%, #00e5ff 100%);
+            border-radius: 4px;
+            box-shadow: 0 0 12px #f9d01e;
+            transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Stage Nav Bar Tabs - Completely Static & No Yellow Underline */
+        .stage-nav-pill-wrapper {
+            display: flex;
+            gap: 12px;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 35px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        @media (max-width: 991.98px) {
+            .stage-nav-pill-wrapper {
+                flex-wrap: wrap;
+            }
+        }
+        .stage-nav-pill {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 14px 16px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(8px);
+            position: relative;
+            transform: none !important;
+        }
+        .stage-nav-pill:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(249, 208, 30, 0.4);
+            color: #ffffff;
+            transform: none !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .stage-nav-pill.active {
+            background: rgba(249, 208, 30, 0.15);
+            border-color: #f9d01e;
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(249, 208, 30, 0.25);
+            transform: none !important;
+            animation: none !important;
+        }
+        .stage-nav-pill.active::after {
+            display: none !important;
+            content: none !important;
+        }
+        .stage-nav-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #f9d01e;
+        }
+        .stage-nav-pill:hover .stage-nav-num {
+            transform: none !important;
+        }
+        .stage-nav-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Dynamic Panel Transition & Sub-element Entrance Sequence */
+        .stage-panel-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .stage-panel-content.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stage-panel-content.active .animate-stage-badge {
+            animation: stageBadgeEntrance 0.45s cubic-bezier(0.165, 0.84, 0.44, 1) forwards 0.05s;
+        }
+        .stage-panel-content.active .animate-stage-title {
+            animation: stageTitleEntrance 0.45s cubic-bezier(0.165, 0.84, 0.44, 1) forwards 0.1s;
+        }
+        .stage-panel-content.active .animate-stage-desc {
+            animation: stageDescEntrance 0.45s cubic-bezier(0.165, 0.84, 0.44, 1) forwards 0.15s;
+        }
+        .stage-panel-content.active .stage-deliverable-card {
+            animation: cardStaggerPop 0.45s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            opacity: 0;
+        }
+        .stage-panel-content.active .stage-deliverable-card:nth-child(1) { animation-delay: 0.15s; }
+        .stage-panel-content.active .stage-deliverable-card:nth-child(2) { animation-delay: 0.22s; }
+        .stage-panel-content.active .stage-deliverable-card:nth-child(3) { animation-delay: 0.29s; }
+        .stage-panel-content.active .stage-deliverable-card:nth-child(4) { animation-delay: 0.36s; }
+        .stage-panel-content.active .animate-stage-footer {
+            animation: stageFooterEntrance 0.45s cubic-bezier(0.165, 0.84, 0.44, 1) forwards 0.42s;
+            opacity: 0;
+        }
+
+        @keyframes stageBadgeEntrance {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes stageTitleEntrance {
+            0% { opacity: 0; transform: translateX(-15px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes stageDescEntrance {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes cardStaggerPop {
+            0% { opacity: 0; transform: translateY(12px) scale(0.96); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes stageFooterEntrance {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Stage Image Frame Animation */
+        .stage-img-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 380px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+        .stage-panel-content.active .stage-img-frame {
+            border-color: rgba(249, 208, 30, 0.4);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(249, 208, 30, 0.15);
+            animation: frameZoomIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+        @keyframes frameZoomIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .stage-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease, filter 0.5s ease;
+        }
+        .stage-panel-content.active .stage-img-frame img {
+            transform: scale(1.05);
+        }
+
+        /* Technical Deliverable Pill Cards & Hover Effects */
+        .stage-deliverable-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 12px 16px;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .stage-deliverable-card:hover {
+            background: rgba(249, 208, 30, 0.15);
+            border-color: rgba(249, 208, 30, 0.5);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .stage-deliverable-card i {
+            transition: transform 0.4s ease, color 0.3s ease;
+        }
+        .stage-deliverable-card:hover i {
+            transform: scale(1.3) rotate(10deg);
+            color: #00e5ff !important;
+        }
+
+        /* Fixed Stage Badge Placement */
+        .animate-stage-badge {
+            display: inline-block !important;
+            background-color: #f9d01e !important;
+            color: #001659 !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.5px !important;
+            padding: 6px 14px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+            margin-bottom: 14px !important;
+        }
+
+        /* Fixed Stage Prev & Next Navigation Button Styling & Hover States */
+        .stage-nav-btn {
+            font-weight: 700 !important;
+            padding: 8px 18px !important;
+            border-radius: 10px !important;
+            font-size: 0.82rem !important;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            cursor: pointer !important;
+            text-decoration: none !important;
+        }
+        .stage-nav-btn[data-dir="next"] {
+            background-color: #f9d01e !important;
+            color: #001659 !important;
+            border: 1px solid #f9d01e !important;
+            box-shadow: 0 4px 12px rgba(249, 208, 30, 0.3) !important;
+        }
+        .stage-nav-btn[data-dir="next"]:hover,
+        .stage-nav-btn[data-dir="next"]:focus,
+        .stage-nav-btn[data-dir="next"]:active {
+            background-color: #ffffff !important;
+            color: #001659 !important;
+            border-color: #ffffff !important;
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5) !important;
+            transform: translateY(-2px) !important;
+        }
+        .stage-nav-btn[data-dir="prev"] {
+            background-color: transparent !important;
+            color: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        }
+        .stage-nav-btn[data-dir="prev"]:hover,
+        .stage-nav-btn[data-dir="prev"]:focus,
+        .stage-nav-btn[data-dir="prev"]:active {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            color: #f9d01e !important;
+            border-color: #f9d01e !important;
+            transform: translateY(-2px) !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,8 +585,7 @@
             <div class="col-lg-7 text-center text-lg-start">
                 <div class="d-flex flex-wrap align-items-center">
                     <a href="mailto:coastalcrestinfradevelopers@gmail.com" class="text-white me-3 text-decoration-none"><i class="fas fa-envelope text-info me-1"></i> coastalcrestinfradevelopers@gmail.com</a>
-                    <a href="tel:+919494093313" class="text-white me-3 text-decoration-none"><i class="fas fa-phone-alt text-info me-1"></i> +91 94940 93313</a>
-                    <a href="tel:+917382655244" class="text-white text-decoration-none"><i class="fas fa-phone-alt text-info me-1"></i> +91 73826 55244</a>
+                    <a href="tel:+917416642233" class="text-white text-decoration-none"><i class="fas fa-phone-alt text-info me-1"></i> +91 74166 42233</a>
                 </div>
             </div>
             <div class="col-lg-5 text-center text-lg-end">
@@ -69,28 +606,28 @@
     <div class="container-fluid bg-white sticky-top shadow-sm px-0 border-bottom">
         <nav class="navbar navbar-expand-lg navbar-light py-2 px-3 px-lg-4 w-100">
             <a href="index.html" class="navbar-brand me-4 p-0">
-                <img src="img/Main_Coastal_group_logo.png" alt="Coastal Crest Group" class="navbar-brand-logo">
+                <img src="img/footer_logo.jpeg" alt="Coastal Crest Group" class="navbar-brand-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse bg-white justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ms-lg-3 me-auto align-items-center">
-                    <a href="index.html" class="nav-item nav-link ">Home</a>
+                    <a href="index.html" class="nav-item nav-link">Home</a>
 
                     <!-- About Dropdown -->
                     <div class="nav-item dropdown">
-                        <a href="about.html" class="nav-link dropdown-toggle " data-bs-toggle="dropdown">About Us <i class="fas fa-chevron-down nav-arrow"></i></a>
+                        <a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About Us <i class="fas fa-chevron-down nav-arrow"></i></a>
                         <div class="dropdown-menu m-0 shadow-lg border-0 rounded-3">
-                            <a href="about.html" class="dropdown-item ">Corporate Overview</a>
+                            <a href="about.html" class="dropdown-item">Corporate Overview</a>
                             <a href="about.html#vision" class="dropdown-item">Vision & Mission</a>
                             <a href="about.html#leadership" class="dropdown-item">Executive Leadership</a>
-                            <a href="portfolio.html" class="dropdown-item ">Track Record</a>
-                            <a href="certifications.html" class="dropdown-item ">Quality & HSE Standards</a>
+                            <a href="portfolio.html" class="dropdown-item">Track Record</a>
+                            <a href="certifications.html" class="dropdown-item">Quality & HSE Standards</a>
                         </div>
                     </div>
 
-                                        <!-- Mega Dropdown (Coastal Crest Sectors) -->
+                    <!-- Mega Dropdown (Coastal Crest Sectors) -->
                     <div class="nav-item dropdown dropdown-mega">
                         <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Coastal Crest Sectors <i class="fas fa-chevron-down nav-arrow"></i></a>
                         <div class="dropdown-menu dropdown-mega-menu shadow-lg border-0 rounded-3">
@@ -98,7 +635,7 @@
                                 <div class="row g-3 gy-3">
                                     <!-- Row 1: 3 Boxes in a row -->
                                     <div class="col-lg-4 col-md-6">
-                                        <a href="infra-developers.html" class="sector-dropdown-card text-decoration-none ">
+                                        <a href="infra-developers.html" class="sector-dropdown-card text-decoration-none">
                                             <div class="d-flex align-items-center mb-2">
                                                 <img src="img/coastal_crest_infra_sectorimg.png" alt="Infra & Developers" class="sector-dropdown-img">
                                                 <h6 class="mb-0 fw-bold text-primary">Infra & Developers</h6>
@@ -108,7 +645,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
-                                        <a href="ports-shipping.html" class="sector-dropdown-card text-decoration-none ">
+                                        <a href="ports-shipping.html" class="sector-dropdown-card text-decoration-none">
                                             <div class="d-flex align-items-center mb-2">
                                                 <img src="img/Portsshipingsectorimage.png" alt="Ports & Shipping" class="sector-dropdown-img">
                                                 <h6 class="mb-0 fw-bold text-primary">Ports & Shipping</h6>
@@ -130,7 +667,7 @@
 
                                     <!-- Row 2: 2 Boxes in a row -->
                                     <div class="col-lg-6 col-md-6">
-                                        <a href="pharma-infra.html" class="sector-dropdown-card text-decoration-none ">
+                                        <a href="pharma-infra.html" class="sector-dropdown-card text-decoration-none">
                                             <div class="d-flex align-items-center mb-2">
                                                 <img src="img/haplivpharma_sectorimg.png" alt="Hapliv Pharma India Pvt Ltd" class="sector-dropdown-img">
                                                 <h6 class="mb-0 fw-bold text-primary">Hapliv Pharma India Pvt Ltd</h6>
@@ -140,7 +677,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
-                                        <a href="pudami-consultancy.html" class="sector-dropdown-card text-decoration-none ">
+                                        <a href="pudami-consultancy.html" class="sector-dropdown-card text-decoration-none">
                                             <div class="d-flex align-items-center mb-2">
                                                 <img src="img/pudamiconsultancy_sectorimg.png" alt="Pudami Consultancy Services" class="sector-dropdown-img">
                                                 <div class="d-flex align-items-center flex-wrap gap-2">
@@ -157,19 +694,19 @@
                         </div>
                     </div>
 
-                                        <!-- Sustainability Dropdown (Unified Design) -->
+                    <!-- Sustainability Dropdown (Unified Design) -->
                     <div class="nav-item dropdown">
-                        <a href="sustainability.html" class="nav-link dropdown-toggle " data-bs-toggle="dropdown">Sustainability <i class="fas fa-chevron-down nav-arrow"></i></a>
+                        <a href="sustainability.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sustainability <i class="fas fa-chevron-down nav-arrow"></i></a>
                         <div class="dropdown-menu m-0 shadow-lg border-0 rounded-3">
-                            <a href="sustainability.html" class="dropdown-item ">ESG Framework</a>
-                            <a href="sustainability-environment.html" class="dropdown-item ">Environment</a>
-                            <a href="sustainability-safety.html" class="dropdown-item ">Health & Safety</a>
-                            <a href="sustainability-governance.html" class="dropdown-item ">Corporate Governance</a>
-                            <a href="sustainability-community.html" class="dropdown-item ">Community Impact</a>
+                            <a href="sustainability.html" class="dropdown-item">ESG Framework</a>
+                            <a href="sustainability-environment.html" class="dropdown-item">Environment</a>
+                            <a href="sustainability-safety.html" class="dropdown-item">Health & Safety</a>
+                            <a href="sustainability-governance.html" class="dropdown-item">Corporate Governance</a>
+                            <a href="sustainability-community.html" class="dropdown-item">Community Impact</a>
                         </div>
                     </div>
 
-                    <a href="careers.html" class="nav-item nav-link ">Careers</a>
+                    <a href="careers.html" class="nav-item nav-link">Careers</a>
 
                 </div>
 
@@ -184,64 +721,784 @@
     <!-- Navbar End -->
 
 
-    <!-- Header Banner -->
+    <!-- Header Banner Showcase -->
     <div class="container-fluid bg-breadcrumb py-5">
-        <div class="container text-center py-4" style="max-width: 900px;">
-            <div class="mb-3">
-                <img src="img/powerand_infra_logo.png" alt="Power & Infra" style="max-height: 75px;" class="bg-white p-2 rounded shadow-sm">
+        <div class="container text-center py-4" style="max-width: 1050px;">
+            <div class="mb-3 wow fadeInDown" data-wow-delay="0.1s">
+                <div class="d-inline-block bg-white px-3 py-2 rounded-3 shadow-lg">
+                    <img src="img/powerand_infra_logo.png" alt="Power & Infra Division" style="max-height: 85px; width: auto; display: block;">
+                </div>
             </div>
-            <h1 class="text-white display-4 mb-2 fw-bold" style="font-family: 'Playfair Display', Georgia, serif; letter-spacing: -0.2px;">Power & Infra</h1>
-            <p class="text-light fs-6" style="font-family: 'DM Sans', sans-serif; letter-spacing: 0.3px;">High-Voltage Transmission, Substations & Green Energy Grids</p>
+            <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-3 shadow-sm" style="letter-spacing: 1.5px;">HIGH-VOLTAGE POWER & ENERGY INFRASTRUCTURE</span>
+            <h1 class="text-white display-4 mb-3 fw-bold wow fadeInUp" data-wow-delay="0.2s" style="font-family: 'Playfair Display', Georgia, serif; letter-spacing: -0.2px; max-width: 1050px; margin: 0 auto;">
+                Empowering National Power Grids &amp; Green Energy Evacuation
+            </h1>
+            <p class="text-light fs-5 mb-4 opacity-90 wow fadeInUp" data-wow-delay="0.3s" style="line-height: 1.7; font-family: 'DM Sans', sans-serif; max-width: 900px; margin: 0 auto;">
+                Pioneering turnkey EHV transmission corridors up to 400kV, 132kV/220kV/400kV AIS &amp; GIS substations, AAA conductor stringing, and green energy evacuation corridors for major power utilities and renewable developers.
+            </p>
+            <ol class="breadcrumb justify-content-center mb-0 mt-2">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-white">Sectors</a></li>
+                <li class="breadcrumb-item active text-secondary">Power &amp; Infra</li>
+            </ol>
         </div>
     </div>
 
 
-    <!-- Under Development Section -->
-    <div class="container-fluid py-5 bg-light">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="bg-white p-5 rounded-3 shadow-sm border" style="border-top: 5px solid var(--bs-secondary) !important;">
-                        <div class="mx-auto mb-4 d-flex align-items-center justify-content-center bg-primary rounded-circle shadow" style="width: 84px; height: 84px; border: 3px solid var(--bs-secondary);">
-                            <i class="fas fa-bolt text-secondary fa-2x"></i>
+    <!-- Executive Sector Overview & Key Performance Metric Cards -->
+    <div class="container-fluid py-5 bg-white border-bottom position-relative">
+        <div class="container py-4">
+            <!-- Section Title Header -->
+            <div class="text-center mb-5 reveal">
+                <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2" style="letter-spacing: 1px;">WORLD-CLASS POWER & ENERGY INFRASTRUCTURE</span>
+                <h2 class="display-5 fw-bold text-primary mb-3" style="font-family: 'Playfair Display', Georgia, serif;">Powering Communities &amp; Grid Reliability Nationwide</h2>
+                <div class="section-title-line mx-auto mb-3"></div>
+                <p class="text-muted fs-6 mb-4" style="max-width: 850px; margin: 0 auto;">
+                    Executing mega-scale extra-high voltage transmission lines, gas-insulated switchyards, and renewable power integration contracts engineered for maximum grid resilience, zero downtime, and strict HSE standards.
+                </p>
+            </div>
+
+            <!-- 4 Running Metric Cards -->
+            <div class="row g-3 g-lg-4 justify-content-center text-center mb-5 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-6 col-lg-3">
+                    <div class="moving-border-card h-100">
+                        <div class="d-flex align-items-center justify-content-center mb-2 text-primary fs-3">
+                            <i class="fas fa-broadcast-tower me-2 text-secondary"></i>
+                            <h3 class="fw-bold text-primary mb-0 display-6 counter-value" data-count="400" data-suffix="+ kV">0</h3>
                         </div>
-                        <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-3">UNDER DEVELOPMENT</span>
-                        <h2 class="display-6 fw-bold text-primary mb-3">Power & Infra Portal Coming Soon</h2>
-                        <p class="text-muted fs-6 mb-4" style="max-width: 650px; margin: 0 auto; line-height: 1.7;">
-                            Coastal Crest Group is currently assembling our detailed portfolio for transmission lines (AAA conductors), 132kV/220kV substation packages, and green energy grid installations. Technical specifications will be available shortly.
+                        <span class="small text-muted fw-bold text-uppercase tracking-wider">EHV Line Transmission</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="moving-border-card h-100">
+                        <div class="d-flex align-items-center justify-content-center mb-2 text-primary fs-3">
+                            <i class="fas fa-plug me-2 text-secondary"></i>
+                            <h3 class="fw-bold text-primary mb-0 display-6 counter-value" data-count="500" data-suffix="+ MVA">0</h3>
+                        </div>
+                        <span class="small text-muted fw-bold text-uppercase tracking-wider">Substation Capacity</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="moving-border-card h-100">
+                        <div class="d-flex align-items-center justify-content-center mb-2 text-primary fs-3">
+                            <i class="fas fa-bolt me-2 text-secondary"></i>
+                            <h3 class="fw-bold text-primary mb-0 display-6 counter-value" data-count="1200" data-suffix="+ km">0</h3>
+                        </div>
+                        <span class="small text-muted fw-bold text-uppercase tracking-wider">AAA Conductor Lines</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="moving-border-card h-100">
+                        <div class="d-flex align-items-center justify-content-center mb-2 text-primary fs-3">
+                            <i class="fas fa-shield-alt me-2 text-secondary"></i>
+                            <h3 class="fw-bold text-primary mb-0 display-6 counter-value" data-count="100" data-suffix="% ISO">0</h3>
+                        </div>
+                        <span class="small text-muted fw-bold text-uppercase tracking-wider">HSE &amp; CEA Compliant</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-5 align-items-center">
+                <!-- Left Column: High Resolution Power Infrastructure Photo Collage -->
+                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="position-relative overflow-hidden rounded-4 shadow-lg border border-3 border-white mb-3 bg-dark">
+                        <video class="img-fluid rounded-4 w-100" style="max-height: 380px; object-fit: cover; display: block;" autoplay loop muted playsinline poster="img/power_transmission_grid.jpg">
+                            <source src="img/power_energyvideo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="position-relative overflow-hidden rounded-3 shadow-sm border border-2 border-white">
+                                <img src="img/power_substation_switchyard.jpg" alt="220kV Substation Switchyard" class="img-fluid rounded-3 w-100" style="height: 120px; object-fit: cover;">
+                                <span class="position-absolute bottom-0 start-0 w-100 p-1 bg-dark bg-opacity-75 text-white small text-center fw-bold" style="font-size: 0.72rem;">220kV AIS/GIS Switchyard</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="position-relative overflow-hidden rounded-3 shadow-sm border border-2 border-white">
+                                <img src="img/power_solar_evacuation.jpg" alt="Solar Power Evacuation" class="img-fluid rounded-3 w-100" style="height: 120px; object-fit: cover;">
+                                <span class="position-absolute bottom-0 start-0 w-100 p-1 bg-dark bg-opacity-75 text-white small text-center fw-bold" style="font-size: 0.72rem;">Solar Power Evacuation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded-3 border mt-3">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-award text-secondary fs-3 me-3"></i>
+                            <div>
+                                <h6 class="fw-bold text-primary mb-0">ISO 9001:2015 &amp; ISO 45001 Certified</h6>
+                                <span class="small text-muted">Quality &amp; Zero-Harm High Voltage HSE Execution</span>
+                            </div>
+                        </div>
+                        <span class="badge bg-primary text-secondary fw-bold px-3 py-2">EHV EPC</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Strategic Narrative & Capabilities Grid -->
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+                    <div class="bg-light p-4 rounded-4 border-start border-4 border-primary mb-4 shadow-sm">
+                        <h4 class="fw-bold text-primary mb-2 fs-5"><i class="fas fa-bolt me-2 text-secondary"></i>Strategic Power &amp; Energy EPC Partner</h4>
+                        <p class="text-muted small mb-0" style="line-height: 1.7;">
+                            Coastal Crest Group operates as a strategic power EPC contractor delivering extra-high voltage transmission corridors, outdoor AIS switchyards, compact SF6 GIS substations, and solar/wind evacuation infrastructure.
                         </p>
+                    </div>
 
-                        <div class="row g-3 justify-content-center text-start my-4">
-                            <div class="col-md-4">
-                                <div class="p-3 bg-light rounded-3 h-100 border text-center">
-                                    <i class="fas fa-network-wired text-secondary fs-4 mb-2"></i>
-                                    <h6 class="fw-bold text-primary mb-1">Transmission Grids</h6>
-                                    <p class="small text-muted mb-0">High-voltage lines & AAA conductor stringing.</p>
+                    <!-- 2x2 Interactive Capability Cards -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-white rounded-3 border shadow-sm h-100 transition-hover">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="bg-primary text-secondary rounded-2 p-2 me-3 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                        <i class="fas fa-broadcast-tower fs-5"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-primary mb-0">EHV Transmission</h6>
                                 </div>
+                                <p class="small text-muted mb-0">132kV - 400kV steel lattice towers &amp; AAA conductor stringing.</p>
                             </div>
-                            <div class="col-md-4">
-                                <div class="p-3 bg-light rounded-3 h-100 border text-center">
-                                    <i class="fas fa-broadcast-tower text-secondary fs-4 mb-2"></i>
-                                    <h6 class="fw-bold text-primary mb-1">Substations</h6>
-                                    <p class="small text-muted mb-0">132kV / 220kV EPC switchyards & panel boards.</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-white rounded-3 border shadow-sm h-100 transition-hover">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="bg-primary text-secondary rounded-2 p-2 me-3 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                        <i class="fas fa-charging-station fs-5"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-primary mb-0">AIS &amp; GIS Switchyards</h6>
                                 </div>
+                                <p class="small text-muted mb-0">Turnkey substations, power transformers &amp; SCADA panels.</p>
                             </div>
-                            <div class="col-md-4">
-                                <div class="p-3 bg-light rounded-3 h-100 border text-center">
-                                    <i class="fas fa-solar-panel text-secondary fs-4 mb-2"></i>
-                                    <h6 class="fw-bold text-primary mb-1">Renewable Infra</h6>
-                                    <p class="small text-muted mb-0">Solar evacuation lines & clean energy corridors.</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-white rounded-3 border shadow-sm h-100 transition-hover">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="bg-primary text-secondary rounded-2 p-2 me-3 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                        <i class="fas fa-solar-panel fs-5"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-primary mb-0">Renewable Evacuation</h6>
+                                </div>
+                                <p class="small text-muted mb-0">Solar park pooling stations, step-up transformers &amp; bay extensions.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-white rounded-3 border shadow-sm h-100 transition-hover">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="bg-primary text-secondary rounded-2 p-2 me-3 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                        <i class="fas fa-network-wired fs-5"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-primary mb-0">Smart Feeder Networks</h6>
+                                </div>
+                                <p class="small text-muted mb-0">Underground XLPE HT cabling, RMU switchgears &amp; industrial sub-transmission.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap align-items-center gap-3">
+                        <a href="contact.html" class="btn btn-primary py-3 px-4 rounded-pill fw-bold shadow-sm hover-scale">
+                            <i class="fas fa-paper-plane me-2"></i> Submit Power Inquiry
+                        </a>
+                        <div class="d-flex align-items-center text-muted small fw-bold ms-2">
+                            <i class="fas fa-check-circle text-success fs-5 me-2"></i> CEA &amp; IEEE Compliant
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ENGINEERING DIVISIONS (Redesigned Modern 3-Card Interactive Showcase with Animations) -->
+    <div class="container-fluid py-5 bg-light overflow-hidden" id="power-verticals">
+        <div class="container py-4">
+            <!-- Section Header -->
+            <div class="text-center mb-5 reveal">
+                <span class="badge bg-primary text-secondary fw-bold text-uppercase px-3 py-2 mb-2" style="letter-spacing: 1.5px;">SPECIALIZED DIVISIONS</span>
+                <h2 class="display-5 fw-bold text-primary mb-3" style="font-family: 'Playfair Display', Georgia, serif;">Core Power Engineering Divisions</h2>
+                <div class="section-title-line mx-auto mb-3"></div>
+                <p class="text-muted fs-6" style="max-width: 850px; margin: 0 auto;">High-performance extra-high voltage line erection, turnkey switchyards, and clean energy grid interconnections.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Division 1 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="division-card-modern">
+                        <div class="division-img-wrapper">
+                            <img src="img/power_transmission_grid.jpg" alt="High-Voltage EHV Transmission Lines">
+                            <span class="division-badge-pill"><i class="fas fa-broadcast-tower me-1"></i> EHV Transmission</span>
+                            <span class="division-number-tag">01</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <h4 class="fw-bold text-primary mb-3">High-Voltage EHV Transmission (132kV - 400kV)</h4>
+                            <p class="text-muted small mb-4" style="line-height: 1.7;">
+                                Complete EPC execution of extra-high voltage transmission corridors including lattice tower fabrication &amp; erection, high-tension stringing, river crossing structures, and optical ground wire (OPGW) laying.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="d-flex flex-wrap gap-2 pt-3 border-top">
+                                    <span class="division-spec-pill"><i class="fas fa-check text-success me-1"></i> Lattice Towers</span>
+                                    <span class="division-spec-pill"><i class="fas fa-check text-success me-1"></i> AAA Conductors</span>
+                                    <span class="division-spec-pill"><i class="fas fa-check text-success me-1"></i> OPGW Fiber</span>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
-                            <a href="contact.html" class="btn btn-secondary py-3 px-4 rounded-pill fw-bold text-white shadow-sm">
-                                <i class="fas fa-envelope me-2"></i> Inquire for Power Projects
+                <!-- Division 2 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="division-card-modern">
+                        <div class="division-img-wrapper">
+                            <img src="img/power_substation_switchyard.jpg" alt="Turnkey AIS & GIS Substations">
+                            <span class="division-badge-pill"><i class="fas fa-charging-station me-1"></i> Substation EPC</span>
+                            <span class="division-number-tag">02</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <h4 class="fw-bold text-primary mb-3">Turnkey AIS &amp; GIS Substation Engineering</h4>
+                            <p class="text-muted small mb-4" style="line-height: 1.7;">
+                                Turnkey design, civil foundations, erection, testing, and commissioning of Air Insulated Switchyards (AIS) and compact SF6 Gas Insulated Switchyards (GIS) up to 400kV with SCADA protection panels.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="d-flex flex-wrap gap-2 pt-3 border-top">
+                                    <span class="division-spec-pill"><i class="fas fa-check text-success me-1"></i> 400kV GIS/AIS</span>
+                                    <span class="division-spec-pill"><i class="fas fa-check text-success me-1"></i> 315MVA Transformers</span>
+                                    <span class="division-spec-pill"><i class="fas fa-check text-success me-1"></i> SCADA Relays</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Division 3 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="division-card-modern">
+                        <div class="division-img-wrapper">
+                            <img src="img/power_solar_evacuation.jpg" alt="Green Energy Solar Evacuation">
+                            <span class="division-badge-pill"><i class="fas fa-solar-panel me-1"></i> Clean Energy</span>
+                            <span class="division-number-tag">03</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <h4 class="fw-bold text-primary mb-3">Green Energy &amp; Solar Evacuation Corridors</h4>
+                            <p class="text-muted small mb-4" style="line-height: 1.7;">
+                                Connecting utility-scale solar parks and wind energy farms to state &amp; national grids with ultra-low loss evacuation lines, pooling substations, and rapid grid telemetry.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="d-flex flex-wrap gap-2 pt-3 border-top">
+                                    <span class="division-spec-pill"><i class="fas fa-check text-success me-1"></i> Pooling Stations</span>
+                                    <span class="division-spec-pill"><i class="fas fa-check text-success me-1"></i> XLPE HT Cables</span>
+                                    <span class="division-spec-pill"><i class="fas fa-check text-success me-1"></i> CEA Grid Code</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Turnkey Power Project Lifecycle & Execution Methodology (HIGH-IMPACT DYNAMIC CANVAS SHOWCASE) -->
+    <div class="container-fluid py-5 bg-light border-top border-bottom overflow-hidden" id="execution-lifecycle">
+        <div class="container py-4">
+            <!-- Section Title Header with Staggered Scroll Animations -->
+            <div class="text-center mb-5">
+                <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2 wow fadeInDown" data-wow-delay="0.1s" style="letter-spacing: 1.5px;">PROJECT LIFECYCLE</span>
+                <h2 class="display-5 fw-bold text-primary mb-3 wow fadeInUp" data-wow-delay="0.2s" style="font-family: 'Playfair Display', Georgia, serif;">Turnkey EHV Power Execution Lifecycle</h2>
+                <div class="section-title-line mx-auto mb-3 wow zoomIn" data-wow-delay="0.3s"></div>
+                <p class="text-muted fs-6 wow fadeInUp" data-wow-delay="0.4s" style="max-width: 850px; margin: 0 auto;">
+                    Explore Coastal Crest Group's step-by-step EHV power transmission and substation engineering workflow. Click tabs or let auto-slider advance through project stages.
+                </p>
+            </div>
+
+            <!-- Dark Electrical Surge Canvas Container -->
+            <div class="lifecycle-dynamic-canvas wow fadeInUp" data-wow-delay="0.2s">
+                <div class="lifecycle-glow-grid"></div>
+
+                <!-- Animated High-Voltage Stage Progress Bar -->
+                <div class="lifecycle-progress-bar-wrap">
+                    <div class="lifecycle-progress-fill" id="lifecycleProgressFill" style="width: 25%;"></div>
+                </div>
+
+                <!-- Stage Navigator Bar Tabs (Static, No Movement) -->
+                <div class="stage-nav-pill-wrapper">
+                    <div class="stage-nav-pill active" data-stage="0">
+                        <span class="stage-nav-num">01</span>
+                        <div class="stage-nav-title">Survey &amp; LiDAR Design</div>
+                    </div>
+                    <div class="stage-nav-pill" data-stage="1">
+                        <span class="stage-nav-num">02</span>
+                        <div class="stage-nav-title">FAT Type Testing</div>
+                    </div>
+                    <div class="stage-nav-pill" data-stage="2">
+                        <span class="stage-nav-num">03</span>
+                        <div class="stage-nav-title">Crane Erection &amp; Stringing</div>
+                    </div>
+                    <div class="stage-nav-pill" data-stage="3">
+                        <span class="stage-nav-num">04</span>
+                        <div class="stage-nav-title">SCADA &amp; Grid Energization</div>
+                    </div>
+                </div>
+
+                <!-- Stage 1 Panel -->
+                <div class="stage-panel-content active align-items-center row g-4" data-stage-panel="0">
+                    <div class="col-lg-6">
+                        <div class="stage-img-frame">
+                            <img src="img/carousel-1.jpg" alt="LiDAR Route Alignment Survey & Geotechnical Testing">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ps-lg-4">
+                        <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-1 mb-2 rounded-3 animate-stage-badge" style="font-size: 0.72rem;">STAGE 01 OF 04 | ENGINEERING &amp; DESIGN</span>
+                        <h3 class="fw-bold text-white mb-3 animate-stage-title" style="font-family: 'Playfair Display', Georgia, serif;">Drone LiDAR Survey &amp; Geotechnical Alignment</h3>
+                        <p class="text-light opacity-90 small mb-4 animate-stage-desc" style="line-height: 1.7;">
+                            High-altitude aerial drone LiDAR route mapping, 3D terrain profile plotting, electrical load flow computer modeling, and core drilling soil resistivity tests to ensure 100% structural tower stability.
+                        </p>
+                        <div class="row g-2 mb-4">
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>High-Res Drone LiDAR</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>Soil Resistivity Tests</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>Tower Spot Allocation</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>CEA Alignment Approval</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between pt-3 border-top border-white border-opacity-25 animate-stage-footer">
+                            <span class="small text-warning fw-bold"><i class="fas fa-shield-alt me-1"></i> Precision Alignment: 99.9%</span>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-light rounded-3 px-3 stage-nav-btn" data-dir="prev"><i class="fas fa-arrow-left"></i></button>
+                                <button class="btn btn-sm btn-secondary text-primary fw-bold rounded-3 px-3 stage-nav-btn" data-dir="next">Next Stage <i class="fas fa-arrow-right ms-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 2 Panel -->
+                <div class="stage-panel-content align-items-center row g-4" data-stage-panel="1">
+                    <div class="col-lg-6">
+                        <div class="stage-img-frame">
+                            <img src="img/power_heroimg.png" alt="Factory Type Testing & EHV Procurement">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ps-lg-4">
+                        <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-1 mb-2 rounded-3 animate-stage-badge" style="font-size: 0.72rem;">STAGE 02 OF 04 | PROCUREMENT &amp; FAT</span>
+                        <h3 class="fw-bold text-white mb-3 animate-stage-title" style="font-family: 'Playfair Display', Georgia, serif;">Type Testing, Galvanizing &amp; FAT Procurement</h3>
+                        <p class="text-light opacity-90 small mb-4 animate-stage-desc" style="line-height: 1.7;">
+                            Factory Acceptance Testing (FAT) for extra-high voltage 400kV hot-dip galvanised steel lattice towers, AAA/HTLS conductor spools, composite insulator strings, and SF6 compact GIS switchgears.
+                        </p>
+                        <div class="row g-2 mb-4">
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>400kV Type Testing</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>Hot-Dip Galvanized Towers</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>AAA Conductor Spools</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>ISO QA/QC Certification</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between pt-3 border-top border-white border-opacity-25 animate-stage-footer">
+                            <span class="small text-warning fw-bold"><i class="fas fa-award me-1"></i> FAT Inspection: 100% Passed</span>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-light rounded-3 px-3 stage-nav-btn" data-dir="prev"><i class="fas fa-arrow-left"></i></button>
+                                <button class="btn btn-sm btn-secondary text-primary fw-bold rounded-3 px-3 stage-nav-btn" data-dir="next">Next Stage <i class="fas fa-arrow-right ms-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 3 Panel -->
+                <div class="stage-panel-content align-items-center row g-4" data-stage-panel="2">
+                    <div class="col-lg-6">
+                        <div class="stage-img-frame">
+                            <img src="img/construction-site2.jpg" alt="Heavy Crane Erection & Conductor Stringing">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ps-lg-4">
+                        <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-1 mb-2 rounded-3 animate-stage-badge" style="font-size: 0.72rem;">STAGE 03 OF 04 | ERECTION &amp; STRINGING</span>
+                        <h3 class="fw-bold text-white mb-3 animate-stage-title" style="font-family: 'Playfair Display', Georgia, serif;">Heavy Crane Erection &amp; Tensioner Stringing</h3>
+                        <p class="text-light opacity-90 small mb-4 animate-stage-desc" style="line-height: 1.7;">
+                            Heavy hydraulic crane tower erection, pile foundations, tensioner-stringing of AAA conductors across river &amp; highway spans, and OPGW fiber optic ground wire laying.
+                        </p>
+                        <div class="row g-2 mb-4">
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>Heavy Crane Assembly</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>Tension Conductor Stringing</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>River &amp; Highway Spans</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>OPGW Fiber Ground Wire</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between pt-3 border-top border-white border-opacity-25 animate-stage-footer">
+                            <span class="small text-warning fw-bold"><i class="fas fa-broadcast-tower me-1"></i> Tension Clearance: Certified</span>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-light rounded-3 px-3 stage-nav-btn" data-dir="prev"><i class="fas fa-arrow-left"></i></button>
+                                <button class="btn btn-sm btn-secondary text-primary fw-bold rounded-3 px-3 stage-nav-btn" data-dir="next">Next Stage <i class="fas fa-arrow-right ms-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 4 Panel -->
+                <div class="stage-panel-content align-items-center row g-4" data-stage-panel="3">
+                    <div class="col-lg-6">
+                        <div class="stage-img-frame">
+                            <img src="img/SCADA_img.jpg" alt="SCADA Relay Testing & Live Grid Energization">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ps-lg-4">
+                        <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-1 mb-2 rounded-3 animate-stage-badge" style="font-size: 0.72rem;">STAGE 04 OF 04 | ENERGIZATION &amp; GRID SYNC</span>
+                        <h3 class="fw-bold text-white mb-3 animate-stage-title" style="font-family: 'Playfair Display', Georgia, serif;">SCADA Relay Testing &amp; Live Grid Synchronization</h3>
+                        <p class="text-light opacity-90 small mb-4 animate-stage-desc" style="line-height: 1.7;">
+                            High-voltage dielectric insulation testing, transformer oil filtration, SCADA IEC 61850 protocol mapping, CEA safety clearance approval, and live grid energization.
+                        </p>
+                        <div class="row g-2 mb-4">
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>Dielectric HV Testing</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>SCADA IEC 61850 Relays</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>CEA Safety Approval</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stage-deliverable-card">
+                                    <i class="fas fa-check-circle text-warning"></i>
+                                    <span>Live Grid Energization</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between pt-3 border-top border-white border-opacity-25 animate-stage-footer">
+                            <span class="small text-warning fw-bold"><i class="fas fa-bolt me-1"></i> Status: Energized &amp; Synced</span>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-light rounded-3 px-3 stage-nav-btn" data-dir="prev"><i class="fas fa-arrow-left"></i></button>
+                                <button class="btn btn-sm btn-secondary text-primary fw-bold rounded-3 px-3 stage-nav-btn" data-dir="next">Next Stage <i class="fas fa-arrow-right ms-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Technical Engineering Specifications Matrix -->
+    <div class="container-fluid py-5 bg-white">
+        <div class="container py-4">
+            <div class="text-center mb-5 reveal">
+                <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2">TECHNICAL MATRIX</span>
+                <h2 class="display-5 fw-bold text-primary mb-3" style="font-family: 'Playfair Display', Georgia, serif;">Engineering Standards &amp; Technical Capabilities</h2>
+                <div class="section-title-line mx-auto mb-3"></div>
+                <p class="text-muted fs-6" style="max-width: 800px; margin: 0 auto;">
+                    Adhering strictly to Indian Electricity Rules (IER), CEA Technical Standards, IEEE, IEC, and PGCIL specifications across all turnkey power contracts.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="p-4 bg-light rounded-4 border h-100 shadow-sm transition-hover">
+                        <div class="bg-primary text-secondary rounded-3 p-3 me-3 mb-3 d-inline-flex align-items-center justify-content-center" style="width: 52px; height: 52px;">
+                            <i class="fas fa-bolt fs-4"></i>
+                        </div>
+                        <h5 class="fw-bold text-primary mb-2">Voltage Class Range</h5>
+                        <p class="small text-muted mb-0">EHV 33kV, 132kV, 220kV, and 400kV transmission lines, towers &amp; switchyards.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="p-4 bg-light rounded-4 border h-100 shadow-sm transition-hover">
+                        <div class="bg-primary text-secondary rounded-3 p-3 me-3 mb-3 d-inline-flex align-items-center justify-content-center" style="width: 52px; height: 52px;">
+                            <i class="fas fa-bezier-curve fs-4"></i>
+                        </div>
+                        <h5 class="fw-bold text-primary mb-2">Conductor Technology</h5>
+                        <p class="small text-muted mb-0">AAA (All Aluminium Alloy), ACSR, AL59, and HTLS high-capacity conductor stringing.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="p-4 bg-light rounded-4 border h-100 shadow-sm transition-hover">
+                        <div class="bg-primary text-secondary rounded-3 p-3 me-3 mb-3 d-inline-flex align-items-center justify-content-center" style="width: 52px; height: 52px;">
+                            <i class="fas fa-microchip fs-4"></i>
+                        </div>
+                        <h5 class="fw-bold text-primary mb-2">SCADA &amp; SAS Automation</h5>
+                        <p class="small text-muted mb-0">IEC 61850 protocol Substation Automation System (SAS) &amp; numerical protection relays.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="p-4 bg-light rounded-4 border h-100 shadow-sm transition-hover">
+                        <div class="bg-primary text-secondary rounded-3 p-3 me-3 mb-3 d-inline-flex align-items-center justify-content-center" style="width: 52px; height: 52px;">
+                            <i class="fas fa-cube fs-4"></i>
+                        </div>
+                        <h5 class="fw-bold text-primary mb-2">SF6 GIS Compact Switchyards</h5>
+                        <p class="small text-muted mb-0">Space-efficient Gas Insulated Switchgears designed for dense urban &amp; industrial hubs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="p-4 bg-light rounded-4 border h-100 shadow-sm transition-hover">
+                        <div class="bg-primary text-secondary rounded-3 p-3 me-3 mb-3 d-inline-flex align-items-center justify-content-center" style="width: 52px; height: 52px;">
+                            <i class="fas fa-sun fs-4"></i>
+                        </div>
+                        <h5 class="fw-bold text-primary mb-2">Renewable Grid Interconnect</h5>
+                        <p class="small text-muted mb-0">100MW - 500MW scale solar &amp; wind pooling bays with dynamic reactive power compensation.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="p-4 bg-light rounded-4 border h-100 shadow-sm transition-hover">
+                        <div class="bg-primary text-secondary rounded-3 p-3 me-3 mb-3 d-inline-flex align-items-center justify-content-center" style="width: 52px; height: 52px;">
+                            <i class="fas fa-shield-alt fs-4"></i>
+                        </div>
+                        <h5 class="fw-bold text-primary mb-2">ISO &amp; CEA Safety Compliance</h5>
+                        <p class="small text-muted mb-0">Certified under ISO 9001:2015, ISO 14001:2015 &amp; ISO 45001:2018 zero-harm safety standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PROJECT PORTFOLIO (Clean Interactive Expanding Accordion Showcase with Continuous Auto-Slider) -->
+    <div class="container-fluid py-5 bg-light border-top" id="portfolio-showcase">
+        <div class="container py-4">
+            <div class="text-center mb-5 reveal">
+                <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2">FEATURED PORTFOLIO</span>
+                <h2 class="display-5 fw-bold text-primary mb-3" style="font-family: 'Playfair Display', Georgia, serif;">Pioneering Power Projects</h2>
+                <div class="section-title-line mx-auto mb-3"></div>
+                <p class="text-muted fs-6" style="max-width: 800px; margin: 0 auto;">
+                    Explore Coastal Crest Group's extra-high voltage transmission corridors, turnkey switchyards, and clean energy grid connections.
+                </p>
+            </div>
+
+            <!-- Horizontal Expanding Accordion Container -->
+            <div class="portfolio-accordion-container wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Accordion Card 1 (Active by Default) -->
+                <div class="portfolio-acc-item active" data-index="0">
+                    <div class="portfolio-acc-img-wrapper">
+                        <img src="img/power_energyimg.jpg" alt="400kV EHV Transmission Line Corridor" class="portfolio-acc-img">
+                        <span class="acc-active-tag"><i class="fas fa-broadcast-tower me-1"></i> EHV Transmission</span>
+                        
+                        <!-- Collapsed Vertical View -->
+                        <div class="acc-collapsed-bar">
+                            <span class="acc-collapsed-tag">EHV Line</span>
+                            <div class="acc-collapsed-title">400kV EHV Transmission Corridor</div>
+                        </div>
+
+                        <!-- Expanded Detailed View -->
+                        <div class="acc-expanded-body">
+                            <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-1 mb-2" style="font-size: 0.72rem;">FEATURED CORRIDOR</span>
+                            <h3 class="fw-bold text-white mb-3" style="font-family: 'Playfair Display', Georgia, serif;">400kV EHV Transmission Line Corridor</h3>
+                            <div class="d-flex flex-wrap align-items-center gap-2 pt-2 border-top border-white border-opacity-25">
+                                <span class="badge bg-primary text-secondary fw-bold px-3 py-2"><i class="fas fa-bolt me-1"></i> 400 kV Class</span>
+                                <span class="badge bg-white text-primary fw-bold px-3 py-2"><i class="fas fa-check-circle text-success me-1"></i> AAA Conductors</span>
+                                <span class="badge bg-white text-primary fw-bold px-3 py-2"><i class="fas fa-road me-1"></i> 120 km Route</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Card 2 -->
+                <div class="portfolio-acc-item" data-index="1">
+                    <div class="portfolio-acc-img-wrapper">
+                        <img src="img/power_substation_switchyard.jpg" alt="220/132kV Turnkey GIS Substation" class="portfolio-acc-img">
+                        <span class="acc-active-tag"><i class="fas fa-charging-station me-1"></i> Substation EPC</span>
+                        
+                        <!-- Collapsed Vertical View -->
+                        <div class="acc-collapsed-bar">
+                            <span class="acc-collapsed-tag">Substation</span>
+                            <div class="acc-collapsed-title">220/132kV GIS Switchyard</div>
+                        </div>
+
+                        <!-- Expanded Detailed View -->
+                        <div class="acc-expanded-body">
+                            <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-1 mb-2" style="font-size: 0.72rem;">TURNKEY SUBSTATION</span>
+                            <h3 class="fw-bold text-white mb-3" style="font-family: 'Playfair Display', Georgia, serif;">220/132kV GIS Turnkey Switchyard</h3>
+                            <div class="d-flex flex-wrap align-items-center gap-2 pt-2 border-top border-white border-opacity-25">
+                                <span class="badge bg-primary text-secondary fw-bold px-3 py-2"><i class="fas fa-charging-station me-1"></i> 220/132 kV Rating</span>
+                                <span class="badge bg-white text-primary fw-bold px-3 py-2"><i class="fas fa-shield-alt text-success me-1"></i> SF6 Compact GIS</span>
+                                <span class="badge bg-white text-primary fw-bold px-3 py-2"><i class="fas fa-microchip me-1"></i> SCADA Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Card 3 -->
+                <div class="portfolio-acc-item" data-index="2">
+                    <div class="portfolio-acc-img-wrapper">
+                        <img src="img/power_solar_evacuation.jpg" alt="500 MW Solar Evacuation Grid Link" class="portfolio-acc-img">
+                        <span class="acc-active-tag"><i class="fas fa-solar-panel me-1"></i> Renewable Grid</span>
+                        
+                        <!-- Collapsed Vertical View -->
+                        <div class="acc-collapsed-bar">
+                            <span class="acc-collapsed-tag">Green Energy</span>
+                            <div class="acc-collapsed-title">500 MW Solar Evacuation</div>
+                        </div>
+
+                        <!-- Expanded Detailed View -->
+                        <div class="acc-expanded-body">
+                            <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-1 mb-2" style="font-size: 0.72rem;">GREEN ENERGY</span>
+                            <h3 class="fw-bold text-white mb-3" style="font-family: 'Playfair Display', Georgia, serif;">500 MW Solar Park Evacuation Link</h3>
+                            <div class="d-flex flex-wrap align-items-center gap-2 pt-2 border-top border-white border-opacity-25">
+                                <span class="badge bg-primary text-secondary fw-bold px-3 py-2"><i class="fas fa-sun me-1"></i> 500 MW Solar Park</span>
+                                <span class="badge bg-white text-primary fw-bold px-3 py-2"><i class="fas fa-network-wired text-success me-1"></i> Pooling Bay</span>
+                                <span class="badge bg-white text-primary fw-bold px-3 py-2"><i class="fas fa-leaf me-1"></i> Zero-Loss Link</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Card 4 -->
+                <div class="portfolio-acc-item" data-index="3">
+                    <div class="portfolio-acc-img-wrapper">
+                        <img src="img/power_energyimg2.jpg" alt="Grid Switchyard Expansion & Bays" class="portfolio-acc-img">
+                        <span class="acc-active-tag"><i class="fas fa-network-wired me-1"></i> Grid Interconnect</span>
+                        
+                        <!-- Collapsed Vertical View -->
+                        <div class="acc-collapsed-bar">
+                            <span class="acc-collapsed-tag">State Grid</span>
+                            <div class="acc-collapsed-title">Grid Switchyard Expansion</div>
+                        </div>
+
+                        <!-- Expanded Detailed View -->
+                        <div class="acc-expanded-body">
+                            <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-1 mb-2" style="font-size: 0.72rem;">GRID EXPANSION</span>
+                            <h3 class="fw-bold text-white mb-3" style="font-family: 'Playfair Display', Georgia, serif;">Grid Switchyard Transformer Expansion</h3>
+                            <div class="d-flex flex-wrap align-items-center gap-2 pt-2 border-top border-white border-opacity-25">
+                                <span class="badge bg-primary text-secondary fw-bold px-3 py-2"><i class="fas fa-bolt me-1"></i> 400kV Bay Extension</span>
+                                <span class="badge bg-white text-primary fw-bold px-3 py-2"><i class="fas fa-plug text-success me-1"></i> State Grid Link</span>
+                                <span class="badge bg-white text-primary fw-bold px-3 py-2"><i class="fas fa-cogs me-1"></i> Breaker Upgrades</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- High-Impact Engineering Inquiry Call-To-Action (CTA) Banner (MOVED ABOVE HSE & QUALITY) -->
+    <div class="container-fluid py-5 bg-white">
+        <div class="container py-2">
+            <div class="custom-tender-inquiry-card wow fadeInUp" data-wow-delay="0.2s">
+                <div class="row align-items-end">
+                    <div class="col-lg-8 py-4 ps-lg-4">
+                        <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-3">TENDER &amp; EPC INQUIRIES</span>
+                        <h3 class="text-white fw-bold display-6 mb-3">Partner with Coastal Crest Group for Power &amp; Grid Infrastructure</h3>
+                        <p class="text-light opacity-90 fs-6 mb-4" style="line-height: 1.7;">
+                            Our senior electrical engineering team is ready to review your project specifications for 132/220/400kV transmission lines, substation EPC packages, or green energy grid evacuation corridors.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 pb-2">
+                            <a href="contact.html" class="btn btn-inquiry-primary py-3 px-4 rounded-pill fw-bold text-decoration-none">
+                                <i class="fas fa-paper-plane me-2"></i> Submit Power Inquiry
                             </a>
-                            <a href="infra-developers.html" class="btn btn-outline-primary py-3 px-4 rounded-pill fw-bold">
-                                <i class="fas fa-city me-2"></i> Explore Infra & Developers
+                            <a href="mailto:coastalcrestinfradevelopers@gmail.com" class="btn btn-inquiry-secondary py-3 px-4 rounded-pill fw-bold text-decoration-none">
+                                <i class="fas fa-envelope me-2"></i> Email Technical Specs
                             </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center text-lg-end d-none d-lg-flex align-items-end justify-content-end p-0 m-0">
+                        <img src="img/homectaimg.png" alt="Coastal Crest Engineering Team" class="cta-engineer-img-flush img-fluid mx-auto me-lg-0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Safety, Quality & HSE Section -->
+    <div class="container-fluid py-5 bg-light border-top border-bottom">
+        <div class="container py-4">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5 wow fadeInLeft" data-wow-delay="0.1s">
+                    <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2">HSE &amp; QUALITY ASSURANCE</span>
+                    <h3 class="display-6 fw-bold text-primary mb-3">Uncompromising Safety &amp; Quality in Power Execution</h3>
+                    <p class="text-muted fs-6 mb-4" style="line-height: 1.7;">
+                        High-voltage transmission and substation construction require absolute precision and safety. Coastal Crest Group maintains a zero-harm safety policy, strict dielectric testing, and certified factory acceptance tests (FAT) for all power equipment.
+                    </p>
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="img/ISO 90012015.png" alt="ISO 9001:2015 Quality Certification" style="max-height: 55px; width: auto;" class="img-fluid">
+                        <div>
+                            <h6 class="fw-bold text-primary mb-0">ISO 9001:2015 / ISO 45001 / ISO 14001</h6>
+                            <span class="small text-muted">Certified Quality, HSE &amp; Environmental Systems</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="p-4 bg-white rounded-3 border h-100 shadow-sm text-center transition-hover">
+                                <div class="bg-primary text-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 54px; height: 54px;">
+                                    <i class="fas fa-user-shield fs-4"></i>
+                                </div>
+                                <h6 class="fw-bold text-primary mb-2">Zero-Harm Policy</h6>
+                                <p class="small text-muted mb-0">Live-line personal protective equipment, grounding checks &amp; fall arrest systems.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-4 bg-white rounded-3 border h-100 shadow-sm text-center transition-hover">
+                                <div class="bg-primary text-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 54px; height: 54px;">
+                                    <i class="fas fa-check-double fs-4"></i>
+                                </div>
+                                <h6 class="fw-bold text-primary mb-2">QA/QC Testing</h6>
+                                <p class="small text-muted mb-0">High-voltage dielectric testing, insulation resistance &amp; transformer oil testing.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-4 bg-white rounded-3 border h-100 shadow-sm text-center transition-hover">
+                                <div class="bg-primary text-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 54px; height: 54px;">
+                                    <i class="fas fa-leaf fs-4"></i>
+                                </div>
+                                <h6 class="fw-bold text-primary mb-2">Eco SF6 Safety</h6>
+                                <p class="small text-muted mb-0">Strict SF6 gas monitoring, recovery protocols &amp; low-impact ROW clearing.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -256,9 +1513,9 @@
             <div class="row g-5">
                 <div class="col-md-6 col-lg-4">
                     <div class="footer-brand-logo mb-3">
-                        <img src="img/Main_Coastal_group_logo.png" alt="Coastal Crest Logo" style="max-height: 65px; width: auto;">
+                        <img src="img/footer_logo.jpeg" alt="Coastal Crest Group Logo" class="img-fluid rounded-3" style="max-height: 70px; width: auto; object-fit: contain;">
                     </div>
-                    <p class="text-white-50 small">Coastal Crest Infra & Developers (India) Pvt Ltd - Headquartered in Vijayawada, operating pan-India across Infra, Ports, Power, Hapliv Pharma & Pudami Consultancy.</p>
+                    <p class="text-white-50 small">Coastal Crest Group - Headquartered in Vijayawada, operating pan-India across Infra, Ports, Power, Hapliv Pharma & Pudami Consultancy.</p>
                     <div class="d-flex gap-2 mt-3 footer-btn">
                         <a href="https://www.facebook.com/" target="_blank" class="btn btn-primary btn-square border border-white"><i class="fab fa-facebook-f text-secondary"></i></a>
                         <a href="https://www.instagram.com/" target="_blank" class="btn btn-primary btn-square border border-white"><i class="fab fa-instagram text-secondary"></i></a>
@@ -270,14 +1527,16 @@
                     <h5 class="text-white mb-3 fw-bold">Quick Links</h5>
                     <div class="row">
                         <div class="col-6">
-                            <a href="about.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>About Us</a>
-                            <a href="infra-developers.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Infra & Dev</a>
-                            <a href="ports-shipping.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Ports & Ship</a>
-                            <a href="power-infra.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Power & Infra</a>
+                            <a href="infra-developers.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Infra &amp; Developers</a>
+                            <a href="ports-shipping.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Ports &amp; Shipping</a>
+                            <a href="power-infra.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Power &amp; Infra</a>
+                            <a href="pharma-infra.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Hapliv Pharma</a>
+                            <a href="pudami-consultancy.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Pudami Consultancy</a>
                         </div>
                         <div class="col-6">
-                            <a href="pharma-infra.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Hapliv Pharma</a>
+                            <a href="about.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>About Us</a>
                             <a href="sustainability.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Sustainability</a>
+                            <a href="certifications.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Accreditations</a>
                             <a href="careers.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Careers</a>
                             <a href="contact.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Contact Us</a>
                         </div>
@@ -287,7 +1546,7 @@
                     <h5 class="text-white mb-3 fw-bold">Head Office</h5>
                     <p class="text-white-50 small mb-2"><i class="fa fa-map-marker-alt text-secondary me-2"></i><a href="https://maps.google.com/?q=Sai+Srinivasa+Apartment+Manikyanagar+Kanuru+Vijayawada+520007" target="_blank" rel="noopener noreferrer" class="text-white-50 text-decoration-none hover-text-white">No-14-0729-6, Flat No 302, Sai Srinivasa Apartment, Manikyanagar, 4th Cross, Kanuru, YSR Tadigadapa Municipality, Near Shivalayam Temple, Mahadevapuram, Vijayawada, NTR Dist, Andhra Pradesh - 520007.</a></p>
                     <p class="text-white-50 small mb-1"><i class="fas fa-envelope text-secondary me-2"></i><a href="mailto:coastalcrestinfradevelopers@gmail.com" class="text-white-50 text-decoration-none hover-text-white">coastalcrestinfradevelopers@gmail.com</a></p>
-                    <p class="text-white-50 small mb-0"><i class="fas fa-phone text-secondary me-2"></i><a href="tel:+919494093313" class="text-white-50 text-decoration-none hover-text-white">+91 94940 93313</a> / <a href="tel:+917382655244" class="text-white-50 text-decoration-none hover-text-white">+91 73826 55244</a></p>
+                    <p class="text-white-50 small mb-0"><i class="fas fa-phone text-secondary me-2"></i><a href="tel:+917416642233" class="text-white-50 text-decoration-none hover-text-white">+91 74166 42233</a></p>
                 </div>
             </div>
         </div>
@@ -311,11 +1570,139 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Pioneering Power Projects Accordion Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const accItems = document.querySelectorAll(".portfolio-acc-item");
+        if (!accItems.length) return;
+
+        let currentIndex = 0;
+        let autoTimer = null;
+        const cycleInterval = 2800; // Auto slider cycle every 2.8 seconds
+
+        function activateAccordion(index) {
+            accItems.forEach((item, idx) => {
+                if (idx === index) {
+                    item.classList.add("active");
+                } else {
+                    item.classList.remove("active");
+                }
+            });
+            currentIndex = index;
+        }
+
+        function startAutoCycle() {
+            stopAutoCycle();
+            autoTimer = setInterval(() => {
+                let nextIdx = (currentIndex + 1) % accItems.length;
+                activateAccordion(nextIdx);
+            }, cycleInterval);
+        }
+
+        function stopAutoCycle() {
+            if (autoTimer) {
+                clearInterval(autoTimer);
+                autoTimer = null;
+            }
+        }
+
+        // Add Click & Hover Event Listeners to Cards
+        accItems.forEach((item, idx) => {
+            item.addEventListener("click", function () {
+                activateAccordion(idx);
+                startAutoCycle();
+            });
+            item.addEventListener("mouseenter", function () {
+                activateAccordion(idx);
+                stopAutoCycle();
+            });
+            item.addEventListener("mouseleave", function () {
+                startAutoCycle();
+            });
+        });
+
+        // Initialize Continuous Auto Cycle Slider
+        startAutoCycle();
+    });
+    </script>
+
+    <!-- Turnkey EHV Lifecycle Dynamic Canvas Navigator Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const stagePills = document.querySelectorAll(".stage-nav-pill");
+        const stagePanels = document.querySelectorAll(".stage-panel-content");
+        const progressFill = document.getElementById("lifecycleProgressFill");
+        if (!stagePills.length || !stagePanels.length) return;
+
+        let currentStageIdx = 0;
+        let stageTimer = null;
+        const autoCycleTime = 4200; // Auto-advance stage every 4.2s
+
+        function activateStage(index) {
+            stagePills.forEach((pill, idx) => {
+                if (idx === index) pill.classList.add("active");
+                else pill.classList.remove("active");
+            });
+            stagePanels.forEach((panel, idx) => {
+                panel.classList.remove("active");
+                if (idx === index) {
+                    void panel.offsetWidth; // Force CSS animation reflow/restart
+                    panel.classList.add("active");
+                }
+            });
+            if (progressFill) {
+                const percentage = ((index + 1) / stagePills.length) * 100;
+                progressFill.style.width = percentage + "%";
+            }
+            currentStageIdx = index;
+        }
+
+        function startStageTimer() {
+            stopStageTimer();
+            stageTimer = setInterval(() => {
+                let nextIdx = (currentStageIdx + 1) % stagePills.length;
+                activateStage(nextIdx);
+            }, autoCycleTime);
+        }
+
+        function stopStageTimer() {
+            if (stageTimer) {
+                clearInterval(stageTimer);
+                stageTimer = null;
+            }
+        }
+
+        // Click on stage tab
+        stagePills.forEach((pill, idx) => {
+            pill.addEventListener("click", function () {
+                activateStage(idx);
+                startStageTimer();
+            });
+        });
+
+        // Click on Prev / Next Buttons
+        document.querySelectorAll(".stage-nav-btn").forEach(btn => {
+            btn.addEventListener("click", function () {
+                let dir = this.getAttribute("data-dir");
+                let nextIdx = dir === "next" 
+                    ? (currentStageIdx + 1) % stagePills.length
+                    : (currentStageIdx - 1 + stagePills.length) % stagePills.length;
+                activateStage(nextIdx);
+                startStageTimer();
+            });
+        });
+
+        // Initialize stage timer
+        startStageTimer();
+    });
+    </script>
 </body>
 
 </html>
