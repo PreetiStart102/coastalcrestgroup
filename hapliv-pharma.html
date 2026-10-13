@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hapliv Pharma India Pvt Ltd | Coastal Crest Group</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Hapliv Pharma India Pvt Ltd, Coastal Crest Group, Pharmaceutical Manufacturing, Allopathy, Ayurvedic Medicines, Cosmetics, Tablets, Capsules, Liquid Orals, WHO-GMP, Kanuru, Vijayawada, Andhra Pradesh" name="keywords">
+    <meta content="Hapliv Pharma India Pvt Ltd (Coastal Crest Group) - WHO-GMP & ISO compliant pharmaceutical manufacturing facility in Kanuru, AP. Producing 20+ Crore tablets & capsules, liquid orals, ointments, and herbal formulations." name="description">
+
+    <!-- Favicon Icon -->
+    <link rel="icon" href="favicon_img.png" type="image/png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* ===== HAPLIV PHARMA EXCLUSIVE STYLING SYSTEM ===== */
+        :root {
+            --pharma-accent: #00A8CC;
+            --pharma-accent-rgb: 0, 168, 204;
+            --pharma-emerald: #10b981;
+            --pharma-gold: #f9d01e;
+            --pharma-navy: #001659;
+            --pharma-dark: #000f3c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Smooth Animation Tuning */
+        .animated {
+            animation-duration: 0.85s !important;
+            animation-fill-mode: both !important;
+            animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1) !important;
+        }
+
+        .hover-scale {
+            transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease !important;
+        }
+
+        .hover-scale:hover {
+            transform: translateY(-4px) !important;
+        }
+
+        .machinery-right-grid {
+            margin-top: 44px;
+        }
+
+        @media (max-width: 991.98px) {
+            .machinery-right-grid {
+                margin-top: 24px;
+            }
+        }
+
+        /* Hero Banner Section */
+        .pharma-hero-section {
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 18, 72, 0.94) 0%, rgba(0, 22, 89, 0.88) 55%, rgba(0, 35, 105, 0.92) 100%), 
+                        url('img/pharma1.jpg') center/cover no-repeat;
+            padding: 48px 0 45px !important;
+            border-bottom: 3px solid var(--pharma-gold);
+            overflow: hidden;
+        }
+
+        .pharma-hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(0, 168, 204, 0.22) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .pharma-hero-logo {
+            max-height: 85px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+            transition: transform 0.3s ease;
+        }
+
+        .pharma-hero-logo:hover {
+            transform: scale(1.04);
+        }
+
+        /* KPI Running Counter Metrics */
+        .pharma-metric-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 10px 30px rgba(0, 22, 89, 0.07);
+            border: 1px solid rgba(0, 22, 89, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .pharma-metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pharma-navy), var(--pharma-accent), var(--pharma-gold));
+            opacity: 0.9;
+        }
+
+        .pharma-metric-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0, 22, 89, 0.14);
+            border-color: rgba(0, 168, 204, 0.35);
+        }
+
+        .pharma-metric-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(0, 168, 204, 0.1);
+            color: var(--pharma-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.45rem;
+            margin: 0 auto 14px;
+            transition: transform 0.35s ease, background-color 0.35s ease;
+        }
+
+        .pharma-metric-card:hover .pharma-metric-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--pharma-navy);
+            color: var(--pharma-gold);
+        }
+
+        /* Video Showcase Frame */
+        .pharma-video-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 22, 89, 0.22);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            background: #000c2c;
+        }
+
+        .pharma-video-element {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (min-width: 992px) {
+            .pharma-video-element {
+                height: 490px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .pharma-video-element {
+                height: 350px;
+            }
+        }
+
+        /* Formulation Dosage Cards */
+        .formulation-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid var(--pharma-navy);
+            box-shadow: 0 8px 24px rgba(0, 22, 89, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .formulation-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0, 22, 89, 0.13);
+            border-top-color: var(--pharma-gold);
+            border-color: rgba(0, 168, 204, 0.4);
+        }
+
+        .formulation-img-wrap {
+            height: 235px;
+            position: relative;
+            overflow: hidden;
+            background: #001248;
+        }
+
+        .formulation-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .formulation-card:hover .formulation-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .formulation-body {
+            padding: 22px 20px 18px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .formulation-meta-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* 7-Step Precision Manufacturing Flow */
+        .process-flow-track {
+            position: relative;
+        }
+
+        .process-step-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 22px 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 20px rgba(0, 22, 89, 0.05);
+            position: relative;
+            height: 100%;
+            transition: all 0.35s ease;
+        }
+
+        .process-step-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--pharma-accent);
+            box-shadow: 0 14px 35px rgba(0, 168, 204, 0.15);
+        }
+
+        .step-num-pill {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--pharma-navy), #002d9c);
+            color: var(--pharma-gold);
+            font-weight: 800;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 22, 89, 0.2);
+            margin-bottom: 14px;
+        }
+
+        .process-step-card:hover .step-num-pill {
+            background: linear-gradient(135deg, var(--pharma-gold), #d4ad00);
+            color: var(--pharma-navy);
+        }
+
+        /* Interactive Machinery Spec Table & Dynamic Screen */
+        .machine-spec-box {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 15px 18px;
+            border: 1px solid #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .machine-spec-box:hover,
+        .machine-spec-box.active {
+            background: #f0f7ff;
+            border-color: var(--pharma-accent);
+            transform: translateX(6px);
+            box-shadow: 0 8px 20px rgba(0, 22, 89, 0.08);
+        }
+
+        .machine-spec-box.active {
+            background: linear-gradient(135deg, rgba(0, 22, 89, 0.04), rgba(0, 168, 204, 0.08));
+            border-left: 2px solid var(--pharma-accent);
+        }
+
+        .machine-spec-box.active .badge {
+            background-color: var(--pharma-navy) !important;
+            color: var(--pharma-gold) !important;
+        }
+
+        .machinery-preview-card {
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 22, 89, 0.08);
+            border: 1px solid rgba(0, 22, 89, 0.08);
+            position: relative;
+            height: 300px;
+            background: #001248;
+        }
+
+        .machinery-preview-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, opacity 0.3s ease;
+            display: block;
+        }
+
+        .machinery-preview-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .machinery-utility-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 16px 18px;
+            box-shadow: 0 6px 20px rgba(0, 22, 89, 0.05);
+            border: 1px solid #edf2f7;
+            height: 144px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .machinery-utility-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 22, 89, 0.1);
+        }
+
+        .machinery-preview-badge {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 18, 72, 0.94) 0%, rgba(0, 18, 72, 0.65) 60%, transparent 100%);
+            color: #ffffff;
+            padding: 16px 14px 10px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        /* R&D and QC Lab Showcase */
+        .lab-gallery-card {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 22, 89, 0.1);
+            height: 250px;
+        }
+
+        .lab-gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .lab-gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .lab-gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 22, 89, 0.9) 0%, rgba(0, 22, 89, 0.2) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        /* Interactive Tabs */
+        .pharma-nav-pills .nav-link {
+            border-radius: 50rem;
+            padding: 10px 24px;
+            font-weight: 700;
+            color: var(--pharma-navy);
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            margin: 0 6px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .pharma-nav-pills .nav-link.active,
+        .pharma-nav-pills .nav-link:hover {
+            background: var(--pharma-navy);
+            color: #ffffff;
+            border-color: var(--pharma-navy);
+            box-shadow: 0 6px 20px rgba(0, 22, 89, 0.2);
+        }
+
+        .pharma-nav-pills .nav-link.active {
+            border-bottom: 3px solid var(--pharma-gold);
+        }
+
+        /* Subtle Section Line */
+        .section-title-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pharma-navy), var(--pharma-accent));
+            border-radius: 2px;
+        }
+
+        /* CTA Inquiry Card */
+        .pharma-cta-card {
+            background: linear-gradient(135deg, #001248 0%, #001f5c 60%, #002d84 100%);
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 60px rgba(0, 16, 56, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pharma-cta-card::after {
+            content: '';
+            position: absolute;
+            right: -80px;
+            bottom: -80px;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 168, 204, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pharma-cta-img-card {
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            background: #001248;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .pharma-cta-card:hover .pharma-cta-img-card {
+            transform: translateY(-5px);
+            box-shadow: 0 28px 55px rgba(0, 0, 0, 0.55);
+            border-color: rgba(255, 255, 255, 0.45);
+        }
+
+        .cta-pharma-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .pharma-cta-card:hover .cta-pharma-img {
+            transform: scale(1.05);
+        }
+
+
+        @media (max-width: 991.98px) {
+            .cta-pharma-img {
+                height: 240px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid topbar d-none d-xl-block w-100 bg-primary text-white py-1 px-4">
+        <div class="row gx-0 align-items-center" style="font-size: 0.78rem;">
+            <div class="col-lg-7 text-center text-lg-start">
+                <div class="d-flex flex-wrap align-items-center">
+                    <a href="mailto:coastalcrestinfradevelopers@gmail.com" class="text-white me-3 text-decoration-none"><i class="fas fa-envelope text-info me-1"></i> coastalcrestinfradevelopers@gmail.com</a>
+                    <a href="tel:+917416642233" class="text-white text-decoration-none"><i class="fas fa-phone-alt text-info me-1"></i> +91 74166 42233</a>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center text-lg-end">
+                <div class="d-flex align-items-center justify-content-end">
+                    <span class="text-white-50 ms-2" style="font-size:0.72rem;"><i class="fas fa-map-marker-alt text-info me-1"></i> Vijayawada | Bangalore | Chennai | Delhi</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-white sticky-top shadow-sm px-0 border-bottom">
+        <nav class="navbar navbar-expand-lg navbar-light py-2 px-3 px-lg-4 w-100">
+            <a href="index.html" class="navbar-brand me-4 p-0">
+                <img src="img/footer_logo.jpeg" alt="Coastal Crest Group" class="navbar-brand-logo" loading="eager" decoding="async">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-white justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ms-lg-3 me-auto align-items-center">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+
+                    <!-- About Dropdown -->
+                    <div class="nav-item dropdown">
+                        <a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About Us <i class="fas fa-chevron-down nav-arrow"></i></a>
+                        <div class="dropdown-menu m-0 shadow-lg border-0 rounded-3">
+                            <a href="about.html" class="dropdown-item">Corporate Overview</a>
+                            <a href="about.html#vision" class="dropdown-item">Vision &amp; Mission</a>
+                            <a href="about.html#leadership" class="dropdown-item">Executive Leadership</a>
+                            <a href="portfolio.html" class="dropdown-item">Track Record</a>
+                            <a href="certifications.html" class="dropdown-item">Quality &amp; HSE Standards</a>
+                        </div>
+                    </div>
+
+                    <!-- Mega Dropdown (Coastal Crest Sectors) -->
+                    <div class="nav-item dropdown dropdown-mega">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Coastal Crest Sectors <i class="fas fa-chevron-down nav-arrow"></i></a>
+                        <div class="dropdown-menu dropdown-mega-menu shadow-lg border-0 rounded-3">
+                            <div class="mega-menu-content p-1">
+                                <div class="row g-3 gy-3">
+                                    <!-- Row 1: 3 Boxes in a row -->
+                                    <div class="col-lg-4 col-md-6">
+                                        <a href="infra-developers.html" class="sector-dropdown-card text-decoration-none">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <img src="img/coastal_crest_infra_sectorimg.png" alt="Infra & Developers" class="sector-dropdown-img" loading="eager" decoding="async">
+                                                <h6 class="mb-0 fw-bold text-primary">Infra &amp; Developers</h6>
+                                            </div>
+                                            <p class="small text-muted mb-2">Highways, Roads, Residential Complexes, Commercial Parks &amp; Turnkey Civil Execution.</p>
+                                            <span class="sector-btn">Explore Sector <i class="fas fa-arrow-right ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <a href="ports-shipping.html" class="sector-dropdown-card text-decoration-none">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <img src="img/Portsshipingsectorimage.png" alt="Ports & Shipping" class="sector-dropdown-img" loading="lazy" decoding="async">
+                                                <h6 class="mb-0 fw-bold text-primary">Ports &amp; Shipping</h6>
+                                            </div>
+                                            <p class="small text-muted mb-2">Marine structures, jetties, port berths, breakwaters &amp; maritime logistics.</p>
+                                            <span class="sector-btn">Explore Sector <i class="fas fa-arrow-right ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <a href="power-infra.html" class="sector-dropdown-card text-decoration-none">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <img src="img/powerand_infrasectorimg.png" alt="Power & Infra" class="sector-dropdown-img" loading="lazy" decoding="async">
+                                                <h6 class="mb-0 fw-bold text-primary">Power &amp; Infra</h6>
+                                            </div>
+                                            <p class="small text-muted mb-2">High-voltage transmission (AAA conductors), substations &amp; green energy grids.</p>
+                                            <span class="sector-btn">Explore Sector <i class="fas fa-arrow-right ms-1"></i></span>
+                                        </a>
+                                    </div>
+
+                                    <!-- Row 2: 2 Boxes in a row -->
+                                    <div class="col-lg-6 col-md-6">
+                                        <a href="hapliv-pharma.html" class="sector-dropdown-card text-decoration-none active">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <img src="img/haplivpharma_sectorimg.png" alt="Hapliv Pharma India Pvt Ltd" class="sector-dropdown-img" loading="lazy" decoding="async">
+                                                <h6 class="mb-0 fw-bold text-primary">Hapliv Pharma India Pvt Ltd</h6>
+                                            </div>
+                                            <p class="small text-muted mb-2">Manufacturing of Allopathy, Ayurvedic Medicines &amp; Cosmetics in Baddi, Solan &amp; Haryana.</p>
+                                            <span class="sector-btn">Explore Sector <i class="fas fa-arrow-right ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <a href="pudami-consultancy.html" class="sector-dropdown-card text-decoration-none">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <img src="img/pudamiconsultancy_sectorimg.png" alt="Pudami Consultancy Services" class="sector-dropdown-img" loading="lazy" decoding="async">
+                                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                                    <h6 class="mb-0 fw-bold text-primary">Pudami Consultancy Services India Pvt Ltd</h6>
+                                                    <span class="text-primary small fw-semibold" style="font-size: 0.72rem;">(Real Estate Channel Partner)</span>
+                                                </div>
+                                            </div>
+                                            <p class="small text-muted mb-2">Real Estate Property Selling &amp; Channel Partners for Major Construction Companies in PAN India, Dubai &amp; UAE.</p>
+                                            <span class="sector-btn">Explore Company <i class="fas fa-arrow-right ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sustainability Dropdown -->
+                    <div class="nav-item dropdown">
+                        <a href="sustainability.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sustainability <i class="fas fa-chevron-down nav-arrow"></i></a>
+                        <div class="dropdown-menu m-0 shadow-lg border-0 rounded-3">
+                            <a href="sustainability.html" class="dropdown-item">ESG Framework</a>
+                            <a href="sustainability-environment.html" class="dropdown-item">Environment</a>
+                            <a href="sustainability-safety.html" class="dropdown-item">Health &amp; Safety</a>
+                            <a href="sustainability-governance.html" class="dropdown-item">Corporate Governance</a>
+                            <a href="sustainability-community.html" class="dropdown-item">Community Impact</a>
+                        </div>
+                    </div>
+
+                    <a href="careers.html" class="nav-item nav-link">Careers</a>
+                </div>
+
+                <div class="d-flex align-items-center ms-lg-3">
+                    <a href="contact.html" class="btn btn-secondary py-2 px-3 rounded-pill text-white fw-bold shadow-sm hover-scale" style="font-size: 0.82rem;">
+                        <i class="fas fa-envelope me-1"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Hapliv Pharma Hero Showcase Banner -->
+    <div class="container-fluid pharma-hero-section text-white">
+        <div class="container pt-2 pb-1 text-center" style="max-width: 1050px;">
+            <div class="mb-3 wow fadeInDown" data-wow-delay="0.1s">
+                <div class="d-inline-block bg-white p-2 px-3 rounded-3 shadow-lg">
+                    <img src="img/haplivpharma_logo.png" alt="Hapliv Pharma India Pvt Ltd" class="pharma-hero-logo" loading="eager" decoding="async">
+                </div>
+            </div>
+            <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-3 shadow-sm" style="letter-spacing: 1.2px;">
+                <i class="fas fa-check-circle me-1"></i> WHO-GMP &amp; ISO COMPLIANT PHARMACEUTICAL DIVISION
+            </span>
+            <h1 class="text-white display-5 mb-3 fw-bold wow fadeInUp" data-wow-delay="0.2s" style="font-family: 'Playfair Display', Georgia, serif; letter-spacing: -0.2px;">
+                Healthcare Formulations &amp; Biopharma Manufacturing
+            </h1>
+            <p class="text-light fs-6 mb-4 opacity-90 wow fadeInUp" data-wow-delay="0.3s" style="line-height: 1.7; font-family: 'DM Sans', sans-serif; max-width: 780px; margin: 0 auto;">
+                <strong>Hapliv Pharmaceuticals Private Limited</strong> manufactures high-capacity Oral Solid Dosages, Liquid Syrups, Capsules &amp; Herbal lines to global pharmacopeia standards.
+            </p>
+            <ol class="breadcrumb justify-content-center mb-0 mt-2">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-white">Sectors</a></li>
+                <li class="breadcrumb-item active text-secondary">Hapliv Pharma</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- 4 Key Performance Metric Cards -->
+    <div class="container-fluid py-4 bg-light border-bottom">
+        <div class="container">
+            <div class="row g-3 g-lg-4 justify-content-center text-center">
+                <div class="col-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="pharma-metric-card h-100">
+                        <div class="pharma-metric-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3 class="fw-bold text-primary mb-1 display-6 counter-value" data-count="20" data-suffix=" Crore">0</h3>
+                        <span class="small text-muted fw-bold text-uppercase">Tablets &amp; Capsules / Year</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="pharma-metric-card h-100">
+                        <div class="pharma-metric-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="fw-bold text-primary mb-1 display-6 counter-value" data-count="50" data-suffix=" KL">0</h3>
+                        <span class="small text-muted fw-bold text-uppercase">Liquid Orals Annual Capacity</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="pharma-metric-card h-100">
+                        <div class="pharma-metric-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="fw-bold text-primary mb-1 display-6 counter-value" data-count="2000" data-suffix=" m²">0</h3>
+                        <span class="small text-muted fw-bold text-uppercase">Campus Area (33% Green Belt)</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="pharma-metric-card h-100">
+                        <div class="pharma-metric-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="fw-bold text-primary mb-1 display-6 counter-value" data-count="10" data-suffix=" KLD">0</h3>
+                        <span class="small text-muted fw-bold text-uppercase">Effluent Treatment Plant (ETP)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Executive Overview & Dynamic Dual-Media Video Frame -->
+    <div class="container-fluid py-5 bg-white border-bottom">
+        <div class="container py-3">
+            <div class="row g-5 align-items-center">
+                <!-- Left Column: Executive Synthesis -->
+                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+                    <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2" style="letter-spacing: 1px;">
+                        EXECUTIVE SUMMARY &amp; COMPANY PROFILE
+                    </span>
+                    <h2 class="display-6 fw-bold text-primary mb-3" style="font-family: 'Playfair Display', Georgia, serif;">
+                        World-Class Pharmaceutical Formulations &amp; Bio-Manufacturing Hub
+                    </h2>
+                    <div class="section-title-line mb-3"></div>
+                    <p class="text-muted fs-6 mb-3" style="line-height: 1.75;">
+                        <strong>Hapliv Pharmaceuticals Private Limited</strong> is established in Kanuru, Krishna District, Andhra Pradesh, as an ultra-modern manufacturing plant adhering to <strong>ISO 9001, WHO-GMP, and USFDA</strong> regulatory frameworks.
+                    </p>
+                    <p class="text-muted small mb-4" style="line-height: 1.75;">
+                        Specialized across key therapeutic domains—including <strong>cardiovascular medicines, urological treatments, anti-infectives, analgesics, and AYUSH-certified herbal wellness</strong>—our plant bridges the national demand-supply gap while catering to institutional healthcare tenders and global export corridors.
+                    </p>
+
+                    <!-- Core Facility Highlights Pill Cards -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-light rounded-3 border h-100">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-primary fs-5 me-2"></i>
+                                    <h6 class="fw-bold text-primary mb-0">Dual Isolated Blocks</h6>
+                                </div>
+                                <p class="small text-muted mb-0">Separate AHU-controlled sections for general &amp; sensitive penicillin/ampicillin groups.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-light rounded-3 border h-100">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-tint text-info fs-5 me-2"></i>
+                                    <h6 class="fw-bold text-primary mb-0">Double R.O. Loop Water</h6>
+                                </div>
+                                <p class="small text-muted mb-0">250 LT/hr dual Reverse Osmosis plant with 6 kg/min sterile looping circulation.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-light rounded-3 border h-100">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-boxes text-secondary fs-5 me-2"></i>
+                                    <h6 class="fw-bold text-primary mb-0">High-Speed Packaging</h6>
+                                </div>
+                                <p class="small text-muted mb-0">Double track blister &amp; Alu-Alu lines delivering 7+ Lakh tablets per work shift.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-light rounded-3 border h-100">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-seedling text-success fs-5 me-2"></i>
+                                    <h6 class="fw-bold text-primary mb-0">Eco-Green Industrial Unit</h6>
+                                </div>
+                                <p class="small text-muted mb-0">33% dedicated dense green belt and 10 KLD Effluent Treatment Plant (ETP).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="contact.html" class="btn btn-secondary py-3 px-4 rounded-pill fw-bold text-white shadow-sm hover-scale">
+                            <i class="fas fa-file-contract me-2"></i> Inquire for Contract Manufacturing
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Video Showcase with Feature Highlights Below -->
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+                    <div class="my-2">
+                        <!-- Video Frame (Full Unblocked Visibility) -->
+                        <div class="pharma-video-frame mb-3">
+                            <video autoplay muted loop playsinline disablePictureInPicture class="pharma-video-element">
+                                <source src="img/Hapliv_video.mp4" type="video/mp4">
+                                <img src="img/haplive_medicinesimg.jpg" alt="Hapliv Pharma Manufacturing Process" class="img-fluid w-100" style="height: 490px; object-fit: cover;" loading="lazy" decoding="async">
+                            </video>
+                        </div>
+
+                        <!-- Two Feature Highlight Boxes Placed Neatly Below the Video -->
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="p-3 bg-light rounded-3 border shadow-sm h-100 border-start border-4 border-warning">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <i class="fas fa-award text-secondary fs-5 me-2"></i>
+                                        <h6 class="fw-bold text-primary mb-0">WHO-GMP &amp; ISO</h6>
+                                    </div>
+                                    <p class="small text-muted mb-0">Global standard cGMP validated facility &amp; cleanroom environment.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="p-3 bg-light rounded-3 border shadow-sm h-100 border-start border-4 border-info">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <i class="fas fa-shield-virus text-info fs-5 me-2"></i>
+                                        <h6 class="fw-bold text-primary mb-0">Controlled Cleanrooms</h6>
+                                    </div>
+                                    <p class="small text-muted mb-0">HEPA filtered airflow, Class 100,000 cleanrooms &amp; RH monitoring.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Formulations & Manufacturing Wings (Proper Image Placements) -->
+    <div id="formulations" class="container-fluid py-5 bg-light border-bottom">
+        <div class="container py-3">
+            <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2" style="letter-spacing: 1px;">
+                    PRODUCT SPECTRUM &amp; DOSAGE FORMS
+                </span>
+                <h2 class="display-6 fw-bold text-primary mb-3" style="font-family: 'Playfair Display', Georgia, serif;">
+                    Comprehensive Pharmaceutical &amp; Wellness Portfolio
+                </h2>
+                <div class="section-title-line mx-auto mb-3"></div>
+                <p class="text-muted fs-6 mb-0" style="max-width: 800px; margin: 0 auto;">
+                    Engineered with premium active pharmaceutical ingredients (APIs), excipients, and stringent in-process controls for maximum bio-availability and therapeutic efficacy.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Wing 1: Oral Solid Dosage (OSD) Tablets -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="formulation-card">
+                        <div class="formulation-img-wrap">
+                            <img src="img/formulation_tablets.jpg" alt="Oral Solid Dosage Tablets Manufacturing" loading="lazy" decoding="async">
+                        </div>
+                        <div class="formulation-body">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="badge bg-primary text-secondary formulation-meta-badge"><i class="fas fa-pills me-1"></i> Solid Orals</span>
+                                <span class="badge bg-secondary text-primary formulation-meta-badge"><i class="fas fa-bolt me-1"></i> 20 Cr / Year</span>
+                            </div>
+                            <h5 class="fw-bold text-primary mb-2">OSD Tablets</h5>
+                            <p class="small text-muted mb-3 flex-grow-1" style="line-height: 1.6;">
+                                Uncoated, film-coated, sugar-coated, effervescent, and chewable tablets with embossed monograms and scoring.
+                            </p>
+                            <ul class="list-unstyled small text-muted mb-3">
+                                <li class="mb-1"><i class="fas fa-check-circle text-info me-2"></i>Multi-station compression</li>
+                                <li class="mb-1"><i class="fas fa-check-circle text-info me-2"></i>Polymer &amp; enteric coating</li>
+                                <li><i class="fas fa-check-circle text-info me-2"></i>Alu-Alu &amp; blister packing</li>
+                            </ul>
+                            <div class="pt-2 mt-auto border-top text-muted small d-flex justify-content-between align-items-center">
+                                <span class="text-secondary fw-bold" style="font-size: 0.76rem;"><i class="fas fa-shield-alt me-1"></i> WHO-GMP Validated</span>
+                                <span class="text-primary fw-bold" style="font-size: 0.74rem;">MFR Monitored <i class="fas fa-check text-success ms-1"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wing 2: Capsules -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="formulation-card">
+                        <div class="formulation-img-wrap">
+                            <img src="img/formulation_capsules.jpg" alt="Hard Gelatin Capsules Encapsulation" loading="lazy" decoding="async">
+                        </div>
+                        <div class="formulation-body">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="badge bg-primary text-secondary formulation-meta-badge"><i class="fas fa-capsules me-1"></i> Encapsulation</span>
+                                <span class="badge bg-secondary text-primary formulation-meta-badge"><i class="fas fa-bolt me-1"></i> 2.5L / Shift</span>
+                            </div>
+                            <h5 class="fw-bold text-primary mb-2">Hard Gelatin Capsules</h5>
+                            <p class="small text-muted mb-3 flex-grow-1" style="line-height: 1.6;">
+                                High-speed precision capsule filling with separate isolated sections for general and sensitive penicillin/ampicillin groups.
+                            </p>
+                            <ul class="list-unstyled small text-muted mb-3">
+                                <li class="mb-1"><i class="fas fa-check-circle text-info me-2"></i>Controlled RH dehumidifiers</li>
+                                <li class="mb-1"><i class="fas fa-check-circle text-info me-2"></i>Automated weight sorting</li>
+                                <li><i class="fas fa-check-circle text-info me-2"></i>Polishing &amp; optical inspection</li>
+                            </ul>
+                            <div class="pt-2 mt-auto border-top text-muted small d-flex justify-content-between align-items-center">
+                                <span class="text-secondary fw-bold" style="font-size: 0.76rem;"><i class="fas fa-shield-alt me-1"></i> Isolated Blocks</span>
+                                <span class="text-primary fw-bold" style="font-size: 0.74rem;">USFDA Compliant <i class="fas fa-check text-success ms-1"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wing 3: Liquid Orals & Syrups -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="formulation-card">
+                        <div class="formulation-img-wrap">
+                            <img src="img/formulation_liquids.jpg" alt="Liquid Oral & Suspension Manufacturing" loading="lazy" decoding="async">
+                        </div>
+                        <div class="formulation-body">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="badge bg-primary text-secondary formulation-meta-badge"><i class="fas fa-flask me-1"></i> Liquid Orals</span>
+                                <span class="badge bg-secondary text-primary formulation-meta-badge"><i class="fas fa-bolt me-1"></i> 50 KL / Year</span>
+                            </div>
+                            <h5 class="fw-bold text-primary mb-2">Liquid Orals &amp; Syrups</h5>
+                            <p class="small text-muted mb-3 flex-grow-1" style="line-height: 1.6;">
+                                High-purity syrups, oral suspensions, elixirs, and pediatric drops manufactured using demineralized stainless steel lines.
+                            </p>
+                            <ul class="list-unstyled small text-muted mb-3">
+                                <li class="mb-1"><i class="fas fa-check-circle text-info me-2"></i>Colloid mill homogenization</li>
+                                <li class="mb-1"><i class="fas fa-check-circle text-info me-2"></i>Automated bottle washing</li>
+                                <li><i class="fas fa-check-circle text-info me-2"></i>Volumetric sterile filling</li>
+                            </ul>
+                            <div class="pt-2 mt-auto border-top text-muted small d-flex justify-content-between align-items-center">
+                                <span class="text-secondary fw-bold" style="font-size: 0.76rem;"><i class="fas fa-tint me-1"></i> Sterile RO Water</span>
+                                <span class="text-primary fw-bold" style="font-size: 0.74rem;">Zero Sediment <i class="fas fa-check text-success ms-1"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wing 4: Herbal, Cosmetics & Ointments -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="formulation-card">
+                        <div class="formulation-img-wrap">
+                            <img src="img/formulation_herbal.jpg" alt="Herbal Formulations & Cosmetics Manufacturing" loading="lazy" decoding="async">
+                        </div>
+                        <div class="formulation-body">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="badge bg-primary text-secondary formulation-meta-badge"><i class="fas fa-spa me-1"></i> Herbal &amp; Derma</span>
+                                <span class="badge bg-secondary text-primary formulation-meta-badge"><i class="fas fa-bolt me-1"></i> 200 MT / Year</span>
+                            </div>
+                            <h5 class="fw-bold text-primary mb-2">Herbal &amp; Derma Cosmetics</h5>
+                            <p class="small text-muted mb-3 flex-grow-1" style="line-height: 1.6;">
+                                AYUSH-certified herbal remedies, therapeutic ointments (20 qtl/yr), dermal lotions, creams, and cosmetic healthcare solutions.
+                            </p>
+                            <ul class="list-unstyled small text-muted mb-3">
+                                <li class="mb-1"><i class="fas fa-check-circle text-info me-2"></i>Standardized herbal extracts</li>
+                                <li class="mb-1"><i class="fas fa-check-circle text-info me-2"></i>Topical gels &amp; ointments</li>
+                                <li><i class="fas fa-check-circle text-info me-2"></i>Hygienic tube filling &amp; sealing</li>
+                            </ul>
+                            <div class="pt-2 mt-auto border-top text-muted small d-flex justify-content-between align-items-center">
+                                <span class="text-secondary fw-bold" style="font-size: 0.76rem;"><i class="fas fa-leaf me-1"></i> AYUSH Formulated</span>
+                                <span class="text-primary fw-bold" style="font-size: 0.74rem;">Pure Actives <i class="fas fa-check text-success ms-1"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7-Stage End-to-End Precision Manufacturing Process -->
+    <div class="container-fluid py-5 bg-white border-bottom">
+        <div class="container py-3">
+            <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2" style="letter-spacing: 1px;">
+                    PROCESS EXCELLENCE &amp; CGMP COMPLIANCE
+                </span>
+                <h2 class="display-6 fw-bold text-primary mb-3" style="font-family: 'Playfair Display', Georgia, serif;">
+                    7-Step Precision Manufacturing Lifecycle
+                </h2>
+                <div class="section-title-line mx-auto mb-3"></div>
+                <p class="text-muted fs-6 mb-0" style="max-width: 800px; margin: 0 auto;">
+                    From quarantined raw material validation to final packaging, each stage operates under Master Formula Record (MFR) protocols and electronic batch documentation.
+                </p>
+            </div>
+
+            <div class="row g-3 g-lg-4">
+                <!-- Step 1 -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="process-step-card">
+                        <div class="step-num-pill">01</div>
+                        <h6 class="fw-bold text-primary mb-2">Dispensing &amp; Sampling</h6>
+                        <p class="small text-muted mb-0">
+                            Raw materials are quarantined in clean RM stores. Calibrated dispensing booths ensure precise micro-weighing under technical supervision.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.15s">
+                    <div class="process-step-card">
+                        <div class="step-num-pill">02</div>
+                        <h6 class="fw-bold text-primary mb-2">Sifting &amp; Blending</h6>
+                        <p class="small text-muted mb-0">
+                            Powders pass through vibratory sifters and multi-mills. Homogeneous geometric dilution is achieved in Rapid Mixer Granulators (RMG) &amp; cone blenders.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="process-step-card">
+                        <div class="step-num-pill">03</div>
+                        <h6 class="fw-bold text-primary mb-2">Fluid Bed Drying</h6>
+                        <p class="small text-muted mb-0">
+                            Screened wet granules are dried in Fluid Bed Dryers (FBD) under strict temperatures not exceeding 55°C, followed by mesh screening and lubrication.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.25s">
+                    <div class="process-step-card">
+                        <div class="step-num-pill">04</div>
+                        <h6 class="fw-bold text-primary mb-2">Rotary Compression</h6>
+                        <p class="small text-muted mb-0">
+                            Quality-approved granules are fed to 27-station double rotary tablet presses. Line checks inspect weight variation, hardness, and thickness.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="process-step-card">
+                        <div class="step-num-pill">05</div>
+                        <h6 class="fw-bold text-primary mb-2">Auto-Coating Pan</h6>
+                        <p class="small text-muted mb-0">
+                            Advanced autocoaters apply uniform film or enteric coatings to mask taste, enhance shelf-life stability, and regulate controlled gastro-intestinal release.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.35s">
+                    <div class="process-step-card">
+                        <div class="step-num-pill">06</div>
+                        <h6 class="fw-bold text-primary mb-2">Blister &amp; Alu-Alu Packing</h6>
+                        <p class="small text-muted mb-0">
+                            Double track blister &amp; Alu-Alu machines provide nitrogen flushing, tamper-proof sealing, batch coding, and cartooning at 7+ Lakh units per shift.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="process-step-card">
+                        <div class="step-num-pill">07</div>
+                        <h6 class="fw-bold text-primary mb-2">Dual QA/QC Testing</h6>
+                        <p class="small text-muted mb-0">
+                            USP dissolution, friability, leak testing, and chromatographic assays are performed before final QA approval releases batches to Finished Goods (FG) store.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Summary Card -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.45s">
+                    <div class="process-step-card bg-primary text-white border-0">
+                        <div class="step-num-pill bg-secondary text-primary">★</div>
+                        <h6 class="fw-bold text-white mb-2">100% Traceability</h6>
+                        <p class="small text-white-50 mb-0">
+                            Every batch follows Batch Manufacturing Records (BMR) with barcode verification for seamless recall safety and global export compliance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plant & Machinery Infrastructure Matrix -->
+    <div class="container-fluid py-5 bg-light border-bottom">
+        <div class="container py-3">
+            <div class="row g-4 align-items-center">
+                <!-- Left Column: Interactive Machinery Buttons List -->
+                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+                    <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2" style="letter-spacing: 1px;">
+                        STATE-OF-THE-ART INFRASTRUCTURE
+                    </span>
+                    <h2 class="display-6 fw-bold text-primary mb-3" style="font-family: 'Playfair Display', Georgia, serif;">
+                        Advanced Pharmaceutical Plant &amp; Machinery
+                    </h2>
+                    <div class="section-title-line mb-3"></div>
+                    <p class="text-muted fs-6 mb-4" style="line-height: 1.75;">
+                        Hapliv Pharma operates high-speed, automated pharmaceutical equipment engineered to minimize human contact, prevent cross-contamination, and maximize operational throughput. <em>Hover or click any machine to preview specifications:</em>
+                    </p>
+
+                    <div class="row g-2 mb-0">
+                        <div class="col-12">
+                            <div class="machine-spec-box interactive-machine-btn active"
+                                 data-slot="1"
+                                 data-img="img/pharma1.jpg"
+                                 data-title="Rapid Mixture Granulator (80 kg)"
+                                 data-cap="80 kg / Batch">
+                                <div>
+                                    <h6 class="fw-bold text-primary mb-0">Rapid Mixture Granulator (RMG)</h6>
+                                    <span class="small text-muted">High-shear wet granulation &amp; rapid mixing</span>
+                                </div>
+                                <span class="badge bg-primary text-white px-3 py-2 fw-bold">80 kg / Batch</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="machine-spec-box interactive-machine-btn"
+                                 data-slot="1"
+                                 data-img="img/haplive_medicinesimg.jpg"
+                                 data-title="27 Station Double Rotary Press"
+                                 data-cap="Multi-Dose">
+                                <div>
+                                    <h6 class="fw-bold text-primary mb-0">Rotary Tablet Compression Machine</h6>
+                                    <span class="small text-muted">27 Station Double Rotary High-Speed Press</span>
+                                </div>
+                                <span class="badge bg-primary text-white px-3 py-2 fw-bold">Multi-Dose</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="machine-spec-box interactive-machine-btn"
+                                 data-slot="1"
+                                 data-img="img/pharma3.jpg"
+                                 data-title="CGMP Fluid Bed Dryer (60 kg)"
+                                 data-cap="60 kg / Batch">
+                                <div>
+                                    <h6 class="fw-bold text-primary mb-0">CGMP Model Fluid Bed Dryer (FBD)</h6>
+                                    <span class="small text-muted">Uniform fluidized thermal drying (&lt;55°C)</span>
+                                </div>
+                                <span class="badge bg-primary text-white px-3 py-2 fw-bold">60 kg / Batch</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="machine-spec-box interactive-machine-btn"
+                                 data-slot="2"
+                                 data-img="img/pharma2.jpg"
+                                 data-title="Automated Coating Pan (60 kg)"
+                                 data-cap="60 kg / Batch">
+                                <div>
+                                    <h6 class="fw-bold text-primary mb-0">Automated Autocoater Pan</h6>
+                                    <span class="small text-muted">Perforated pan spray coating with air filtration</span>
+                                </div>
+                                <span class="badge bg-primary text-white px-3 py-2 fw-bold">60 kg / Batch</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="machine-spec-box interactive-machine-btn"
+                                 data-slot="2"
+                                 data-img="img/pharma4.jpg"
+                                 data-title="Double Track Blister Line (7L/Shift)"
+                                 data-cap="7 Lakh / Shift">
+                                <div>
+                                    <h6 class="fw-bold text-primary mb-0">Double Track Blister Packaging Line</h6>
+                                    <span class="small text-muted">PVC &amp; Aluminum blister stripping with leak testing</span>
+                                </div>
+                                <span class="badge bg-secondary text-primary px-3 py-2 fw-bold">7 Lakh / Shift</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="machine-spec-box interactive-machine-btn"
+                                 data-slot="2"
+                                 data-img="img/haplive analysisimg.jpg"
+                                 data-title="Capsule Filling Line (2.5L/Shift)"
+                                 data-cap="2.5 Lakh / Shift">
+                                <div>
+                                    <h6 class="fw-bold text-primary mb-0">Semi-Automatic Capsule Filling Line</h6>
+                                    <span class="small text-muted">Automated capsule loading &amp; high-precision dosing</span>
+                                </div>
+                                <span class="badge bg-secondary text-primary px-3 py-2 fw-bold">2.5 Lakh / Shift</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Staggered Balanced Layout (Image + Text Box in Col 1, Text Box + Image in Col 2) -->
+                <div class="col-lg-6 wow fadeInRight machinery-right-grid" data-wow-delay="0.3s">
+                    <div class="row g-3">
+                        <!-- Sub-Column 1: One Image on Top, Text Box on Bottom -->
+                        <div class="col-6">
+                            <!-- Image 1 -->
+                            <div class="machinery-preview-card mb-3">
+                                <img id="dynamicMachineImg1" src="img/pharma1.jpg" alt="Primary Production Unit" loading="lazy" decoding="async">
+                                <div class="machinery-preview-badge" id="machineLabel1">
+                                    <i class="fas fa-check-circle text-info me-1"></i> Cleanroom Production
+                                </div>
+                            </div>
+                            <!-- Text Box 1 -->
+                            <div class="machinery-utility-card border-start border-2 border-danger">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-burn text-danger fs-5 me-2"></i>
+                                    <h6 class="fw-bold text-primary mb-0" style="font-size: 0.95rem;">Steam Boiler &amp; R.O. Loop</h6>
+                                </div>
+                                <p class="small text-muted mb-2" style="font-size: 0.8rem; line-height: 1.4;">200 kg/hr steam boiler for sterilization + 250 LT/hr double R.O. water loop system.</p>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <span class="badge bg-light text-primary border small" style="font-size: 0.7rem;"><i class="fas fa-check text-success me-1"></i> 200 kg/hr Boiler</span>
+                                    <span class="badge bg-light text-primary border small" style="font-size: 0.7rem;"><i class="fas fa-tint text-info me-1"></i> Double R.O. Plant</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-Column 2: Text Box on Top, One Image on Bottom -->
+                        <div class="col-6">
+                            <!-- Text Box 2 -->
+                            <div class="machinery-utility-card border-start border-2 border-warning mb-3">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-bolt text-warning fs-5 me-2"></i>
+                                    <h6 class="fw-bold text-primary mb-0" style="font-size: 0.95rem;">Captive Power (300 KVA)</h6>
+                                </div>
+                                <p class="small text-muted mb-2" style="font-size: 0.8rem; line-height: 1.4;">Continuous 300 KVA electrical feed + 250 KW dedicated DG Set auto-synchronized backup.</p>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <span class="badge bg-light text-primary border small" style="font-size: 0.7rem;"><i class="fas fa-check text-success me-1"></i> 300 KVA Grid</span>
+                                    <span class="badge bg-light text-primary border small" style="font-size: 0.7rem;"><i class="fas fa-plug text-warning me-1"></i> 250 KW DG Set</span>
+                                </div>
+                            </div>
+                            <!-- Image 2 -->
+                            <div class="machinery-preview-card">
+                                <img id="dynamicMachineImg2" src="img/haplive_research2.jpg" alt="Packaging &amp; QC Unit" loading="lazy" decoding="async">
+                                <div class="machinery-preview-badge" id="machineLabel2">
+                                    <i class="fas fa-microscope text-secondary me-1"></i> Sterile Inspection &amp; QC
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analytical Quality Control, R&D & Environmental Stewardship -->
+    <div class="container-fluid py-5 bg-white border-bottom">
+        <div class="container py-3">
+            <div class="row g-5 align-items-center">
+                <!-- Left: Analytical Laboratory & Research Showcase -->
+                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+                    <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-2" style="letter-spacing: 1px;">
+                        QUALITY ASSURANCE &amp; ANALYTICAL R&amp;D
+                    </span>
+                    <h2 class="display-6 fw-bold text-primary mb-3" style="font-family: 'Playfair Display', Georgia, serif;">
+                        Zero-Tolerance Testing &amp; Pharmacopeia Standards
+                    </h2>
+                    <div class="section-title-line mb-3"></div>
+                    <p class="text-muted fs-6 mb-4" style="line-height: 1.75;">
+                        Our dedicated Quality Control (QC) and Formulation R&amp;D wings are equipped with cutting-edge analytical instrumentation to guarantee chemical purity, active assay consistency, and microbial sterility.
+                    </p>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="lab-gallery-card">
+                                <img src="img/haplive analysisimg.jpg" alt="Analytical Quality Control Testing Laboratory" loading="lazy" decoding="async">
+                                <div class="lab-gallery-overlay">
+                                    <span class="fw-bold small">HPLC &amp; Chromatography</span>
+                                    <span class="text-white-50" style="font-size: 0.72rem;">Impurity Profiling</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="lab-gallery-card">
+                                <img src="img/haplive_R&D.jpg" alt="Formulation Development & Stability Testing" loading="lazy" decoding="async">
+                                <div class="lab-gallery-overlay">
+                                    <span class="fw-bold small">Formulation R&amp;D</span>
+                                    <span class="text-white-50" style="font-size: 0.72rem;">Accelerated Stability</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-light rounded-3 border">
+                        <h6 class="fw-bold text-primary mb-2"><i class="fas fa-microscope text-info me-2"></i>Advanced QC Instrumentation</h6>
+                        <div class="row g-2 small text-muted">
+                            <div class="col-sm-6"><i class="fas fa-angle-right text-secondary me-1"></i> USP Dissolution Testers</div>
+                            <div class="col-sm-6"><i class="fas fa-angle-right text-secondary me-1"></i> Tablet Hardness &amp; Friability Testers</div>
+                            <div class="col-sm-6"><i class="fas fa-angle-right text-secondary me-1"></i> Digital Disintegration Apparatus</div>
+                            <div class="col-sm-6"><i class="fas fa-angle-right text-secondary me-1"></i> Micro-Weighing Analytical Balances</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Eco-Green Campus, ETP & Strategic Connectivity -->
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+                    <div class="bg-light p-4 p-md-5 rounded-4 border shadow-sm">
+                        <span class="badge bg-primary text-secondary fw-bold text-uppercase px-3 py-2 mb-3">
+                            <i class="fas fa-globe-asia me-1"></i> ECO-CAMPUS &amp; STRATEGIC LOCATION
+                        </span>
+                        <h3 class="fw-bold text-primary mb-3">Green Facility &amp; Multi-Modal Hub</h3>
+                        <p class="text-muted small mb-4" style="line-height: 1.75;">
+                            Spread across a <strong>2,000 m² industrial footprint</strong> in Teachers Colony, Ward-17, Kanuru (YSR Tadigadapa Municipality, Krishna District, AP), Hapliv Pharma integrates sustainable environmental stewardship with world-class logistics.
+                        </p>
+
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="bg-white text-success rounded-3 p-3 me-3 border shadow-sm">
+                                <i class="fas fa-tree fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-primary mb-1">33% Dedicated Dense Green Belt</h6>
+                                <p class="small text-muted mb-0">Plant premises are encircled by lush ecological tree barriers promoting biodiversity and carbon offsetting.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="bg-white text-info rounded-3 p-3 me-3 border shadow-sm">
+                                <i class="fas fa-water fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-primary mb-1">10 KLD Effluent Treatment Plant (ETP)</h6>
+                                <p class="small text-muted mb-0">Industrial process wastewater is treated and recycled for zero-liquid discharge, landscaping, and flushing.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="bg-white text-primary rounded-3 p-3 me-3 border shadow-sm">
+                                <i class="fas fa-map-marked-alt fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-primary mb-1">Strategic Multi-Modal Connectivity</h6>
+                                <p class="small text-muted mb-0">Direct access via Vijayawada Junction Railway, Gannavaram Airport, and Machilipatnam Port corridor for seamless distribution.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center p-3 bg-white rounded-3 border">
+                            <i class="fas fa-shield-alt text-warning fs-3 me-3"></i>
+                            <div>
+                                <span class="fw-bold text-primary small d-block">TSDF &amp; SPCB Compliant</span>
+                                <span class="small text-muted">Authorised Hazardous Waste Management &amp; safe scientific disposal protocols.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- B2B Contract Manufacturing & Institutional Partnership CTA Banner -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="container py-3">
+            <div class="pharma-cta-card p-4 p-md-5 text-white wow fadeInUp" data-wow-delay="0.2s">
+                <div class="row align-items-center g-4 g-lg-5">
+                    <div class="col-lg-7">
+                        <span class="badge bg-secondary text-primary fw-bold text-uppercase px-3 py-2 mb-3" style="letter-spacing: 1px;">
+                            B2B &amp; INSTITUTIONAL PARTNERSHIPS
+                        </span>
+                        <h2 class="display-6 fw-bold text-white mb-3" style="font-family: 'Playfair Display', Georgia, serif;">
+                            Partner with Hapliv Pharma for Contract Manufacturing &amp; Global Supply
+                        </h2>
+                        <p class="text-light opacity-90 fs-6 mb-4" style="line-height: 1.75;">
+                            Whether you need large-scale third-party tablet compression, capsule encapsulation, syrup formulation, or PCD distribution franchises, our WHO-GMP validated team is ready to scale your pipeline.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="contact.html" class="btn btn-secondary py-3 px-4 rounded-pill fw-bold text-white shadow-sm hover-scale">
+                                <i class="fas fa-paper-plane me-2"></i> Submit Manufacturing Inquiry
+                            </a>
+                            <a href="tel:+917416642233" class="btn btn-outline-light py-3 px-4 rounded-pill fw-bold">
+                                <i class="fas fa-phone-alt me-2"></i> Call Pharma Desk: +91 74166 42233
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <div class="pharma-cta-img-card position-relative">
+                            <img src="img/cta_hapliv.jpg" alt="Hapliv Pharma Strategic Manufacturing &amp; Global Supply" class="cta-pharma-img" loading="lazy" decoding="async">
+                            <div class="position-absolute bottom-0 end-0 p-3 z-2">
+                                <div class="bg-white p-2 rounded-3 shadow text-center" style="max-width: 110px;">
+                                    <img src="img/haplivpharma_logo.png" alt="Hapliv Pharma Logo" class="img-fluid" style="max-height: 28px; width: auto;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-4">
+                    <div class="footer-brand-logo mb-3">
+                        <img src="img/footer_logo.jpeg" alt="Coastal Crest Group Logo" class="img-fluid rounded-3" style="max-height: 70px; width: auto; object-fit: contain;" loading="lazy" decoding="async">
+                    </div>
+                    <p class="text-white-50 small">Coastal Crest Group - Headquartered in Vijayawada, operating pan-India across Infra, Ports, Power, Healthcare &amp; Pharma (Hapliv Pharma), and Real Estate (Pudami Consultancy).</p>
+                    <div class="d-flex gap-2 mt-3 footer-btn">
+                        <a href="https://www.facebook.com/" target="_blank" class="btn btn-primary btn-square border border-white"><i class="fab fa-facebook-f text-secondary"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" class="btn btn-primary btn-square border border-white"><i class="fab fa-instagram text-secondary"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" class="btn btn-primary btn-square border border-white"><i class="fab fa-linkedin-in text-secondary"></i></a>
+                        <a href="https://twitter.com/" target="_blank" class="btn btn-primary btn-square border border-white"><i class="fab fa-twitter text-secondary"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 footer-item">
+                    <h5 class="text-white mb-3 fw-bold">Quick Links</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="infra-developers.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Infra &amp; Developers</a>
+                            <a href="ports-shipping.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Ports &amp; Shipping</a>
+                            <a href="power-infra.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Power &amp; Infra</a>
+                            <a href="hapliv-pharma.html" class="d-block small text-secondary"><i class="fas fa-angle-right me-2 text-secondary"></i>Hapliv Pharma</a>
+                            <a href="pudami-consultancy.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Pudami Consultancy</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="about.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>About Us</a>
+                            <a href="sustainability.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Sustainability</a>
+                            <a href="certifications.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Accreditations</a>
+                            <a href="careers.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Careers</a>
+                            <a href="contact.html" class="d-block small"><i class="fas fa-angle-right me-2 text-secondary"></i>Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 footer-item">
+                    <h5 class="text-white mb-3 fw-bold">Head Office</h5>
+                    <p class="text-white-50 small mb-2"><i class="fa fa-map-marker-alt text-secondary me-2"></i><a href="https://maps.google.com/?q=Sai+Srinivasa+Apartment+Manikyanagar+Kanuru+Vijayawada+520007" target="_blank" rel="noopener noreferrer" class="text-white-50 text-decoration-none hover-text-white">No-14-0729-6, Flat No 302, Sai Srinivasa Apartment, Manikyanagar, 4th Cross, Kanuru, YSR Tadigadapa Municipality, Near Shivalayam Temple, Mahadevapuram, Vijayawada, NTR Dist, Andhra Pradesh - 520007.</a></p>
+                    <p class="text-white-50 small mb-1"><i class="fas fa-envelope text-secondary me-2"></i><a href="mailto:coastalcrestinfradevelopers@gmail.com" class="text-white-50 text-decoration-none hover-text-white">coastalcrestinfradevelopers@gmail.com</a></p>
+                    <p class="text-white-50 small mb-0"><i class="fas fa-phone text-secondary me-2"></i><a href="tel:+917416642233" class="text-white-50 text-decoration-none hover-text-white">+91 74166 42233</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-3">
+        <div class="container">
+            <div class="row g-2 align-items-center">
+                <div class="col-12 text-center">
+                    <span class="text-white-50 small">© 2026 <a href="index.html" class="text-secondary fw-bold text-decoration-none">Coastal Crest Group</a>. All Rights Reserved.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <a href="#" class="btn btn-secondary btn-lg-square back-to-top rounded-circle shadow"><i class="fa fa-arrow-up text-white"></i></a>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Dynamic Machinery Showcase Interactivity
+        (function() {
+            var machineBtns = document.querySelectorAll('.interactive-machine-btn');
+            if (!machineBtns.length) return;
+
+            machineBtns.forEach(function(btn) {
+                btn.addEventListener('mouseenter', activateMachine);
+                btn.addEventListener('click', activateMachine);
+            });
+
+            function activateMachine(e) {
+                var current = e.currentTarget;
+                machineBtns.forEach(function(b) { b.classList.remove('active'); });
+                current.classList.add('active');
+
+                var img = current.getAttribute('data-img');
+                var title = current.getAttribute('data-title');
+                var slot = current.getAttribute('data-slot');
+
+                var targetImg = slot === '2' ? document.getElementById('dynamicMachineImg2') : document.getElementById('dynamicMachineImg1');
+                var targetLabel = slot === '2' ? document.getElementById('machineLabel2') : document.getElementById('machineLabel1');
+
+                if (targetImg && img && targetImg.getAttribute('src') !== img) {
+                    targetImg.style.opacity = '0.2';
+                    targetImg.style.transform = 'scale(0.97)';
+                    setTimeout(function() {
+                        targetImg.src = img;
+                        targetImg.style.opacity = '1';
+                        targetImg.style.transform = 'scale(1)';
+                    }, 140);
+                }
+                if (targetLabel && title) {
+                    var icon = slot === '2' ? '<i class="fas fa-microscope text-secondary me-1"></i> ' : '<i class="fas fa-check-circle text-info me-1"></i> ';
+                    targetLabel.innerHTML = icon + title;
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,37 +1,32 @@
-# ==============================================================================
-# Coastal Crest Group - Production Apache / LiteSpeed / WAMP Configuration
-# Domain: coastalcrestgroup.in
+﻿# ==============================================================================
+# Coastal Crest Group - Apache / LiteSpeed / WAMP Configuration
+# Domain: coastalcrestgroup.in / Local WAMP
 # ==============================================================================
 
 # Enable Rewrite Engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /
 
-    # Canonical HTTPS Redirection (Production)
-    # RewriteCond %{HTTPS} off
-    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-    # Remove trailing slashes for non-directories
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)/$ /$1 [L,R=301]
-
-    # Redirect /index or /index.html to Root Domain (/)
+    # Production-only Domain Canonical / Clean URL 301 Redirects
+    RewriteCond %{HTTP_HOST} coastalcrestgroup\.in [NC]
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index(\.html)?[\ \?] [NC]
     RewriteRule ^index(\.html)?$ / [R=301,L]
 
-    # 301 Redirect .html URLs to Clean URLs (SEO Best Practice)
+    RewriteCond %{HTTP_HOST} coastalcrestgroup\.in [NC]
+    RewriteRule ^pharma-infra(\.html)?$ /hapliv-pharma [R=301,L,NC]
+
+    RewriteCond %{HTTP_HOST} coastalcrestgroup\.in [NC]
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
     RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
 
-    # Internally Rewrite Clean URLs to .html Files
+    # Internally Rewrite Clean URLs to .html Files (Works on both localhost and production)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}\.html -f
     RewriteRule ^([^\.]+)$ $1.html [NC,L]
 </IfModule>
 
 # Custom Error Pages
-ErrorDocument 404 /index.html
+ErrorDocument 404 index.html
 
 # Enable GZIP Compression for Fast Loading
 <IfModule mod_deflate.c>
